@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "ViewDocentes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="module">
+    import { WRender, WAjaxTools, DomComponent } from "../WDevCore/WModules/WComponentsTools.js";
+    import "../WDevCore/WComponents/WSlide.js";
+    import "../WDevCore/WComponents/WTableComponents.js";
+    window.onload = async () => {       
+        var Url = "../api/Values/PostCreadoresVideos";
+        const ArrayVideos = [];
+        const response = await WAjaxTools.PostRequest(Url); 
+        var Config = {
+            Datasets: response,
+            Options: {
+                Search: true,
+                UserActions: [{
+                    name: "Contactar", Function: (Param) => {
+                        console.log(Param);
+                        alert("escribir a: " + Param.Email);
+                        //window.location = "../Home/ViewCalendario/?IdLocalidad=" + Param.IdLocalidad;
+                    }
+                }]
+            },
+            StyleType: "Cards2"
+        }          
+        divBanner.append(WRender.createElement({
+            type: "w-table",
+            props: {
+                id: "tableReservaciones",
+                TableConfig: Config
+            }
+        }))
+    }
+</script>
+<div class="">   
+<br />
+    <h1>Docentes USAV-Carazo</h1>
+    
+    <p style="padding: 10px">
+    Contamos con docentes con basta experiencia en las distintas carreras que la universidad ofrece. Docentes en constante actualización en las nuevas
+    tecnologías y con niveles académicos de Maestrías y Doctorados.
+    </p>
+    <hr>    
+    <br />
+    <div id="divBanner"></div>
+    <div id="divTable"></div>
+</div>

@@ -1,0 +1,481 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BDVideosUSAVModel1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="BDVideosUSAVModel1StoreContainer">
+    <EntitySet Name="CatCategoriaReservas" EntityType="BDVideosUSAVModel1.Store.CatCategoriaReservas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CatEdificios" EntityType="BDVideosUSAVModel1.Store.CatEdificios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CatLocalidades" EntityType="BDVideosUSAVModel1.Store.CatLocalidades" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CatTipoReserva" EntityType="BDVideosUSAVModel1.Store.CatTipoReserva" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="BDVideosUSAVModel1.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblArticulos" EntityType="BDVideosUSAVModel1.Store.TblArticulos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblBloqueCurso" EntityType="BDVideosUSAVModel1.Store.TblBloqueCurso" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblCalendario" EntityType="BDVideosUSAVModel1.Store.TblCalendario" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblCategoriaCurso" EntityType="BDVideosUSAVModel1.Store.TblCategoriaCurso" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblCategorias" EntityType="BDVideosUSAVModel1.Store.TblCategorias" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblCategoriasArticulos" EntityType="BDVideosUSAVModel1.Store.TblCategoriasArticulos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblCurso" EntityType="BDVideosUSAVModel1.Store.TblCurso" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblImagenDodente" EntityType="BDVideosUSAVModel1.Store.TblImagenDodente" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblNivelCurso" EntityType="BDVideosUSAVModel1.Store.TblNivelCurso" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblReservaLocalidad" EntityType="BDVideosUSAVModel1.Store.TblReservaLocalidad" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblReservas" EntityType="BDVideosUSAVModel1.Store.TblReservas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblRolUsuario" EntityType="BDVideosUSAVModel1.Store.TblRolUsuario" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblSubCategorias" EntityType="BDVideosUSAVModel1.Store.TblSubCategorias" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblTiposVideos" EntityType="BDVideosUSAVModel1.Store.TblTiposVideos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblUsuario" EntityType="BDVideosUSAVModel1.Store.TblUsuario" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblVideos" EntityType="BDVideosUSAVModel1.Store.TblVideos" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_CatLocalidades_CatEdificios" Association="BDVideosUSAVModel1.Store.FK_CatLocalidades_CatEdificios">
+      <End Role="CatEdificios" EntitySet="CatEdificios" />
+      <End Role="CatLocalidades" EntitySet="CatLocalidades" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblArticulos_TblCategoriasArticulos" Association="BDVideosUSAVModel1.Store.FK_TblArticulos_TblCategoriasArticulos">
+      <End Role="TblCategoriasArticulos" EntitySet="TblCategoriasArticulos" />
+      <End Role="TblArticulos" EntitySet="TblArticulos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblBloque_TblCurso" Association="BDVideosUSAVModel1.Store.FK_TblBloque_TblCurso">
+      <End Role="TblCurso" EntitySet="TblCurso" />
+      <End Role="TblBloqueCurso" EntitySet="TblBloqueCurso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblCalendario_CatLocalidades" Association="BDVideosUSAVModel1.Store.FK_TblCalendario_CatLocalidades">
+      <End Role="CatLocalidades" EntitySet="CatLocalidades" />
+      <End Role="TblCalendario" EntitySet="TblCalendario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblCurso_TblCategoriaCurso" Association="BDVideosUSAVModel1.Store.FK_TblCurso_TblCategoriaCurso">
+      <End Role="TblCategoriaCurso" EntitySet="TblCategoriaCurso" />
+      <End Role="TblCurso" EntitySet="TblCurso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblCurso_TblNivelCurso" Association="BDVideosUSAVModel1.Store.FK_TblCurso_TblNivelCurso">
+      <End Role="TblNivelCurso" EntitySet="TblNivelCurso" />
+      <End Role="TblCurso" EntitySet="TblCurso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblReservaLocalidad_TblCalendario" Association="BDVideosUSAVModel1.Store.FK_TblReservaLocalidad_TblCalendario">
+      <End Role="TblCalendario" EntitySet="TblCalendario" />
+      <End Role="TblReservaLocalidad" EntitySet="TblReservaLocalidad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblReservaLocalidad_TblReservas" Association="BDVideosUSAVModel1.Store.FK_TblReservaLocalidad_TblReservas">
+      <End Role="TblReservas" EntitySet="TblReservas" />
+      <End Role="TblReservaLocalidad" EntitySet="TblReservaLocalidad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblReservas_CatTipoReserva" Association="BDVideosUSAVModel1.Store.FK_TblReservas_CatTipoReserva">
+      <End Role="CatTipoReserva" EntitySet="CatTipoReserva" />
+      <End Role="TblReservas" EntitySet="TblReservas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblSubCategorias_TblCategorias1" Association="BDVideosUSAVModel1.Store.FK_TblSubCategorias_TblCategorias1">
+      <End Role="TblCategorias" EntitySet="TblCategorias" />
+      <End Role="TblSubCategorias" EntitySet="TblSubCategorias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblUsuario_TblRolUsuario" Association="BDVideosUSAVModel1.Store.FK_TblUsuario_TblRolUsuario">
+      <End Role="TblRolUsuario" EntitySet="TblRolUsuario" />
+      <End Role="TblUsuario" EntitySet="TblUsuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblVideos_TblBloque" Association="BDVideosUSAVModel1.Store.FK_TblVideos_TblBloque">
+      <End Role="TblBloqueCurso" EntitySet="TblBloqueCurso" />
+      <End Role="TblVideos" EntitySet="TblVideos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblVideos_TblSubCategorias" Association="BDVideosUSAVModel1.Store.FK_TblVideos_TblSubCategorias">
+      <End Role="TblSubCategorias" EntitySet="TblSubCategorias" />
+      <End Role="TblVideos" EntitySet="TblVideos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblVideos_TblTiposVideos" Association="BDVideosUSAVModel1.Store.FK_TblVideos_TblTiposVideos">
+      <End Role="TblTiposVideos" EntitySet="TblTiposVideos" />
+      <End Role="TblVideos" EntitySet="TblVideos" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CatCategoriaReservas">
+    <Key>
+      <PropertyRef Name="IdCategoria" />
+    </Key>
+    <Property Name="IdCategoria" Type="int" Nullable="false" />
+    <Property Name="DescReserva" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CatEdificios">
+    <Key>
+      <PropertyRef Name="IdEdificio" />
+    </Key>
+    <Property Name="IdEdificio" Type="int" Nullable="false" />
+    <Property Name="DescEdificios" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ubicacion" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CatLocalidades">
+    <Key>
+      <PropertyRef Name="IdLocalidad" />
+    </Key>
+    <Property Name="IdLocalidad" Type="int" Nullable="false" />
+    <Property Name="DescLocalidades" Type="nvarchar" MaxLength="50" />
+    <Property Name="IdEdificio" Type="int" />
+  </EntityType>
+  <EntityType Name="CatTipoReserva">
+    <Key>
+      <PropertyRef Name="IdTipoReserva" />
+    </Key>
+    <Property Name="IdTipoReserva" Type="int" Nullable="false" />
+    <Property Name="DescTipoReserva" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TblArticulos">
+    <Key>
+      <PropertyRef Name="IdArticulo" />
+    </Key>
+    <Property Name="IdArticulo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TituloArticulo" Type="nvarchar" MaxLength="500" />
+    <Property Name="ContenidoArticulo" Type="varchar(max)" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="Publicado" Type="bit" />
+    <Property Name="Destacado" Type="bit" />
+    <Property Name="IdCatArticulo" Type="int" />
+    <Property Name="FechaPublicacion" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TblBloqueCurso">
+    <Key>
+      <PropertyRef Name="IdBloque" />
+    </Key>
+    <Property Name="IdBloque" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NombreBloque" Type="nvarchar" MaxLength="150" />
+    <Property Name="Estado" Type="bit" />
+    <Property Name="IdCurso" Type="int" />
+  </EntityType>
+  <EntityType Name="TblCalendario">
+    <Key>
+      <PropertyRef Name="IdCalendario" />
+    </Key>
+    <Property Name="IdCalendario" Type="int" Nullable="false" />
+    <Property Name="DescCalendario" Type="nvarchar" MaxLength="50" />
+    <Property Name="IdLocalidad" Type="int" />
+    <Property Name="FechaCalendario" Type="date" />
+    <Property Name="Hora" Type="int" />
+    <Property Name="Minuto" Type="int" />
+    <Property Name="DuracionM" Type="int" />
+  </EntityType>
+  <EntityType Name="TblCategoriaCurso">
+    <Key>
+      <PropertyRef Name="IdCatCurso" />
+    </Key>
+    <Property Name="IdCatCurso" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NombreCatCurso" Type="nvarchar" MaxLength="50" />
+    <Property Name="Estado" Type="bit" />
+  </EntityType>
+  <EntityType Name="TblCategorias">
+    <Key>
+      <PropertyRef Name="IdCategoria" />
+    </Key>
+    <Property Name="IdCategoria" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NombreCategoria" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Estado" Type="bit" />
+  </EntityType>
+  <EntityType Name="TblCategoriasArticulos">
+    <Key>
+      <PropertyRef Name="IdCatArticulo" />
+    </Key>
+    <Property Name="IdCatArticulo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NombreCatArticulo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Estado" Type="bit" />
+  </EntityType>
+  <EntityType Name="TblCurso">
+    <Key>
+      <PropertyRef Name="IdCurso" />
+    </Key>
+    <Property Name="IdCurso" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NombreCurso" Type="nvarchar" MaxLength="50" />
+    <Property Name="RutaImagenCurso" Type="nvarchar" MaxLength="200" />
+    <Property Name="DuracionCurso" Type="time" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="Estado" Type="bit" />
+    <Property Name="IdCatCurso" Type="int" />
+    <Property Name="IdNivelCurso" Type="int" />
+    <Property Name="PassCurso" Type="nvarchar" MaxLength="10" />
+    <Property Name="ResumenCurso" Type="nvarchar(max)" />
+    <Property Name="Privado" Type="bit" />
+    <Property Name="FechaInicio" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TblImagenDodente">
+    <Key>
+      <PropertyRef Name="IdImgDocente" />
+    </Key>
+    <Property Name="IdImgDocente" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RutaImagenDocente" Type="nvarchar" MaxLength="200" />
+    <Property Name="Cedula" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="TblNivelCurso">
+    <Key>
+      <PropertyRef Name="IdNivelCurso" />
+    </Key>
+    <Property Name="IdNivelCurso" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NivelCurso" Type="nvarchar" MaxLength="50" />
+    <Property Name="Estado" Type="bit" />
+  </EntityType>
+  <EntityType Name="TblReservaLocalidad">
+    <Key>
+      <PropertyRef Name="IdReservaLocalidad" />
+    </Key>
+    <Property Name="IdReserva" Type="int" Nullable="false" />
+    <Property Name="IdCalendario" Type="int" Nullable="false" />
+    <Property Name="IdReservaLocalidad" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblReservas">
+    <Key>
+      <PropertyRef Name="IdReserva" />
+    </Key>
+    <Property Name="IdReserva" Type="int" Nullable="false" />
+    <Property Name="NombreInstitucion" Type="nvarchar" MaxLength="50" />
+    <Property Name="NombreSolicitante" Type="nvarchar" MaxLength="50" />
+    <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cargo" Type="nvarchar" MaxLength="50" />
+    <Property Name="e-mail" Type="nvarchar" MaxLength="50" />
+    <Property Name="IdTipoReserva" Type="int" />
+    <Property Name="DescReserva" Type="nvarchar(max)" />
+    <Property Name="FechaSolicitud" Type="date" />
+    <Property Name="HoraSolicitud" Type="int" />
+    <Property Name="Duracion" Type="int" />
+    <Property Name="Confirmacion" Type="bit" />
+    <Property Name="NumeroIndividuos" Type="int" />
+    <Property Name="NumeroIndFemeninos" Type="int" />
+  </EntityType>
+  <EntityType Name="TblRolUsuario">
+    <Key>
+      <PropertyRef Name="IdRolUsuario" />
+    </Key>
+    <Property Name="IdRolUsuario" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NombreRol" Type="nvarchar" MaxLength="50" />
+    <Property Name="Estado" Type="bit" />
+  </EntityType>
+  <EntityType Name="TblSubCategorias">
+    <Key>
+      <PropertyRef Name="IdSubCategoria" />
+    </Key>
+    <Property Name="IdSubCategoria" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NombreSubcategoria" Type="nvarchar" MaxLength="50" />
+    <Property Name="IdCategoria" Type="int" />
+    <Property Name="Estado" Type="bit" />
+  </EntityType>
+  <EntityType Name="TblTiposVideos">
+    <Key>
+      <PropertyRef Name="IdTipoVideo" />
+    </Key>
+    <Property Name="IdTipoVideo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NombretipoVideo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Estado" Type="bit" />
+  </EntityType>
+  <EntityType Name="TblUsuario">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NombreUsuario" Type="nvarchar" MaxLength="50" />
+    <Property Name="RutaFotoUsuario" Type="nvarchar" MaxLength="50" />
+    <Property Name="Apellidos1" Type="nvarchar" MaxLength="50" />
+    <Property Name="Apellido2" Type="nvarchar" MaxLength="50" />
+    <Property Name="UltimaFechaAcceso" Type="datetime" />
+    <Property Name="FechaAlta" Type="datetime" />
+    <Property Name="IdRolUsuario" Type="int" />
+    <Property Name="Estado" Type="bit" />
+  </EntityType>
+  <EntityType Name="TblVideos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NombreVideo" Type="nvarchar(max)" />
+    <Property Name="DuracionVideo" Type="time" />
+    <Property Name="IdYoutube" Type="nvarchar" MaxLength="30" />
+    <Property Name="IdTipoVideo" Type="int" />
+    <Property Name="RutaVideo" Type="nvarchar" MaxLength="400" />
+    <Property Name="NumVistas" Type="int" />
+    <Property Name="FechaSubida" Type="datetime" />
+    <Property Name="Activo" Type="bit" />
+    <Property Name="Descripcion" Type="nvarchar(max)" />
+    <Property Name="FormatoVideo" Type="nvarchar" MaxLength="5" />
+    <Property Name="PesoVideo" Type="float" />
+    <Property Name="IdBloque" Type="int" />
+    <Property Name="Cedula" Type="nvarchar" MaxLength="20" />
+    <Property Name="PublicadoVideo" Type="bit" />
+    <Property Name="CodNombreVideo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Visible" Type="bit" />
+    <Property Name="IdSubCategoria" Type="int" />
+  </EntityType>
+  <Association Name="FK_CatLocalidades_CatEdificios">
+    <End Role="CatEdificios" Type="BDVideosUSAVModel1.Store.CatEdificios" Multiplicity="0..1" />
+    <End Role="CatLocalidades" Type="BDVideosUSAVModel1.Store.CatLocalidades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CatEdificios">
+        <PropertyRef Name="IdEdificio" />
+      </Principal>
+      <Dependent Role="CatLocalidades">
+        <PropertyRef Name="IdEdificio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblArticulos_TblCategoriasArticulos">
+    <End Role="TblCategoriasArticulos" Type="BDVideosUSAVModel1.Store.TblCategoriasArticulos" Multiplicity="0..1" />
+    <End Role="TblArticulos" Type="BDVideosUSAVModel1.Store.TblArticulos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblCategoriasArticulos">
+        <PropertyRef Name="IdCatArticulo" />
+      </Principal>
+      <Dependent Role="TblArticulos">
+        <PropertyRef Name="IdCatArticulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblBloque_TblCurso">
+    <End Role="TblCurso" Type="BDVideosUSAVModel1.Store.TblCurso" Multiplicity="0..1" />
+    <End Role="TblBloqueCurso" Type="BDVideosUSAVModel1.Store.TblBloqueCurso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblCurso">
+        <PropertyRef Name="IdCurso" />
+      </Principal>
+      <Dependent Role="TblBloqueCurso">
+        <PropertyRef Name="IdCurso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblCalendario_CatLocalidades">
+    <End Role="CatLocalidades" Type="BDVideosUSAVModel1.Store.CatLocalidades" Multiplicity="0..1" />
+    <End Role="TblCalendario" Type="BDVideosUSAVModel1.Store.TblCalendario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CatLocalidades">
+        <PropertyRef Name="IdLocalidad" />
+      </Principal>
+      <Dependent Role="TblCalendario">
+        <PropertyRef Name="IdLocalidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblCurso_TblCategoriaCurso">
+    <End Role="TblCategoriaCurso" Type="BDVideosUSAVModel1.Store.TblCategoriaCurso" Multiplicity="0..1" />
+    <End Role="TblCurso" Type="BDVideosUSAVModel1.Store.TblCurso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblCategoriaCurso">
+        <PropertyRef Name="IdCatCurso" />
+      </Principal>
+      <Dependent Role="TblCurso">
+        <PropertyRef Name="IdCatCurso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblCurso_TblNivelCurso">
+    <End Role="TblNivelCurso" Type="BDVideosUSAVModel1.Store.TblNivelCurso" Multiplicity="0..1" />
+    <End Role="TblCurso" Type="BDVideosUSAVModel1.Store.TblCurso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblNivelCurso">
+        <PropertyRef Name="IdNivelCurso" />
+      </Principal>
+      <Dependent Role="TblCurso">
+        <PropertyRef Name="IdNivelCurso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblReservaLocalidad_TblCalendario">
+    <End Role="TblCalendario" Type="BDVideosUSAVModel1.Store.TblCalendario" Multiplicity="1" />
+    <End Role="TblReservaLocalidad" Type="BDVideosUSAVModel1.Store.TblReservaLocalidad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblCalendario">
+        <PropertyRef Name="IdCalendario" />
+      </Principal>
+      <Dependent Role="TblReservaLocalidad">
+        <PropertyRef Name="IdCalendario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblReservaLocalidad_TblReservas">
+    <End Role="TblReservas" Type="BDVideosUSAVModel1.Store.TblReservas" Multiplicity="1" />
+    <End Role="TblReservaLocalidad" Type="BDVideosUSAVModel1.Store.TblReservaLocalidad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblReservas">
+        <PropertyRef Name="IdReserva" />
+      </Principal>
+      <Dependent Role="TblReservaLocalidad">
+        <PropertyRef Name="IdReserva" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblReservas_CatTipoReserva">
+    <End Role="CatTipoReserva" Type="BDVideosUSAVModel1.Store.CatTipoReserva" Multiplicity="0..1" />
+    <End Role="TblReservas" Type="BDVideosUSAVModel1.Store.TblReservas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CatTipoReserva">
+        <PropertyRef Name="IdTipoReserva" />
+      </Principal>
+      <Dependent Role="TblReservas">
+        <PropertyRef Name="IdTipoReserva" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblSubCategorias_TblCategorias1">
+    <End Role="TblCategorias" Type="BDVideosUSAVModel1.Store.TblCategorias" Multiplicity="0..1" />
+    <End Role="TblSubCategorias" Type="BDVideosUSAVModel1.Store.TblSubCategorias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblCategorias">
+        <PropertyRef Name="IdCategoria" />
+      </Principal>
+      <Dependent Role="TblSubCategorias">
+        <PropertyRef Name="IdCategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblUsuario_TblRolUsuario">
+    <End Role="TblRolUsuario" Type="BDVideosUSAVModel1.Store.TblRolUsuario" Multiplicity="0..1" />
+    <End Role="TblUsuario" Type="BDVideosUSAVModel1.Store.TblUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblRolUsuario">
+        <PropertyRef Name="IdRolUsuario" />
+      </Principal>
+      <Dependent Role="TblUsuario">
+        <PropertyRef Name="IdRolUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblVideos_TblBloque">
+    <End Role="TblBloqueCurso" Type="BDVideosUSAVModel1.Store.TblBloqueCurso" Multiplicity="0..1" />
+    <End Role="TblVideos" Type="BDVideosUSAVModel1.Store.TblVideos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblBloqueCurso">
+        <PropertyRef Name="IdBloque" />
+      </Principal>
+      <Dependent Role="TblVideos">
+        <PropertyRef Name="IdBloque" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblVideos_TblSubCategorias">
+    <End Role="TblSubCategorias" Type="BDVideosUSAVModel1.Store.TblSubCategorias" Multiplicity="0..1" />
+    <End Role="TblVideos" Type="BDVideosUSAVModel1.Store.TblVideos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblSubCategorias">
+        <PropertyRef Name="IdSubCategoria" />
+      </Principal>
+      <Dependent Role="TblVideos">
+        <PropertyRef Name="IdSubCategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblVideos_TblTiposVideos">
+    <End Role="TblTiposVideos" Type="BDVideosUSAVModel1.Store.TblTiposVideos" Multiplicity="0..1" />
+    <End Role="TblVideos" Type="BDVideosUSAVModel1.Store.TblVideos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblTiposVideos">
+        <PropertyRef Name="IdTipoVideo" />
+      </Principal>
+      <Dependent Role="TblVideos">
+        <PropertyRef Name="IdTipoVideo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Se encontraron errores durante la generación:
+      advertencia 6013: La tabla o vista 'BDVideosUSAV.dbo.TblMatriculadosCursos' no tiene una clave principal definida y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+      
+      <EntityType Name="TblMatriculadosCursos">
+        <Property Name="IdMatricula" Type="int" />
+        <Property Name="IdCurso" Type="int" />
+        <Property Name="IdEstudiante" Type="nchar" MaxLength="10" />
+        <Property Name="Carnet" Type="nvarchar" MaxLength="20" />
+        <Property Name="Activo" Type="bit" />
+        <Property Name="FechaMatricula" Type="datetime" />
+      </EntityType>-->
+</Schema>

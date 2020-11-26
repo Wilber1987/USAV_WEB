@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BDVideosUSAV" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="BDVideosUSAVEntidades" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="CatEdificios" EntityType="BDVideosUSAV.CatEdificios" />
+    <EntitySet Name="CatLocalidades" EntityType="BDVideosUSAV.CatLocalidades" />
+    <EntitySet Name="CatTipoReserva" EntityType="BDVideosUSAV.CatTipoReserva" />
+    <EntitySet Name="TblCalendario" EntityType="BDVideosUSAV.TblCalendario" />
+    <EntitySet Name="TblReservas" EntityType="BDVideosUSAV.TblReservas" />
+    <AssociationSet Name="FK_CatLocalidades_CatEdificios" Association="BDVideosUSAV.FK_CatLocalidades_CatEdificios">
+      <End Role="CatEdificios" EntitySet="CatEdificios" />
+      <End Role="CatLocalidades" EntitySet="CatLocalidades" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblCalendario_CatLocalidades" Association="BDVideosUSAV.FK_TblCalendario_CatLocalidades">
+      <End Role="CatLocalidades" EntitySet="CatLocalidades" />
+      <End Role="TblCalendario" EntitySet="TblCalendario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblReservas_CatTipoReserva" Association="BDVideosUSAV.FK_TblReservas_CatTipoReserva">
+      <End Role="CatTipoReserva" EntitySet="CatTipoReserva" />
+      <End Role="TblReservas" EntitySet="TblReservas" />
+    </AssociationSet>
+    <AssociationSet Name="TblReservaLocalidad" Association="BDVideosUSAV.TblReservaLocalidad">
+      <End Role="TblCalendario" EntitySet="TblCalendario" />
+      <End Role="TblReservas" EntitySet="TblReservas" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CatEdificios">
+    <Key>
+      <PropertyRef Name="IdEdificio" />
+    </Key>
+    <Property Name="IdEdificio" Type="Int32" Nullable="false" />
+    <Property Name="DescEdificios" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Ubicacion" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="CatLocalidades" Relationship="BDVideosUSAV.FK_CatLocalidades_CatEdificios" FromRole="CatEdificios" ToRole="CatLocalidades" />
+  </EntityType>
+  <EntityType Name="CatLocalidades">
+    <Key>
+      <PropertyRef Name="IdLocalidad" />
+    </Key>
+    <Property Name="IdLocalidad" Type="Int32" Nullable="false" />
+    <Property Name="DescLocalidades" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="IdEdificio" Type="Int32" />
+    <NavigationProperty Name="CatEdificios" Relationship="BDVideosUSAV.FK_CatLocalidades_CatEdificios" FromRole="CatLocalidades" ToRole="CatEdificios" />
+    <NavigationProperty Name="TblCalendario" Relationship="BDVideosUSAV.FK_TblCalendario_CatLocalidades" FromRole="CatLocalidades" ToRole="TblCalendario" />
+  </EntityType>
+  <EntityType Name="CatTipoReserva">
+    <Key>
+      <PropertyRef Name="IdTipoReserva" />
+    </Key>
+    <Property Name="IdTipoReserva" Type="Int32" Nullable="false" />
+    <Property Name="DescTipoReserva" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="TblReservas" Relationship="BDVideosUSAV.FK_TblReservas_CatTipoReserva" FromRole="CatTipoReserva" ToRole="TblReservas" />
+  </EntityType>
+  <EntityType Name="TblCalendario">
+    <Key>
+      <PropertyRef Name="IdCalendario" />
+    </Key>
+    <Property Name="IdCalendario" Type="Int32" Nullable="false" />
+    <Property Name="DescCalendario" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="IdLocalidad" Type="Int32" />
+    <Property Name="FechaCalendario" Type="DateTime" Precision="0" />
+    <Property Name="Hora" Type="Int32" />
+    <Property Name="Minuto" Type="Int32" />
+    <Property Name="DuracionM" Type="Int32" />
+    <NavigationProperty Name="CatLocalidades" Relationship="BDVideosUSAV.FK_TblCalendario_CatLocalidades" FromRole="TblCalendario" ToRole="CatLocalidades" />
+    <NavigationProperty Name="TblReservas" Relationship="BDVideosUSAV.TblReservaLocalidad" FromRole="TblCalendario" ToRole="TblReservas" />
+  </EntityType>
+  <EntityType Name="TblReservas">
+    <Key>
+      <PropertyRef Name="IdReserva" />
+    </Key>
+    <Property Name="IdReserva" Type="Int32" Nullable="false" />
+    <Property Name="NombreInstitucion" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="NombreSolicitante" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Telefono" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Cargo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="e_mail" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="IdTipoReserva" Type="Int32" />
+    <Property Name="DescReserva" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="FechaSolicitud" Type="DateTime" Precision="0" />
+    <Property Name="HoraSolicitud" Type="Int32" />
+    <Property Name="Duracion" Type="Int32" />
+    <Property Name="Confirmacion" Type="Boolean" />
+    <Property Name="NumeroIndividuos" Type="Int32" />
+    <Property Name="NumeroIndFemeninos" Type="Int32" />
+    <NavigationProperty Name="CatTipoReserva" Relationship="BDVideosUSAV.FK_TblReservas_CatTipoReserva" FromRole="TblReservas" ToRole="CatTipoReserva" />
+    <NavigationProperty Name="TblCalendario" Relationship="BDVideosUSAV.TblReservaLocalidad" FromRole="TblReservas" ToRole="TblCalendario" />
+  </EntityType>
+  <Association Name="FK_CatLocalidades_CatEdificios">
+    <End Role="CatEdificios" Type="BDVideosUSAV.CatEdificios" Multiplicity="0..1" />
+    <End Role="CatLocalidades" Type="BDVideosUSAV.CatLocalidades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CatEdificios">
+        <PropertyRef Name="IdEdificio" />
+      </Principal>
+      <Dependent Role="CatLocalidades">
+        <PropertyRef Name="IdEdificio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblCalendario_CatLocalidades">
+    <End Role="CatLocalidades" Type="BDVideosUSAV.CatLocalidades" Multiplicity="0..1" />
+    <End Role="TblCalendario" Type="BDVideosUSAV.TblCalendario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CatLocalidades">
+        <PropertyRef Name="IdLocalidad" />
+      </Principal>
+      <Dependent Role="TblCalendario">
+        <PropertyRef Name="IdLocalidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblReservas_CatTipoReserva">
+    <End Role="CatTipoReserva" Type="BDVideosUSAV.CatTipoReserva" Multiplicity="0..1" />
+    <End Role="TblReservas" Type="BDVideosUSAV.TblReservas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CatTipoReserva">
+        <PropertyRef Name="IdTipoReserva" />
+      </Principal>
+      <Dependent Role="TblReservas">
+        <PropertyRef Name="IdTipoReserva" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TblReservaLocalidad">
+    <End Role="TblCalendario" Type="BDVideosUSAV.TblCalendario" Multiplicity="*" />
+    <End Role="TblReservas" Type="BDVideosUSAV.TblReservas" Multiplicity="*" />
+  </Association>
+</Schema>

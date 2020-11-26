@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BDVideosUSAVModelStoreContainer" CdmEntityContainer="BDVideosUSAVEntitiesModelSolicitudes">
+    <EntitySetMapping Name="CatEdificios">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.CatEdificios">
+        <MappingFragment StoreEntitySet="CatEdificios">
+          <ScalarProperty Name="IdEdificio" ColumnName="IdEdificio" />
+          <ScalarProperty Name="DescEdificios" ColumnName="DescEdificios" />
+          <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatLocalidades">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.CatLocalidades">
+        <MappingFragment StoreEntitySet="CatLocalidades">
+          <ScalarProperty Name="Pict" ColumnName="Pict" />
+          <ScalarProperty Name="IdConfigLaboral" ColumnName="IdConfigLaboral" />
+          <ScalarProperty Name="IdTipoBloque" ColumnName="IdTipoBloque" />
+          <ScalarProperty Name="IdLocalidad" ColumnName="IdLocalidad" />
+          <ScalarProperty Name="DescLocalidades" ColumnName="DescLocalidades" />
+          <ScalarProperty Name="IdEdificio" ColumnName="IdEdificio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatTipoReserva">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.CatTipoReserva">
+        <MappingFragment StoreEntitySet="CatTipoReserva">
+          <ScalarProperty Name="IdTipoReserva" ColumnName="IdTipoReserva" />
+          <ScalarProperty Name="DescTipoReserva" ColumnName="DescTipoReserva" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblCalendario">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.TblCalendario">
+        <MappingFragment StoreEntitySet="TblCalendario">
+          <ScalarProperty Name="IdCalendario" ColumnName="IdCalendario" />
+          <ScalarProperty Name="DescCalendario" ColumnName="DescCalendario" />
+          <ScalarProperty Name="IdLocalidad" ColumnName="IdLocalidad" />
+          <ScalarProperty Name="FechaCalendario" ColumnName="FechaCalendario" />
+          <ScalarProperty Name="Hora" ColumnName="Hora" />
+          <ScalarProperty Name="Minuto" ColumnName="Minuto" />
+          <ScalarProperty Name="DuracionM" ColumnName="DuracionM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblReservaLocalidad">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.TblReservaLocalidad">
+        <MappingFragment StoreEntitySet="TblReservaLocalidad">
+          <ScalarProperty Name="IdReserva" ColumnName="IdReserva" />
+          <ScalarProperty Name="IdCalendario" ColumnName="IdCalendario" />
+          <ScalarProperty Name="IdReservaLocalidad" ColumnName="IdReservaLocalidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblReservas">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.TblReservas">
+        <MappingFragment StoreEntitySet="TblReservas">
+          <ScalarProperty Name="IdCreadorVideo" ColumnName="IdCreadorVideo" />
+          <ScalarProperty Name="IdReserva" ColumnName="IdReserva" />
+          <ScalarProperty Name="NombreInstitucion" ColumnName="NombreInstitucion" />
+          <ScalarProperty Name="NombreSolicitante" ColumnName="NombreSolicitante" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+          <ScalarProperty Name="e_mail" ColumnName="e-mail" />
+          <ScalarProperty Name="IdTipoReserva" ColumnName="IdTipoReserva" />
+          <ScalarProperty Name="DescReserva" ColumnName="DescReserva" />
+          <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
+          <ScalarProperty Name="HoraSolicitud" ColumnName="HoraSolicitud" />
+          <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+          <ScalarProperty Name="Confirmacion" ColumnName="Confirmacion" />
+          <ScalarProperty Name="NumeroIndividuos" ColumnName="NumeroIndividuos" />
+          <ScalarProperty Name="NumeroIndFemeninos" ColumnName="NumeroIndFemeninos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatTipoBloques">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.CatTipoBloques">
+        <MappingFragment StoreEntitySet="CatTipoBloques">
+          <ScalarProperty Name="DuracionM" ColumnName="DuracionM" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdTipoBloque" ColumnName="IdTipoBloque" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblConfiguracionLaboral">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.TblConfiguracionLaboral">
+        <MappingFragment StoreEntitySet="TblConfiguracionLaboral">
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="HoraFinalLaboral" ColumnName="HoraFinalLaboral" />
+          <ScalarProperty Name="HoraInicialLaboral" ColumnName="HoraInicialLaboral" />
+          <ScalarProperty Name="HorasAlmuerzo" ColumnName="HorasAlmuerzo" />
+          <ScalarProperty Name="DiasLaborales" ColumnName="DiasLaborales" />
+          <ScalarProperty Name="DiaFinal" ColumnName="DiaFinal" />
+          <ScalarProperty Name="DiaInicial" ColumnName="DiaInicial" />
+          <ScalarProperty Name="HorasLaborales" ColumnName="HorasLaborales" />
+          <ScalarProperty Name="IdConfigLababoral" ColumnName="IdConfigLababoral" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VistaLocalidadCalendario">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.VistaLocalidadCalendario">
+        <MappingFragment StoreEntitySet="VistaLocalidadCalendario">
+          <ScalarProperty Name="Confirmacion" ColumnName="Confirmacion" />
+          <ScalarProperty Name="IdLocalidad" ColumnName="IdLocalidad" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="FechaCal" ColumnName="FechaCal" />
+          <ScalarProperty Name="FechaCalendario" ColumnName="FechaCalendario" />
+          <ScalarProperty Name="IdCalendario" ColumnName="IdCalendario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="USP_DetalleS" FunctionName="BDVideosUSAVModel.Store.USP_DetalleS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDVideosUSAVModel.USP_DetalleS_Result">
+          <ScalarProperty Name="DIA" ColumnName="DIA" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="HORA" ColumnName="HORA" />
+          <ScalarProperty Name="DuracionM" ColumnName="DuracionM" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="ViewReservasLoc">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.ViewReservasLoc">
+        <MappingFragment StoreEntitySet="ViewReservasLoc">
+          <ScalarProperty Name="IdCreadorVideo" ColumnName="IdCreadorVideo" />
+          <ScalarProperty Name="ConfirmacionText" ColumnName="ConfirmacionText" />
+          <ScalarProperty Name="DescEdificios" ColumnName="DescEdificios" />
+          <ScalarProperty Name="DescLocalidades" ColumnName="DescLocalidades" />
+          <ScalarProperty Name="NumeroIndFemeninos" ColumnName="NumeroIndFemeninos" />
+          <ScalarProperty Name="NumeroIndividuos" ColumnName="NumeroIndividuos" />
+          <ScalarProperty Name="Confirmacion" ColumnName="Confirmacion" />
+          <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+          <ScalarProperty Name="HoraSolicitud" ColumnName="HoraSolicitud" />
+          <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
+          <ScalarProperty Name="DescReserva" ColumnName="DescReserva" />
+          <ScalarProperty Name="IdTipoReserva" ColumnName="IdTipoReserva" />
+          <ScalarProperty Name="e_mail" ColumnName="e-mail" />
+          <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="NombreSolicitante" ColumnName="NombreSolicitante" />
+          <ScalarProperty Name="NombreInstitucion" ColumnName="NombreInstitucion" />
+          <ScalarProperty Name="IdReserva" ColumnName="IdReserva" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblCreadorVideos">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.TblCreadorVideos">
+        <MappingFragment StoreEntitySet="TblCreadorVideos">
+          <ScalarProperty Name="IdVideo" ColumnName="IdVideo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Espcialidad" ColumnName="Espcialidad" />
+          <ScalarProperty Name="Informacion" ColumnName="Informacion" />
+          <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
+          <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="RutaImagenDocente" ColumnName="RutaImagenDocente" />
+          <ScalarProperty Name="IdCreadorVideo" ColumnName="IdCreadorVideo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VIEW_ESTADISTICAS_TIPORESERVACION">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.VIEW_ESTADISTICAS_TIPORESERVACION">
+        <MappingFragment StoreEntitySet="VIEW_ESTADISTICAS_TIPORESERVACION">
+          <ScalarProperty Name="DuracionMT" ColumnName="DuracionMT" />
+          <ScalarProperty Name="DescReserva" ColumnName="DescReserva" />
+          <ScalarProperty Name="NombreInstitucion" ColumnName="NombreInstitucion" />
+          <ScalarProperty Name="NombreSolicitante" ColumnName="NombreSolicitante" />
+          <ScalarProperty Name="DescTipoReserva" ColumnName="DescTipoReserva" />
+          <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
+          <ScalarProperty Name="DescLocalidades" ColumnName="DescLocalidades" />
+          <ScalarProperty Name="IdReserva" ColumnName="IdReserva" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

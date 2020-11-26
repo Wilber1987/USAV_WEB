@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BDVideosUSAVModelStoreContainer" CdmEntityContainer="BDVideosUSAVEntidades">
+    <EntitySetMapping Name="CatEdificios">
+      <EntityTypeMapping TypeName="BDVideosUSAV.CatEdificios">
+        <MappingFragment StoreEntitySet="CatEdificios">
+          <ScalarProperty Name="IdEdificio" ColumnName="IdEdificio" />
+          <ScalarProperty Name="DescEdificios" ColumnName="DescEdificios" />
+          <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatLocalidades">
+      <EntityTypeMapping TypeName="BDVideosUSAV.CatLocalidades">
+        <MappingFragment StoreEntitySet="CatLocalidades">
+          <ScalarProperty Name="IdLocalidad" ColumnName="IdLocalidad" />
+          <ScalarProperty Name="DescLocalidades" ColumnName="DescLocalidades" />
+          <ScalarProperty Name="IdEdificio" ColumnName="IdEdificio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatTipoReserva">
+      <EntityTypeMapping TypeName="BDVideosUSAV.CatTipoReserva">
+        <MappingFragment StoreEntitySet="CatTipoReserva">
+          <ScalarProperty Name="IdTipoReserva" ColumnName="IdTipoReserva" />
+          <ScalarProperty Name="DescTipoReserva" ColumnName="DescTipoReserva" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblCalendario">
+      <EntityTypeMapping TypeName="BDVideosUSAV.TblCalendario">
+        <MappingFragment StoreEntitySet="TblCalendario">
+          <ScalarProperty Name="IdCalendario" ColumnName="IdCalendario" />
+          <ScalarProperty Name="DescCalendario" ColumnName="DescCalendario" />
+          <ScalarProperty Name="IdLocalidad" ColumnName="IdLocalidad" />
+          <ScalarProperty Name="FechaCalendario" ColumnName="FechaCalendario" />
+          <ScalarProperty Name="Hora" ColumnName="Hora" />
+          <ScalarProperty Name="Minuto" ColumnName="Minuto" />
+          <ScalarProperty Name="DuracionM" ColumnName="DuracionM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblReservas">
+      <EntityTypeMapping TypeName="BDVideosUSAV.TblReservas">
+        <MappingFragment StoreEntitySet="TblReservas">
+          <ScalarProperty Name="IdReserva" ColumnName="IdReserva" />
+          <ScalarProperty Name="NombreInstitucion" ColumnName="NombreInstitucion" />
+          <ScalarProperty Name="NombreSolicitante" ColumnName="NombreSolicitante" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+          <ScalarProperty Name="e_mail" ColumnName="e-mail" />
+          <ScalarProperty Name="IdTipoReserva" ColumnName="IdTipoReserva" />
+          <ScalarProperty Name="DescReserva" ColumnName="DescReserva" />
+          <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
+          <ScalarProperty Name="HoraSolicitud" ColumnName="HoraSolicitud" />
+          <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+          <ScalarProperty Name="Confirmacion" ColumnName="Confirmacion" />
+          <ScalarProperty Name="NumeroIndividuos" ColumnName="NumeroIndividuos" />
+          <ScalarProperty Name="NumeroIndFemeninos" ColumnName="NumeroIndFemeninos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="TblReservaLocalidad" TypeName="BDVideosUSAV.TblReservaLocalidad" StoreEntitySet="TblReservaLocalidad">
+      <EndProperty Name="TblCalendario">
+        <ScalarProperty Name="IdCalendario" ColumnName="IdCalendario" />
+      </EndProperty>
+      <EndProperty Name="TblReservas">
+        <ScalarProperty Name="IdReserva" ColumnName="IdReserva" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

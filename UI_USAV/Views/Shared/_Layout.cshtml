@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+@*<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+</html>*@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head lang="es" runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    @*<link href="./WDevCore/StyleModules/StyleModules.css" rel="stylesheet" />
+    <link href="./css/local.css" rel="stylesheet" />*@
+    @Styles.Render("~/WDevCore/StyleModules/StyleModules.css")
+    @Styles.Render("~/css/local.css")
+    @RenderSection("scripts", required: false)
+</head>
+<body>
+        <header id="Cabecera">
+            <img class="logo" src="/images/LOGO01.png" />
+            <h2 style="flex-grow: 2; text-align:center">Unidad de Servicios Audiovisuales - FAREM-Carazo</h2>
+            <div style="padding-right:20px;align-items: center; display:flex">
+              
+            </div>
+        </header>
+        <!-- Navigation -->
+        <section id="EspacioMenu">
+
+            <div id="menu">
+                <nav class="">
+                    <ul class="RowMenu">
+                        <li class="menuyellow"><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true">&nbsp</span>INICIO </a></li>
+                        <li class="menugray"><a href="../Home/ViewPortalVideos">PORTAL VIDEOS </a></li>                        
+                        <li class="menugrenblue"><a href="../Home/ViewDocentes">DOCENTES</a></li>
+                        <li class="menugray"><a href="../Home/ViewContactos">CONTACTOS</a></li>
+                        <li class="menupurple"><a href="../Home/ViewReservaciones">RESERVACIONES</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+
+        <main id="Main">
+            @RenderBody()
+        </main>
+       
+        <footer class="" id="footer">
+            <div class="col-xs-12">
+                <span>Copyright © 2020. FAREM-Carazo, Todos los derechos reservados.</span>
+                <p class="art-page-footer">
+                    <span id="art-footnote-links">Elaborado por: Unidad de Desarrollo de Sistemas y Unidad de Medios Audiovisuales. Responsable:Wilber José Matus González, correo: wmatus@unan.edu.ni</span><br />
+
+                </p>
+            </div>
+            <div class="LogosFooter">
+                <a target="_blank" href="#">
+                    <img width="95" src="/images/LOGO02.png" />
+                </a>
+                <a target="_blank" href="http://www.unan.edu.ni">
+                    <img width="100" src="/images/marcaInst/m5.png" />
+                </a>
+                <a target="_blank" href="http://www.uc3m.com">
+                    <img src="/images/EscudoLogoCorporativo.png" />
+                </a><br />
+            </div>            
+        </footer>
+</body>
+</html>
+
+
+
+
+

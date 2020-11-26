@@ -1,0 +1,168 @@
+﻿
+@{
+    ViewBag.Title = "ViewCatalogos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="module">
+    import { WRender, WAjaxTools, DomComponent } from "../WDevCore/WModules/WComponentsTools.js";
+    import "../../WDevCore/WComponents/WTableComponents.js";   
+    class MyNavigator extends DomComponent {
+        constructor(props) {
+            super();
+            this.props = props;
+        }
+        type = "div";
+
+        children = [{
+            type: "ul",
+            children: [
+                {
+                    type: "li", props: {
+                        onclick: async () => {
+                            var Url = "../api/AdminCatalog/PostTakeLocalidades";
+                            const response = await WAjaxTools.PostRequest(Url);
+                            var Config = {
+                                Datasets: response,
+                                Options: {
+                                    Search: true, Add: true, Edit: true, Show: true,
+                                    UrlAdd: "../api/AdminCatalog/PostGuardarLocalidades",                                   
+                                    UrlUpdate: "../api/AdminCatalog/PostGuardarLocalidades", 
+                                    UrlSelect: "../api/AdminCatalog/PostTakeLocalidadesFilt",
+                                },
+                            }
+                            const WTable = new TableCont({ class: "DivContainer", id: "CatLocalidades" }, "TableLocalidades", Config);
+                            this.NavigateFunction("CatLocalidades", WTable, "MainContainer");
+                        }
+                    }, children: [{ type: "a", props: { href: "#" }, children: ["Localidades"] }]
+                },
+                {
+                    type: "li", props: {
+                        onclick: async () => {
+                            var Url = "../api/AdminCatalog/PostTakeBloques";
+                            const response = await WAjaxTools.PostRequest(Url);
+                            var Config = {
+                                Datasets: response,
+                                Options: {
+                                    Search: true, Add: true, Edit: true, Show: true,
+                                    UrlAdd: "../api/AdminCatalog/PostGuardarBloques",
+                                    UrlUpdate: "../api/AdminCatalog/PostGuardarBloques",
+                                    UrlSelect: "../api/AdminCatalog/PostTakeBloquesFilt",
+                                },
+                            }
+                            const WTable = new TableCont({ class: "DivContainer", id: "CatTipoBloque" }, "TableTipoBloque", Config);
+                            this.NavigateFunction("CatTipoBloque", WTable, "MainContainer");                           
+                        }
+                    }, children: [{ type: "a", props: { href: "#" }, children: ["Tipo de bloques"] }]
+                },
+                {
+                    type: "li", props: {
+                        onclick: async () => {
+                            var Url = "../api/AdminCatalog/PostTakeEdificios";
+                            const response = await WAjaxTools.PostRequest(Url);
+                            var Config = {
+                                Datasets: response,
+                                Options: {
+                                    Search: true, Add: true, Edit: true, Show: true,
+                                    UrlAdd: "../api/AdminCatalog/PostGuardarEdificios",
+                                    UrlUpdate: "../api/AdminCatalog/PostGuardarEdificios",
+                                    UrlSelect: "../api/AdminCatalog/PostTakeEdificiosFilt",
+                                },
+                            }
+                            const WTable = new TableCont({ class: "DivContainer", id: "CatEdificios" }, "TableEdificios", Config);
+                            this.NavigateFunction("CatEdificios", WTable, "MainContainer");                         
+                        }
+                    }, children: [{ type: "a", props: { href: "#" }, children: ["Edificios"] }]
+                },
+                {
+                    type: "li", props: {
+                        onclick: async () => {
+                            var Url = "../api/AdminCatalog/PostTakeReservas";
+                            const response = await WAjaxTools.PostRequest(Url);
+                            var Config = {
+                                Datasets: response,
+                                Options: {
+                                    Search: true, Add: true, Edit: true, Show: true,
+                                    UrlAdd: "../api/AdminCatalog/PostGuardarReservas",
+                                    UrlUpdate: "../api/AdminCatalog/PostGuardarReservas",
+                                    UrlSelect: "../api/AdminCatalog/PostTakeReservasFilt",
+                                },
+                            }
+                            const WTable = new TableCont({ class: "DivContainer", id: "CatTipoReserva" }, "TableTipoReserva", Config);
+                            this.NavigateFunction("CatTipoReserva", WTable, "MainContainer");
+                        }
+                    }, children: [{ type: "a", props: { href: "#" }, children: ["Tipo de reserva"] }]
+                }, {
+                    type: "li", props: {
+                        onclick: async () => {
+                            var Url = "../api/AdminCatalog/PostTakeCreador";
+                            const response = await WAjaxTools.PostRequest(Url);
+                            var Config = {
+                                Datasets: response,
+                                Options: {
+                                    Search: true, Add: true, Edit: true, Show: true,
+                                    UrlAdd: "../api/AdminCatalog/PostCreadoresVideosSave",
+                                    UrlUpdate: "../api/AdminCatalog/PostCreadoresVideosSave",
+                                    UrlSelect: "../api/AdminCatalog/PostCreadoresVideosFilt",
+                                },
+                            }
+                            const WTable = new TableCont({ class: "DivContainer", id: "CatCreadorVideos" }, "TableCreador", Config);
+                            this.NavigateFunction("CatCreadorVideos", WTable, "MainContainer");
+                        }
+                    }, children: [{ type: "a", props: { href: "#" }, children: ["Creador de Videos"] }]
+                },
+            ]
+        }];
+    }
+    class TableCont extends DomComponent {
+        constructor(props, tableId, Config) {
+            super();
+            this.props = props
+            this.type = "div";
+            this.children = [];
+            this.children.push({
+                type: 'h4',
+                props: { innerText: "Table CardStyles........" },
+            })
+            this.children.push({
+                type: "w-table",
+                props: {
+                    id: tableId,
+                    TableConfig: Config
+                }
+            })
+        }
+    }  
+    var VDom = new MyNavigator();
+    window.onload = async () => {
+        Menu.append(WRender.createElement(VDom));
+    }
+</script>
+<style>
+    #Main {
+        display: grid;
+        grid-template-rows: 50px calc(100% - 50px);
+        grid-template-columns: 200px calc(100% - 200px);
+    }
+        #Main h2 {
+            text-align:center;
+            border-bottom: solid 3px #0852a1;
+            line-height: 50px;
+        }
+        #Main aside {
+            background-color: #c7d4eb;
+            grid-row: 1/3;
+        }
+        #Main section {
+        }
+        #Main #MainContainer{
+            padding: 20px;
+        }
+</style>
+<h2>Catalogos</h2>
+<aside id="Menu">
+    
+</aside>
+<section id="MainContainer">    
+</section>
+
+

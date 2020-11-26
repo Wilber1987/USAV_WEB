@@ -1,0 +1,16 @@
+C:\Users\SozaProgramer\Desktop\Interface\USAV-Solicitudes\bin\Release\USAV-Solicitudes.dll.config
+C:\Users\SozaProgramer\Desktop\Interface\USAV-Solicitudes\bin\Release\USAV-Solicitudes.dll
+C:\Users\SozaProgramer\Desktop\Interface\USAV-Solicitudes\bin\Release\USAV-Solicitudes.pdb
+C:\Users\SozaProgramer\Desktop\Interface\USAV-Solicitudes\bin\Release\EntityFramework.dll
+C:\Users\SozaProgramer\Desktop\Interface\USAV-Solicitudes\bin\Release\EntityFramework.xml
+C:\Users\SozaProgramer\Desktop\Interface\USAV-Solicitudes\obj\Release\USAV-Solicitudes.csprojResolveAssemblyReference.cache
+C:\Users\SozaProgramer\Desktop\Interface\USAV-Solicitudes\obj\Release\USAV-Solicitudes.dll
+C:\Users\SozaProgramer\Desktop\Interface\USAV-Solicitudes\obj\Release\USAV-Solicitudes.pdb
+C:\USAV-WEB-2015-2\Interface\USAV-Solicitudes\bin\Release\USAV-Solicitudes.dll.config
+C:\USAV-WEB-2015-2\Interface\USAV-Solicitudes\bin\Release\USAV-Solicitudes.dll
+C:\USAV-WEB-2015-2\Interface\USAV-Solicitudes\bin\Release\USAV-Solicitudes.pdb
+C:\USAV-WEB-2015-2\Interface\USAV-Solicitudes\bin\Release\EntityFramework.dll
+C:\USAV-WEB-2015-2\Interface\USAV-Solicitudes\bin\Release\EntityFramework.xml
+C:\USAV-WEB-2015-2\Interface\USAV-Solicitudes\obj\Release\USAV-Solicitudes.csprojResolveAssemblyReference.cache
+C:\USAV-WEB-2015-2\Interface\USAV-Solicitudes\obj\Release\USAV-Solicitudes.dll
+C:\USAV-WEB-2015-2\Interface\USAV-Solicitudes\obj\Release\USAV-Solicitudes.pdb

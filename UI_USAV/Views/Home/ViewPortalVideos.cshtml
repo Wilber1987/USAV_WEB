@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "ViewPortalVideos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="module">
+    import { WRender, WAjaxTools, DomComponent } from "../WDevCore/WModules/WComponentsTools.js";
+    import "../../WDevCore/WComponents/WTableComponents.js";   
+    window.onload = async () => {
+        var Url = "../api/AdminVideo/PostTakeVideosPV";        
+        const response = await WAjaxTools.PostRequest(Url);
+        var Config = {
+            Datasets: response,
+            StyleType: "Grid",
+            maxElementByPage: 13,
+            Options: {
+                Search: true,
+                UserActions: [{
+                    name: "Ver",
+                    Function: async (Param, control) => {
+                        await import("../WDevCore/WComponents/WModalForm.js");
+                        control.parentNode.parentNode.append(WRender.createElement({
+                            type: "w-modal-form", props: {
+                                id: "Alert",
+                                ObjectModal: {
+                                    type: "embed", props: {
+                                        src: "https://www.youtube.com/embed/" + Param.IdYoutube_hidden
+                                        ,style: "width: 100%; min-height:400px; height: auto"
+                                    }
+                                },
+                            }
+                        }));
+                    }
+                }]
+            },
+        };
+        divMain.append(WRender.createElement({
+            type: "w-table",
+            props: {
+                id: "tableReservaciones",
+                TableConfig: Config
+            }
+        }));
+  
+    }
+</script>
+<style type="text/css">
+    .AnimacionPrincipal {
+        color: #FFF;
+        font-size: 60px;
+    }
+
+    .h3 {
+        display: block;
+        padding: 10px;
+        text-align: center;
+        color: #5a5a5a;  
+        font-weight: 100;
+        text-align: left;
+
+    }
+
+    .Linea {
+        border-bottom: 1px solid #efefef;
+        padding: 4px;
+    }
+
+    .row {
+        display: flex;
+        padding: 20px;
+    }
+
+        .row ul {
+            width: 100%;
+        }
+
+        .row li {
+            list-style: none;
+            margin: 5px;
+        }
+</style>
+<h3 class="h3">Portal de Vídeos - UNAN-Managua, FAREM-Carazo</h3>
+<hr />
+<div id="divMain"></div>
+

@@ -1,0 +1,422 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2077EB84-7CF1-4954-901E-1D8AE6036FFF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UI_USAV</RootNamespace>
+    <AssemblyName>UI_USAV</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44308</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AdminCatalogController.cs" />
+    <Compile Include="Controllers\AdministratorController.cs" />
+    <Compile Include="Controllers\AdminVideoController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="css\local.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="images\activo.png" />
+    <Content Include="images\amejia.png" />
+    <Content Include="images\asisdocente.png" />
+    <Content Include="images\asistenciaser.png" />
+    <Content Include="images\BusCursos.jpg" />
+    <Content Include="images\BusquedaHelp.jpg" />
+    <Content Include="images\comment-128.png" />
+    <Content Include="images\curser.png" />
+    <Content Include="images\Cursosicon.png" />
+    <Content Include="images\CursosMatriculados.jpg" />
+    <Content Include="images\cursoYelsie.png" />
+    <Content Include="images\Destacado.png" />
+    <Content Include="images\download.png" />
+    <Content Include="images\downloadx.png" />
+    <Content Include="images\EscudoLogoCorporativo.png" />
+    <Content Include="images\fade1.jpg" />
+    <Content Include="images\fade2.jpg" />
+    <Content Include="images\fade3.jpg" />
+    <Content Include="images\favicon.ico" />
+    <Content Include="images\fondoportada2.jpg" />
+    <Content Include="images\ImagenesCursos\186220_b754_45778acb4-7102-4ee8-a9c4-0b2d669c29b2.jpg" />
+    <Content Include="images\ImagenesCursos\186220_b754_4af8fd1e6-2302-4a52-a3bc-b337edf366d9.jpg" />
+    <Content Include="images\ImagenesCursos\186220_b754_4cb186639-2b4f-4b90-a5a2-cca4c4d150db.jpg" />
+    <Content Include="images\ImagenesCursos\224486_7b62_230ab6b20-186d-4f94-a0ea-8f9aa504fa91.jpg" />
+    <Content Include="images\ImagenesCursos\224486_7b62_2ebeaec69-ef86-458e-9c0c-51e93b0400b2.jpg" />
+    <Content Include="images\ImagenesCursos\304218_3c21_414c2f594-46ac-4324-b7d0-0cd08b90822c.jpg" />
+    <Content Include="images\ImagenesCursos\365400_5710_3dace3088-e01f-4c52-abe3-3ba573bac7be.jpg" />
+    <Content Include="images\ImagenesCursos\436392_3fe9_28be940da-f1a3-4a1f-88b0-da2fde0119b2.jpg" />
+    <Content Include="images\ImagenesCursos\438030_ca58b3b2bda2-24ee-4793-bc7a-37cf08db37a6.jpg" />
+    <Content Include="images\ImagenesCursos\442630_df44_470e2c6c1-645f-4915-afb3-8cd76cf62c53.jpg" />
+    <Content Include="images\ImagenesCursos\454942_7b31_328a66cf0-df58-42a6-89a2-89f5d3792395.jpg" />
+    <Content Include="images\ImagenesCursos\47963_16fd_857f8335d-0a50-4a0b-a4de-cd6f7c0299d7.jpg" />
+    <Content Include="images\ImagenesCursos\c_530991c5e6-8d23-45ad-b732-80b66d2cb63c.jpg" />
+    <Content Include="images\ImagenesCursos\didacticas2c7b13d9-1100-43dc-baae-27e3edc06bcf.jpg" />
+    <Content Include="images\ImagenesCursos\didacticas328eeaff-1564-4251-a627-5e506fd30aae.jpg" />
+    <Content Include="images\ImagenesCursos\didacticas3e394c84-fb9d-47aa-a384-a851448a60e2.jpg" />
+    <Content Include="images\ImagenesCursos\didacticas7e0afd86-ef06-4114-86b9-e2f4b75b9416.jpg" />
+    <Content Include="images\ImagenesCursos\didacticas81d0286e-b05d-4464-bfb2-b6c6aed82b09.jpg" />
+    <Content Include="images\ImagenesCursos\didacticasa9e29c3a-c713-4c7b-aa5b-c3ec1fa0d04b.jpg" />
+    <Content Include="images\ImagenesCursos\Ent.jpg" />
+    <Content Include="images\ImagenesCursos\es_43554f64e4fd3-627f-4d63-97ab-dd0c324ef42c.jpg" />
+    <Content Include="images\ImagenesCursos\es_469_social_media7677e4bef9-ba47-43b6-8e23-43871ed12e9d.jpg" />
+    <Content Include="images\ImagenesCursos\es_485_lync859501b21a-1290-46ee-ae04-2c06843cdbee.jpg" />
+    <Content Include="images\ImagenesCursos\es_758abab7a95-9577-4760-958a-40be543b8d79.jpg" />
+    <Content Include="images\ImagenesCursos\es_76063b0976d4b-02e0-4b72-ad15-3c36f48ba6b7.jpg" />
+    <Content Include="images\ImagenesCursos\es_836f080766c-8554-4939-a155-48f4a2081737.jpg" />
+    <Content Include="images\ImagenesCursos\es_83923508cfb-c358-4cac-8cfb-3c3a49761dcf.jpg" />
+    <Content Include="images\ImagenesCursos\es_84285d641ccd5-9684-4645-90d8-204cb2f9528bc3d03351-f567-4d7a-a3a6-d0029ac05562.jpg" />
+    <Content Include="images\ImagenesCursos\evernote83369db1c6-af33-4b90-997a-62c5de04f5dd.jpg" />
+    <Content Include="images\ImagenesCursos\joseViente66d34328-7e73-4edb-bcbe-8b089b7a3a2c.jpg" />
+    <Content Include="images\ImagenesCursos\phonegap_de_0_a_10071c7c4223d-4d41-47a1-9c97-18fba6ba5959.jpg" />
+    <Content Include="images\ImagenUsuarios\7504.40b52bb7-e13a-44d0-b946-f02e915bf6df.jpg" />
+    <Content Include="images\ImagenUsuarios\MARCOS_SOZA99b12826-83c6-421f-85fd-37ab1f768a09.jpg" />
+    <Content Include="images\Inactivo.png" />
+    <Content Include="images\InformacionCursoAyuda.jpg" />
+    <Content Include="images\loading.GIF" />
+    <Content Include="images\LoginAyuda.jpg" />
+    <Content Include="images\LOGO-04.png" />
+    <Content Include="images\LOGO01.png" />
+    <Content Include="images\LOGO02.png" />
+    <Content Include="images\LOGO03.png" />
+    <Content Include="images\LogoUnanFooter.png" />
+    <Content Include="images\logousav.png" />
+    <Content Include="images\logousaveyes.png" />
+    <Content Include="images\logousavsmall.png" />
+    <Content Include="images\logo_blanco.png" />
+    <Content Include="images\mag.png" />
+    <Content Include="images\marcaInst\m1.png" />
+    <Content Include="images\marcaInst\m2.png" />
+    <Content Include="images\marcaInst\m3.png" />
+    <Content Include="images\marcaInst\m4.png" />
+    <Content Include="images\marcaInst\m5.png" />
+    <Content Include="images\marcaInst\m6.png" />
+    <Content Include="images\marcaInst\m7.png" />
+    <Content Include="images\msolez.png" />
+    <Content Include="images\NoDestacado.png" />
+    <Content Include="images\NumVideos.png" />
+    <Content Include="images\ofletes.png" />
+    <Content Include="images\PlayBackground.png" />
+    <Content Include="images\playitem.png" />
+    <Content Include="images\playitemcopia.png" />
+    <Content Include="images\playitemlocked.png" />
+    <Content Include="images\portadausavper.png" />
+    <Content Include="images\profile.png" />
+    <Content Include="images\profilecurso.png" />
+    <Content Include="images\quienessomosicons.png" />
+    <Content Include="images\QuienesSomosImg.png" />
+    <Content Include="images\ReproduccionVideoHelp.jpg" />
+    <Content Include="images\search-white.png" />
+    <Content Include="images\servgrabacion.png" />
+    <Content Include="images\servicesicon.png" />
+    <Content Include="images\serviciosofert.png" />
+    <Content Include="images\sharefacebook.jpg" />
+    <Content Include="images\sin_profilecurso.png" />
+    <Content Include="images\USAV-CarazoB21.jpg" />
+    <Content Include="images\USAV-CarazoB4.JPG" />
+    <Content Include="images\USAV-CarazoB5.JPG" />
+    <Content Include="images\USAV-CarazoB7.JPG" />
+    <Content Include="images\usavback.jpg" />
+    <Content Include="images\userCounter.png" />
+    <Content Include="images\vector_65_01-128.png" />
+    <Content Include="images\vector_65_03-128.png" />
+    <Content Include="images\VerVideos.jpg" />
+    <Content Include="images\VerVideosActual.jpg" />
+    <Content Include="images\VerVideosLock.jpg" />
+    <Content Include="images\wmatus.png" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="WDevCore\StyleModules\MultiSelectStyle.css" />
+    <Content Include="WDevCore\StyleModules\StyleModules.css" />
+    <Content Include="WDevCore\StyleModules\WchartStyle.css" />
+    <Content Include="WDevCore\WComponents\WChartJSComponent.js" />
+    <Content Include="WDevCore\WComponents\WModalForm.js" />
+    <Content Include="WDevCore\WComponents\WMultiSelect.js" />
+    <Content Include="WDevCore\WComponents\WRichText.js" />
+    <Content Include="WDevCore\WComponents\WSlide.js" />
+    <Content Include="WDevCore\WComponents\WTableComponents.js" />
+    <Content Include="WDevCore\WExpDev.js" />
+    <Content Include="WDevCore\WModules\WComponents.js" />
+    <Content Include="WDevCore\WModules\WComponentsTools.js" />
+    <Content Include="WDevCore\WModules\WStyledRender.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+    <Folder Include="Scripts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.min.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Views\Administrator\ViewCatalogos.cshtml" />
+    <Content Include="Views\Home\ViewReservaciones.cshtml" />
+    <Content Include="Views\Home\ViewCalendario.cshtml" />
+    <Content Include="Views\Administrator\ViewAdminVideos.cshtml" />
+    <Content Include="Views\Home\ViewPortalVideos.cshtml" />
+    <Content Include="Views\Home\ViewDocentes.cshtml" />
+    <Content Include="Views\Home\ViewContactos.cshtml" />
+    <Content Include="Views\Home\ViewQuienSomos.cshtml" />
+    <Content Include="Views\Home\ViewPersonal.cshtml" />
+    <Content Include="Views\Home\ViewComoFunciona.cshtml" />
+    <Content Include="Views\Home\ViewServicios.cshtml" />
+    <Content Include="Views\Home\ViewOrganizacion.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\USAV-Solicitudes\USAV-Solicitudes.csproj">
+      <Project>{ae453729-bb2a-4f81-aad7-dfe21a8604a7}</Project>
+      <Name>USAV-Solicitudes</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54169</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44308/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
