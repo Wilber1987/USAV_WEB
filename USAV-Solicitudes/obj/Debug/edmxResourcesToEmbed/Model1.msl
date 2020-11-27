@@ -1,0 +1,525 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BDVideosUSAVModelStoreContainer" CdmEntityContainer="BDVideosUSAVEntitiesModelSolicitudes">
+    <EntitySetMapping Name="CatEdificios">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.CatEdificios">
+        <MappingFragment StoreEntitySet="CatEdificios">
+          <ScalarProperty Name="IdEdificio" ColumnName="IdEdificio" />
+          <ScalarProperty Name="DescEdificios" ColumnName="DescEdificios" />
+          <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatLocalidades">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.CatLocalidades">
+        <MappingFragment StoreEntitySet="CatLocalidades">
+          <ScalarProperty Name="IdLocalidad" ColumnName="IdLocalidad" />
+          <ScalarProperty Name="DescLocalidades" ColumnName="DescLocalidades" />
+          <ScalarProperty Name="IdEdificio" ColumnName="IdEdificio" />
+          <ScalarProperty Name="IdTipoBloque" ColumnName="IdTipoBloque" />
+          <ScalarProperty Name="IdConfigLaboral" ColumnName="IdConfigLaboral" />
+          <ScalarProperty Name="Pict" ColumnName="Pict" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatTipoBloques">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.CatTipoBloques">
+        <MappingFragment StoreEntitySet="CatTipoBloques">
+          <ScalarProperty Name="IdTipoBloque" ColumnName="IdTipoBloque" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="DuracionM" ColumnName="DuracionM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatTipoReserva">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.CatTipoReserva">
+        <MappingFragment StoreEntitySet="CatTipoReserva">
+          <ScalarProperty Name="IdTipoReserva" ColumnName="IdTipoReserva" />
+          <ScalarProperty Name="DescTipoReserva" ColumnName="DescTipoReserva" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblArticulos">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.TblArticulos">
+        <MappingFragment StoreEntitySet="TblArticulos">
+          <ScalarProperty Name="IdArticulo" ColumnName="IdArticulo" />
+          <ScalarProperty Name="TituloArticulo" ColumnName="TituloArticulo" />
+          <ScalarProperty Name="ContenidoArticulo" ColumnName="ContenidoArticulo" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="Publicado" ColumnName="Publicado" />
+          <ScalarProperty Name="Destacado" ColumnName="Destacado" />
+          <ScalarProperty Name="IdCatArticulo" ColumnName="IdCatArticulo" />
+          <ScalarProperty Name="FechaPublicacion" ColumnName="FechaPublicacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblAuditoria">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.TblAuditoria">
+        <MappingFragment StoreEntitySet="TblAuditoria">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ip" ColumnName="Ip" />
+          <ScalarProperty Name="Navegador" ColumnName="Navegador" />
+          <ScalarProperty Name="FechaVisita" ColumnName="FechaVisita" />
+          <ScalarProperty Name="RutaAcceso" ColumnName="RutaAcceso" />
+          <ScalarProperty Name="AccionRealizada" ColumnName="AccionRealizada" />
+          <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblBloqueCurso">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.TblBloqueCurso">
+        <MappingFragment StoreEntitySet="TblBloqueCurso">
+          <ScalarProperty Name="IdBloque" ColumnName="IdBloque" />
+          <ScalarProperty Name="NombreBloque" ColumnName="NombreBloque" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+          <ScalarProperty Name="OrdenPosicion" ColumnName="OrdenPosicion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblCalendario">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.TblCalendario">
+        <MappingFragment StoreEntitySet="TblCalendario">
+          <ScalarProperty Name="IdCalendario" ColumnName="IdCalendario" />
+          <ScalarProperty Name="DescCalendario" ColumnName="DescCalendario" />
+          <ScalarProperty Name="IdLocalidad" ColumnName="IdLocalidad" />
+          <ScalarProperty Name="FechaCalendario" ColumnName="FechaCalendario" />
+          <ScalarProperty Name="Hora" ColumnName="Hora" />
+          <ScalarProperty Name="Minuto" ColumnName="Minuto" />
+          <ScalarProperty Name="DuracionM" ColumnName="DuracionM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblCategoriaCurso">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.TblCategoriaCurso">
+        <MappingFragment StoreEntitySet="TblCategoriaCurso">
+          <ScalarProperty Name="IdCatCurso" ColumnName="IdCatCurso" />
+          <ScalarProperty Name="NombreCatCurso" ColumnName="NombreCatCurso" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblCategorias">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.TblCategorias">
+        <MappingFragment StoreEntitySet="TblCategorias">
+          <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+          <ScalarProperty Name="NombreCategoria" ColumnName="NombreCategoria" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblCategoriasArticulos">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.TblCategoriasArticulos">
+        <MappingFragment StoreEntitySet="TblCategoriasArticulos">
+          <ScalarProperty Name="IdCatArticulo" ColumnName="IdCatArticulo" />
+          <ScalarProperty Name="NombreCatArticulo" ColumnName="NombreCatArticulo" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblComentarios">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.TblComentarios">
+        <MappingFragment StoreEntitySet="TblComentarios">
+          <ScalarProperty Name="IdComentario" ColumnName="IdComentario" />
+          <ScalarProperty Name="Votacion" ColumnName="Votacion" />
+          <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+          <ScalarProperty Name="FechaComentario" ColumnName="FechaComentario" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="TipoComentario" ColumnName="TipoComentario" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="IdComentado" ColumnName="IdComentado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblConfiguraciones">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.TblConfiguraciones">
+        <MappingFragment StoreEntitySet="TblConfiguraciones">
+          <ScalarProperty Name="IdConf" ColumnName="IdConf" />
+          <ScalarProperty Name="RutaVideos" ColumnName="RutaVideos" />
+          <ScalarProperty Name="UserYoutube" ColumnName="UserYoutube" />
+          <ScalarProperty Name="PassYoutube" ColumnName="PassYoutube" />
+          <ScalarProperty Name="KeyDev" ColumnName="KeyDev" />
+          <ScalarProperty Name="IdUltimosVideo" ColumnName="IdUltimosVideo" />
+          <ScalarProperty Name="NombreApliacion" ColumnName="NombreApliacion" />
+          <ScalarProperty Name="IdArticuloServicios" ColumnName="IdArticuloServicios" />
+          <ScalarProperty Name="IdCatArticuloPrincipal" ColumnName="IdCatArticuloPrincipal" />
+          <ScalarProperty Name="IdCatArticuloAyuda" ColumnName="IdCatArticuloAyuda" />
+          <ScalarProperty Name="IdTipoVideoCurso" ColumnName="IdTipoVideoCurso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblConfiguracionLaboral">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.TblConfiguracionLaboral">
+        <MappingFragment StoreEntitySet="TblConfiguracionLaboral">
+          <ScalarProperty Name="IdConfigLababoral" ColumnName="IdConfigLababoral" />
+          <ScalarProperty Name="HorasLaborales" ColumnName="HorasLaborales" />
+          <ScalarProperty Name="DiaInicial" ColumnName="DiaInicial" />
+          <ScalarProperty Name="DiaFinal" ColumnName="DiaFinal" />
+          <ScalarProperty Name="DiasLaborales" ColumnName="DiasLaborales" />
+          <ScalarProperty Name="HorasAlmuerzo" ColumnName="HorasAlmuerzo" />
+          <ScalarProperty Name="HoraInicialLaboral" ColumnName="HoraInicialLaboral" />
+          <ScalarProperty Name="HoraFinalLaboral" ColumnName="HoraFinalLaboral" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblCreadorVideos">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.TblCreadorVideos">
+        <MappingFragment StoreEntitySet="TblCreadorVideos">
+          <ScalarProperty Name="IdCreadorVideo" ColumnName="IdCreadorVideo" />
+          <ScalarProperty Name="RutaImagenDocente" ColumnName="RutaImagenDocente" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
+          <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
+          <ScalarProperty Name="Informacion" ColumnName="Informacion" />
+          <ScalarProperty Name="Espcialidad" ColumnName="Espcialidad" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="IdVideo" ColumnName="IdVideo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblCurso">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.TblCurso">
+        <MappingFragment StoreEntitySet="TblCurso">
+          <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+          <ScalarProperty Name="NombreCurso" ColumnName="NombreCurso" />
+          <ScalarProperty Name="RutaImagenCurso" ColumnName="RutaImagenCurso" />
+          <ScalarProperty Name="DuracionCurso" ColumnName="DuracionCurso" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="IdCatCurso" ColumnName="IdCatCurso" />
+          <ScalarProperty Name="IdNivelCurso" ColumnName="IdNivelCurso" />
+          <ScalarProperty Name="PassCurso" ColumnName="PassCurso" />
+          <ScalarProperty Name="ResumenCurso" ColumnName="ResumenCurso" />
+          <ScalarProperty Name="Privado" ColumnName="Privado" />
+          <ScalarProperty Name="IdCreadorVideo" ColumnName="IdCreadorVideo" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="Finalizado" ColumnName="Finalizado" />
+          <ScalarProperty Name="NumVisitas" ColumnName="NumVisitas" />
+          <ScalarProperty Name="Bajar" ColumnName="Bajar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblMatriculadosCursos">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.TblMatriculadosCursos">
+        <MappingFragment StoreEntitySet="TblMatriculadosCursos">
+          <ScalarProperty Name="IdMatricula" ColumnName="IdMatricula" />
+          <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+          <ScalarProperty Name="Carnet" ColumnName="Carnet" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="FechaMatricula" ColumnName="FechaMatricula" />
+          <ScalarProperty Name="UltimoAcceso" ColumnName="UltimoAcceso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblNivelCurso">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.TblNivelCurso">
+        <MappingFragment StoreEntitySet="TblNivelCurso">
+          <ScalarProperty Name="IdNivelCurso" ColumnName="IdNivelCurso" />
+          <ScalarProperty Name="NivelCurso" ColumnName="NivelCurso" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblReservaLocalidad">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.TblReservaLocalidad">
+        <MappingFragment StoreEntitySet="TblReservaLocalidad">
+          <ScalarProperty Name="IdReserva" ColumnName="IdReserva" />
+          <ScalarProperty Name="IdCalendario" ColumnName="IdCalendario" />
+          <ScalarProperty Name="IdReservaLocalidad" ColumnName="IdReservaLocalidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblReservas">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.TblReservas">
+        <MappingFragment StoreEntitySet="TblReservas">
+          <ScalarProperty Name="IdReserva" ColumnName="IdReserva" />
+          <ScalarProperty Name="NombreInstitucion" ColumnName="NombreInstitucion" />
+          <ScalarProperty Name="NombreSolicitante" ColumnName="NombreSolicitante" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+          <ScalarProperty Name="e_mail" ColumnName="e-mail" />
+          <ScalarProperty Name="IdTipoReserva" ColumnName="IdTipoReserva" />
+          <ScalarProperty Name="DescReserva" ColumnName="DescReserva" />
+          <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
+          <ScalarProperty Name="HoraSolicitud" ColumnName="HoraSolicitud" />
+          <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+          <ScalarProperty Name="Confirmacion" ColumnName="Confirmacion" />
+          <ScalarProperty Name="NumeroIndividuos" ColumnName="NumeroIndividuos" />
+          <ScalarProperty Name="NumeroIndFemeninos" ColumnName="NumeroIndFemeninos" />
+          <ScalarProperty Name="IdCreadorVideo" ColumnName="IdCreadorVideo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblRolUsuario">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.TblRolUsuario">
+        <MappingFragment StoreEntitySet="TblRolUsuario">
+          <ScalarProperty Name="IdRolUsuario" ColumnName="IdRolUsuario" />
+          <ScalarProperty Name="NombreRol" ColumnName="NombreRol" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblSubCategorias">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.TblSubCategorias">
+        <MappingFragment StoreEntitySet="TblSubCategorias">
+          <ScalarProperty Name="IdSubCategoria" ColumnName="IdSubCategoria" />
+          <ScalarProperty Name="NombreSubcategoria" ColumnName="NombreSubcategoria" />
+          <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblTiposVideos">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.TblTiposVideos">
+        <MappingFragment StoreEntitySet="TblTiposVideos">
+          <ScalarProperty Name="IdTipoVideo" ColumnName="IdTipoVideo" />
+          <ScalarProperty Name="NombretipoVideo" ColumnName="NombretipoVideo" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblUsuario">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.TblUsuario">
+        <MappingFragment StoreEntitySet="TblUsuario">
+          <ScalarProperty Name="Carnet" ColumnName="Carnet" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="RutaFotoUsuario" ColumnName="RutaFotoUsuario" />
+          <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+          <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+          <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="CodigoSexo" ColumnName="CodigoSexo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
+          <ScalarProperty Name="Acercademi" ColumnName="Acercademi" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblVideos">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.TblVideos">
+        <MappingFragment StoreEntitySet="TblVideos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NombreVideo" ColumnName="NombreVideo" />
+          <ScalarProperty Name="DuracionVideo" ColumnName="DuracionVideo" />
+          <ScalarProperty Name="IdYoutube" ColumnName="IdYoutube" />
+          <ScalarProperty Name="IdTipoVideo" ColumnName="IdTipoVideo" />
+          <ScalarProperty Name="RutaVideo" ColumnName="RutaVideo" />
+          <ScalarProperty Name="NumVistas" ColumnName="NumVistas" />
+          <ScalarProperty Name="FechaSubida" ColumnName="FechaSubida" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="FormatoVideo" ColumnName="FormatoVideo" />
+          <ScalarProperty Name="PesoVideo" ColumnName="PesoVideo" />
+          <ScalarProperty Name="IdBloque" ColumnName="IdBloque" />
+          <ScalarProperty Name="PublicadoVideo" ColumnName="PublicadoVideo" />
+          <ScalarProperty Name="CodNombreVideo" ColumnName="CodNombreVideo" />
+          <ScalarProperty Name="Visible" ColumnName="Visible" />
+          <ScalarProperty Name="IdSubCategoria" ColumnName="IdSubCategoria" />
+          <ScalarProperty Name="Dimensiones" ColumnName="Dimensiones" />
+          <ScalarProperty Name="CategoriasYoutube" ColumnName="CategoriasYoutube" />
+          <ScalarProperty Name="PalabrasYoutube" ColumnName="PalabrasYoutube" />
+          <ScalarProperty Name="PrivacidadYoutubeVideo" ColumnName="PrivacidadYoutubeVideo" />
+          <ScalarProperty Name="IdCreadorVideo" ColumnName="IdCreadorVideo" />
+          <ScalarProperty Name="IsCurso" ColumnName="IsCurso" />
+          <ScalarProperty Name="IsVideoPrincipalCurso" ColumnName="IsVideoPrincipalCurso" />
+          <ScalarProperty Name="NumVideo" ColumnName="NumVideo" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblVisitas">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.TblVisitas">
+        <MappingFragment StoreEntitySet="TblVisitas">
+          <ScalarProperty Name="IdVisita" ColumnName="IdVisita" />
+          <ScalarProperty Name="FechaVisita" ColumnName="FechaVisita" />
+          <ScalarProperty Name="IpVisita" ColumnName="IpVisita" />
+          <ScalarProperty Name="Navegador" ColumnName="Navegador" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VIEW_ESTADISTICAS_TIPORESERVACION">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.VIEW_ESTADISTICAS_TIPORESERVACION">
+        <MappingFragment StoreEntitySet="VIEW_ESTADISTICAS_TIPORESERVACION">
+          <ScalarProperty Name="DuracionMT" ColumnName="DuracionMT" />
+          <ScalarProperty Name="DescReserva" ColumnName="DescReserva" />
+          <ScalarProperty Name="NombreInstitucion" ColumnName="NombreInstitucion" />
+          <ScalarProperty Name="NombreSolicitante" ColumnName="NombreSolicitante" />
+          <ScalarProperty Name="DescTipoReserva" ColumnName="DescTipoReserva" />
+          <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
+          <ScalarProperty Name="DescLocalidades" ColumnName="DescLocalidades" />
+          <ScalarProperty Name="IdReserva" ColumnName="IdReserva" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewReservasLoc">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.ViewReservasLoc">
+        <MappingFragment StoreEntitySet="ViewReservasLoc">
+          <ScalarProperty Name="IdCreadorVideo" ColumnName="IdCreadorVideo" />
+          <ScalarProperty Name="ConfirmacionText" ColumnName="ConfirmacionText" />
+          <ScalarProperty Name="DescEdificios" ColumnName="DescEdificios" />
+          <ScalarProperty Name="DescLocalidades" ColumnName="DescLocalidades" />
+          <ScalarProperty Name="NumeroIndFemeninos" ColumnName="NumeroIndFemeninos" />
+          <ScalarProperty Name="NumeroIndividuos" ColumnName="NumeroIndividuos" />
+          <ScalarProperty Name="Confirmacion" ColumnName="Confirmacion" />
+          <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+          <ScalarProperty Name="HoraSolicitud" ColumnName="HoraSolicitud" />
+          <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
+          <ScalarProperty Name="DescReserva" ColumnName="DescReserva" />
+          <ScalarProperty Name="IdTipoReserva" ColumnName="IdTipoReserva" />
+          <ScalarProperty Name="e_mail" ColumnName="e-mail" />
+          <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="NombreSolicitante" ColumnName="NombreSolicitante" />
+          <ScalarProperty Name="NombreInstitucion" ColumnName="NombreInstitucion" />
+          <ScalarProperty Name="IdReserva" ColumnName="IdReserva" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VistaCursosCreados">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.VistaCursosCreados">
+        <MappingFragment StoreEntitySet="VistaCursosCreados">
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="NombreCurso" ColumnName="NombreCurso" />
+          <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VistaLocalidadCalendario">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.VistaLocalidadCalendario">
+        <MappingFragment StoreEntitySet="VistaLocalidadCalendario">
+          <ScalarProperty Name="Confirmacion" ColumnName="Confirmacion" />
+          <ScalarProperty Name="IdLocalidad" ColumnName="IdLocalidad" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="FechaCal" ColumnName="FechaCal" />
+          <ScalarProperty Name="FechaCalendario" ColumnName="FechaCalendario" />
+          <ScalarProperty Name="IdCalendario" ColumnName="IdCalendario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VistaReporteVideos">
+      <EntityTypeMapping TypeName="BDVideosUSAVModel.VistaReporteVideos">
+        <MappingFragment StoreEntitySet="VistaReporteVideos">
+          <ScalarProperty Name="NombreDocente" ColumnName="NombreDocente" />
+          <ScalarProperty Name="NombreSubcategoria" ColumnName="NombreSubcategoria" />
+          <ScalarProperty Name="NombretipoVideo" ColumnName="NombretipoVideo" />
+          <ScalarProperty Name="FechaSubida" ColumnName="FechaSubida" />
+          <ScalarProperty Name="NombreVideo" ColumnName="NombreVideo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="BDVideosUSAVModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="BDVideosUSAVModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="BDVideosUSAVModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="BDVideosUSAVModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDVideosUSAVModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="BDVideosUSAVModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDVideosUSAVModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="BDVideosUSAVModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="BDVideosUSAVModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="usp_Crearcalendario" FunctionName="BDVideosUSAVModel.Store.usp_Crearcalendario" />
+    <FunctionImportMapping FunctionImportName="USP_CrearcalendarioMensual" FunctionName="BDVideosUSAVModel.Store.USP_CrearcalendarioMensual" />
+    <FunctionImportMapping FunctionImportName="USP_DetalleS" FunctionName="BDVideosUSAVModel.Store.USP_DetalleS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDVideosUSAVModel.USP_DetalleS_Result">
+          <ScalarProperty Name="DIA" ColumnName="DIA" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="HORA" ColumnName="HORA" />
+          <ScalarProperty Name="DuracionM" ColumnName="DuracionM" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_ESTADISTICAS_SERVICIOS" FunctionName="BDVideosUSAVModel.Store.USP_ESTADISTICAS_SERVICIOS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDVideosUSAVModel.USP_ESTADISTICAS_SERVICIOS_Result">
+          <ScalarProperty Name="IdReserva" ColumnName="IdReserva" />
+          <ScalarProperty Name="DescLocalidades" ColumnName="DescLocalidades" />
+          <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
+          <ScalarProperty Name="DescTipoReserva" ColumnName="DescTipoReserva" />
+          <ScalarProperty Name="IdReserva1" ColumnName="IdReserva1" />
+          <ScalarProperty Name="NombreSolicitante" ColumnName="NombreSolicitante" />
+          <ScalarProperty Name="NombreInstitucion" ColumnName="NombreInstitucion" />
+          <ScalarProperty Name="DescReserva" ColumnName="DescReserva" />
+          <ScalarProperty Name="DuracionMT" ColumnName="DuracionMT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_RE_RANGOFECHA" FunctionName="BDVideosUSAVModel.Store.USP_RE_RANGOFECHA">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDVideosUSAVModel.USP_RE_RANGOFECHA_Result">
+          <ScalarProperty Name="IdReserva" ColumnName="IdReserva" />
+          <ScalarProperty Name="DescLocalidades" ColumnName="DescLocalidades" />
+          <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
+          <ScalarProperty Name="DescTipoReserva" ColumnName="DescTipoReserva" />
+          <ScalarProperty Name="NombreSolicitante" ColumnName="NombreSolicitante" />
+          <ScalarProperty Name="NombreInstitucion" ColumnName="NombreInstitucion" />
+          <ScalarProperty Name="DescReserva" ColumnName="DescReserva" />
+          <ScalarProperty Name="DuracionMT" ColumnName="DuracionMT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspActualizaVideoPrincipal" FunctionName="BDVideosUSAVModel.Store.uspActualizaVideoPrincipal" />
+    <FunctionImportMapping FunctionImportName="uspMuestraEstudiantesMatriculados" FunctionName="BDVideosUSAVModel.Store.uspMuestraEstudiantesMatriculados">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDVideosUSAVModel.uspMuestraEstudiantesMatriculados_Result">
+          <ScalarProperty Name="IdMatricula" ColumnName="IdMatricula" />
+          <ScalarProperty Name="Carnet" ColumnName="Carnet" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+          <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+          <ScalarProperty Name="NombreCarrera" ColumnName="NombreCarrera" />
+          <ScalarProperty Name="FechaMatricula" ColumnName="FechaMatricula" />
+          <ScalarProperty Name="UltimoAcceso" ColumnName="UltimoAcceso" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspObtieneDuracionCurso" FunctionName="BDVideosUSAVModel.Store.uspObtieneDuracionCurso" />
+    <FunctionImportMapping FunctionImportName="uspReporteVideos" FunctionName="BDVideosUSAVModel.Store.uspReporteVideos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDVideosUSAVModel.uspReporteVideos_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NombreVideo" ColumnName="NombreVideo" />
+          <ScalarProperty Name="FechaSubida" ColumnName="FechaSubida" />
+          <ScalarProperty Name="NombretipoVideo" ColumnName="NombretipoVideo" />
+          <ScalarProperty Name="NombreSubcategoria" ColumnName="NombreSubcategoria" />
+          <ScalarProperty Name="NombreDocente" ColumnName="NombreDocente" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

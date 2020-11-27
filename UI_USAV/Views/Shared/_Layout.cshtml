@@ -1,22 +1,12 @@
 ﻿<!DOCTYPE html>
-@*<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-</head>
-</html>*@
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head lang="es" runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
-    @*<link href="./WDevCore/StyleModules/StyleModules.css" rel="stylesheet" />
-    <link href="./css/local.css" rel="stylesheet" />*@
     @Styles.Render("~/WDevCore/StyleModules/StyleModules.css")
     @Styles.Render("~/css/local.css")
+    @Styles.Render("~/css/AppStyle.css")
     @RenderSection("scripts", required: false)
 </head>
 <body>
@@ -29,7 +19,6 @@
         </header>
         <!-- Navigation -->
         <section id="EspacioMenu">
-
             <div id="menu">
                 <nav class="">
                     <ul class="RowMenu">
@@ -42,18 +31,15 @@
                 </nav>
             </div>
         </section>
-
         <main id="Main">
             @RenderBody()
-        </main>
-       
+        </main>       
         <footer class="" id="footer">
             <div class="col-xs-12">
                 <span>Copyright © 2020. FAREM-Carazo, Todos los derechos reservados.</span>
                 <p class="art-page-footer">
                     <span id="art-footnote-links">Elaborado por: Unidad de Desarrollo de Sistemas y Unidad de Medios Audiovisuales. Responsable:Wilber José Matus González, correo: wmatus@unan.edu.ni</span><br />
-
-                </p>
+                 </p>
             </div>
             <div class="LogosFooter">
                 <a target="_blank" href="#">

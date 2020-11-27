@@ -95,48 +95,28 @@
     }
 </script>
 <style type="text/css">
-    .AnimacionPrincipal {
-        color: #FFF;
-        font-size: 60px;
-    }
-    .h3{
-        display: block;
-        padding: 10px;
-        text-align: center;
-        background-color: #0094ff;
-        color: #fff;
-    }
-
-    .Linea {
-        border-bottom: 1px solid #efefef;
-        padding: 4px;
-    }
-    .row{
-        display: flex;
-        padding: 20px;
-    }
-    .row ul{
-        width: 100%;
-    }
-    .row li{
-        list-style: none;
-        margin: 5px;
-    }
 </style>
 <div id="divBanner"></div>
 <h3 class="h3">CONÓCENOS</h3>
-<div class="">
-    <div class="row">
-        <ul class="">
-            <li>
+<div class="row">
+    <div class="Images">
+        <img src="~/images/LOCALIDADES/DSC_0118.JPG" />
+        <img width="350" class="img-thumbnail" src="../images/USAV-CarazoB5.jpg" />
+        <img width="350" class="img-thumbnail" src="../images/USAV-CarazoB7.jpg" />
+        <img src="~/images/LOCALIDADES/DSC_0114.JPG" />
+        <img src="~/images/LOCALIDADES/DSC_0119.JPG" />
+        <img src="~/images/LOCALIDADES/DSC_0121.JPG" />
+    </div>
+    <div class="column" style="width: 40%">
+        @*<ul class="">
+
                 <h4 class="Subcolormenu"><strong><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp Organización</strong></h4>
-            </li>
-            <li><a class="decoration" href="../Home/ViewOrganizacion/#Horario"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>&nbsp Horario de Atención</a></li>
-            <li><a class="decoration" href="../Home/ViewOrganizacion/#Estructura"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>&nbsp Estructura y Organzación</a></li>
-            <li><a class="decoration" href="../Home/ViewOrganizacion/#SalaVC"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>&nbsp Sala de Video Conferencias</a></li>
-            <li><a class="decoration" href="../Home/ViewOrganizacion/#SalaG"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>&nbsp Sala de Grabación y Edición</a></li>
-        </ul>
-        <ul class="">
+                <li><a class="decoration" href="../Home/ViewOrganizacion/#Horario"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>&nbsp Horario de Atención</a></li>
+                <li><a class="decoration" href="../Home/ViewOrganizacion/#Estructura"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>&nbsp Estructura y Organzación</a></li>
+                <li><a class="decoration" href="../Home/ViewOrganizacion/#SalaVC"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>&nbsp Sala de Video Conferencias</a></li>
+                <li><a class="decoration" href="../Home/ViewOrganizacion/#SalaG"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>&nbsp Sala de Grabación y Edición</a></li>
+            </ul>*@
+        <ul class="rowChild">
             <li>
                 <h4 class="Subcolormenu"><strong><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp Sobre nosotros</strong></h4>
             </li>
@@ -144,19 +124,18 @@
             <li><a class="decoration" href="../Home/ViewComoFunciona"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>&nbsp¿Cómo funciona el portal?</a></li>
             <li><a class="decoration" href="../Home/ViewPersonal"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>&nbsp Nuestro personal</a></li>
         </ul>
-        <ul class="">
+        <ul class="rowChild">
             <li>
                 <h4 class="Subcolormenu"><strong><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp Servicios</strong></h4>
             </li>
             <li><a class="decoration" href="../Home/ViewServicios"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>&nbsp Nuestros Servicios</a></li>
-
         </ul>
-        <ul class="">
+        <ul class="rowChild">
             <li>
                 <h4 class="Subcolormenu"><strong><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp Normativas</strong></h4>
             </li>
-            <li><a class="decoration" href="../Home/ViewServicios/#Sala"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>&nbsp Sala Audiovisual</a></li>
-            <li><a class="decoration" href="../Home/ViewServicios/#Normativa"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>&nbsp Sala de Videoconferencias</a></li>
+            <li><a class="decoration" href="../Home/ViewServicios/#Sala"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>Sala Audiovisual</a></li>
+            <li><a class="decoration" href="../Home/ViewServicios/#Normativa"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>Normativa</a></li>
 
         </ul>
     </div>

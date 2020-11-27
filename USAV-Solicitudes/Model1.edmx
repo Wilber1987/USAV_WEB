@@ -1,0 +1,2260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BDVideosUSAVModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CatEdificios">
+          <Key>
+            <PropertyRef Name="IdEdificio" />
+          </Key>
+          <Property Name="IdEdificio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescEdificios" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ubicacion" Type="nvarchar" MaxLength="50" />
+          <Property Name="Photo" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CatLocalidades">
+          <Key>
+            <PropertyRef Name="IdLocalidad" />
+          </Key>
+          <Property Name="IdLocalidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescLocalidades" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdEdificio" Type="int" />
+          <Property Name="IdTipoBloque" Type="int" />
+          <Property Name="IdConfigLaboral" Type="int" />
+          <Property Name="Pict" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CatTipoBloques">
+          <Key>
+            <PropertyRef Name="IdTipoBloque" />
+          </Key>
+          <Property Name="IdTipoBloque" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
+          <Property Name="DuracionM" Type="int" />
+        </EntityType>
+        <EntityType Name="CatTipoReserva">
+          <Key>
+            <PropertyRef Name="IdTipoReserva" />
+          </Key>
+          <Property Name="IdTipoReserva" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescTipoReserva" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TblArticulos">
+          <Key>
+            <PropertyRef Name="IdArticulo" />
+          </Key>
+          <Property Name="IdArticulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TituloArticulo" Type="nvarchar" MaxLength="500" />
+          <Property Name="ContenidoArticulo" Type="varchar(max)" />
+          <Property Name="FechaCreacion" Type="datetime" />
+          <Property Name="Publicado" Type="bit" />
+          <Property Name="Destacado" Type="bit" />
+          <Property Name="IdCatArticulo" Type="int" />
+          <Property Name="FechaPublicacion" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TblAuditoria">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ip" Type="nvarchar" MaxLength="50" />
+          <Property Name="Navegador" Type="nvarchar" MaxLength="200" />
+          <Property Name="FechaVisita" Type="datetime" />
+          <Property Name="RutaAcceso" Type="nvarchar" MaxLength="600" />
+          <Property Name="AccionRealizada" Type="nvarchar" MaxLength="200" />
+          <Property Name="NombreUsuario" Type="nvarchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="TblBloqueCurso">
+          <Key>
+            <PropertyRef Name="IdBloque" />
+          </Key>
+          <Property Name="IdBloque" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreBloque" Type="nvarchar" MaxLength="150" />
+          <Property Name="Estado" Type="bit" />
+          <Property Name="IdCurso" Type="int" />
+          <Property Name="OrdenPosicion" Type="int" />
+        </EntityType>
+        <EntityType Name="TblCalendario">
+          <Key>
+            <PropertyRef Name="IdCalendario" />
+          </Key>
+          <Property Name="IdCalendario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescCalendario" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdLocalidad" Type="int" />
+          <Property Name="FechaCalendario" Type="datetime" />
+          <Property Name="Hora" Type="int" />
+          <Property Name="Minuto" Type="int" />
+          <Property Name="DuracionM" Type="int" />
+        </EntityType>
+        <EntityType Name="TblCategoriaCurso">
+          <Key>
+            <PropertyRef Name="IdCatCurso" />
+          </Key>
+          <Property Name="IdCatCurso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreCatCurso" Type="nvarchar" MaxLength="50" />
+          <Property Name="Estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblCategorias">
+          <Key>
+            <PropertyRef Name="IdCategoria" />
+          </Key>
+          <Property Name="IdCategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreCategoria" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblCategoriasArticulos">
+          <Key>
+            <PropertyRef Name="IdCatArticulo" />
+          </Key>
+          <Property Name="IdCatArticulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreCatArticulo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblComentarios">
+          <Key>
+            <PropertyRef Name="IdComentario" />
+          </Key>
+          <Property Name="IdComentario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Votacion" Type="int" />
+          <Property Name="Comentario" Type="nvarchar(max)" />
+          <Property Name="FechaComentario" Type="datetime" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="TipoComentario" Type="nvarchar" MaxLength="50" />
+          <Property Name="Estado" Type="bit" />
+          <Property Name="IdComentado" Type="int" />
+        </EntityType>
+        <EntityType Name="TblConfiguraciones">
+          <Key>
+            <PropertyRef Name="IdConf" />
+          </Key>
+          <Property Name="IdConf" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RutaVideos" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserYoutube" Type="nvarchar" MaxLength="50" />
+          <Property Name="PassYoutube" Type="nvarchar" MaxLength="50" />
+          <Property Name="KeyDev" Type="nvarchar" MaxLength="200" />
+          <Property Name="IdUltimosVideo" Type="int" />
+          <Property Name="NombreApliacion" Type="nvarchar" MaxLength="100" />
+          <Property Name="IdArticuloServicios" Type="int" />
+          <Property Name="IdCatArticuloPrincipal" Type="int" />
+          <Property Name="IdCatArticuloAyuda" Type="int" />
+          <Property Name="IdTipoVideoCurso" Type="int" />
+        </EntityType>
+        <EntityType Name="TblConfiguracionLaboral">
+          <Key>
+            <PropertyRef Name="IdConfigLababoral" />
+          </Key>
+          <Property Name="IdConfigLababoral" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HorasLaborales" Type="int" />
+          <Property Name="DiaInicial" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiaFinal" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiasLaborales" Type="int" />
+          <Property Name="HorasAlmuerzo" Type="varchar" MaxLength="50" />
+          <Property Name="HoraInicialLaboral" Type="varchar" MaxLength="50" />
+          <Property Name="HoraFinalLaboral" Type="varchar" MaxLength="50" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TblCreadorVideos">
+          <Key>
+            <PropertyRef Name="IdCreadorVideo" />
+          </Key>
+          <Property Name="IdCreadorVideo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RutaImagenDocente" Type="nvarchar(max)" />
+          <Property Name="Nombres" Type="nvarchar" MaxLength="60" />
+          <Property Name="Apellido1" Type="nvarchar" MaxLength="60" />
+          <Property Name="Apellido2" Type="nvarchar" MaxLength="60" />
+          <Property Name="Informacion" Type="nvarchar(max)" />
+          <Property Name="Espcialidad" Type="nvarchar" MaxLength="250" />
+          <Property Name="Estado" Type="bit" />
+          <Property Name="Sexo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cedula" Type="nvarchar" MaxLength="20" />
+          <Property Name="Usuario" Type="varchar" MaxLength="255" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="IdVideo" Type="int" />
+        </EntityType>
+        <EntityType Name="TblCurso">
+          <Key>
+            <PropertyRef Name="IdCurso" />
+          </Key>
+          <Property Name="IdCurso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreCurso" Type="nvarchar" MaxLength="200" />
+          <Property Name="RutaImagenCurso" Type="nvarchar" MaxLength="200" />
+          <Property Name="DuracionCurso" Type="time" Precision="7" />
+          <Property Name="FechaCreacion" Type="datetime" />
+          <Property Name="Estado" Type="bit" />
+          <Property Name="IdCatCurso" Type="int" />
+          <Property Name="IdNivelCurso" Type="int" />
+          <Property Name="PassCurso" Type="nvarchar" MaxLength="10" />
+          <Property Name="ResumenCurso" Type="nvarchar(max)" />
+          <Property Name="Privado" Type="bit" />
+          <Property Name="IdCreadorVideo" Type="int" />
+          <Property Name="FechaInicio" Type="datetime" />
+          <Property Name="Finalizado" Type="bit" />
+          <Property Name="NumVisitas" Type="int" />
+          <Property Name="Bajar" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblMatriculadosCursos">
+          <Key>
+            <PropertyRef Name="IdMatricula" />
+          </Key>
+          <Property Name="IdMatricula" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCurso" Type="int" />
+          <Property Name="Carnet" Type="nvarchar" MaxLength="20" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="FechaMatricula" Type="datetime" />
+          <Property Name="UltimoAcceso" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TblNivelCurso">
+          <Key>
+            <PropertyRef Name="IdNivelCurso" />
+          </Key>
+          <Property Name="IdNivelCurso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NivelCurso" Type="nvarchar" MaxLength="50" />
+          <Property Name="Estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblReservaLocalidad">
+          <Key>
+            <PropertyRef Name="IdReservaLocalidad" />
+          </Key>
+          <Property Name="IdReserva" Type="int" Nullable="false" />
+          <Property Name="IdCalendario" Type="int" Nullable="false" />
+          <Property Name="IdReservaLocalidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblReservas">
+          <Key>
+            <PropertyRef Name="IdReserva" />
+          </Key>
+          <Property Name="IdReserva" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreInstitucion" Type="nvarchar" MaxLength="50" />
+          <Property Name="NombreSolicitante" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cargo" Type="nvarchar" MaxLength="50" />
+          <Property Name="e-mail" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdTipoReserva" Type="int" />
+          <Property Name="DescReserva" Type="nvarchar(max)" />
+          <Property Name="FechaSolicitud" Type="date" />
+          <Property Name="HoraSolicitud" Type="int" />
+          <Property Name="Duracion" Type="int" />
+          <Property Name="Confirmacion" Type="bit" />
+          <Property Name="NumeroIndividuos" Type="int" />
+          <Property Name="NumeroIndFemeninos" Type="int" />
+          <Property Name="IdCreadorVideo" Type="int" />
+        </EntityType>
+        <EntityType Name="TblRolUsuario">
+          <Key>
+            <PropertyRef Name="IdRolUsuario" />
+          </Key>
+          <Property Name="IdRolUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreRol" Type="nvarchar" MaxLength="50" />
+          <Property Name="Estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblSubCategorias">
+          <Key>
+            <PropertyRef Name="IdSubCategoria" />
+          </Key>
+          <Property Name="IdSubCategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreSubcategoria" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdCategoria" Type="int" />
+          <Property Name="Estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblTiposVideos">
+          <Key>
+            <PropertyRef Name="IdTipoVideo" />
+          </Key>
+          <Property Name="IdTipoVideo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombretipoVideo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblUsuario">
+          <Key>
+            <PropertyRef Name="Carnet" />
+          </Key>
+          <Property Name="Carnet" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombres" Type="nvarchar" MaxLength="50" />
+          <Property Name="RutaFotoUsuario" Type="varchar(max)" />
+          <Property Name="ApellidoPaterno" Type="nvarchar" MaxLength="50" />
+          <Property Name="ApellidoMaterno" Type="nvarchar" MaxLength="50" />
+          <Property Name="NombreUsuario" Type="nvarchar" MaxLength="50" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="CodigoSexo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="FechaNac" Type="date" />
+          <Property Name="Acercademi" Type="varchar(max)" />
+          <Property Name="Ciudad" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="TblVideos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreVideo" Type="nvarchar(max)" />
+          <Property Name="DuracionVideo" Type="time" Precision="7" />
+          <Property Name="IdYoutube" Type="nvarchar" MaxLength="150" />
+          <Property Name="IdTipoVideo" Type="int" />
+          <Property Name="RutaVideo" Type="nvarchar" MaxLength="400" />
+          <Property Name="NumVistas" Type="int" />
+          <Property Name="FechaSubida" Type="datetime" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="Descripcion" Type="nvarchar(max)" />
+          <Property Name="FormatoVideo" Type="nvarchar" MaxLength="5" />
+          <Property Name="PesoVideo" Type="float" />
+          <Property Name="IdBloque" Type="int" />
+          <Property Name="PublicadoVideo" Type="bit" />
+          <Property Name="CodNombreVideo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Visible" Type="bit" />
+          <Property Name="IdSubCategoria" Type="int" />
+          <Property Name="Dimensiones" Type="nvarchar" MaxLength="20" />
+          <Property Name="CategoriasYoutube" Type="nvarchar" MaxLength="10" />
+          <Property Name="PalabrasYoutube" Type="nvarchar" MaxLength="200" />
+          <Property Name="PrivacidadYoutubeVideo" Type="bit" />
+          <Property Name="IdCreadorVideo" Type="int" />
+          <Property Name="IsCurso" Type="bit" />
+          <Property Name="IsVideoPrincipalCurso" Type="bit" />
+          <Property Name="NumVideo" Type="int" />
+          <Property Name="Photo" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TblVisitas">
+          <Key>
+            <PropertyRef Name="IdVisita" />
+          </Key>
+          <Property Name="IdVisita" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FechaVisita" Type="datetime" />
+          <Property Name="IpVisita" Type="nvarchar" MaxLength="50" />
+          <Property Name="Navegador" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDVideosUSAV.dbo.VIEW_ESTADISTICAS_TIPORESERVACION' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="VIEW_ESTADISTICAS_TIPORESERVACION">
+          <Key>
+            <PropertyRef Name="IdReserva" />
+          </Key>
+          <Property Name="IdReserva" Type="int" Nullable="false" />
+          <Property Name="DescLocalidades" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaSolicitud" Type="date" />
+          <Property Name="DescTipoReserva" Type="nvarchar" MaxLength="50" />
+          <Property Name="NombreSolicitante" Type="nvarchar" MaxLength="50" />
+          <Property Name="NombreInstitucion" Type="nvarchar" MaxLength="50" />
+          <Property Name="DescReserva" Type="nvarchar(max)" />
+          <Property Name="DuracionMT" Type="int" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDVideosUSAV.dbo.ViewReservasLoc' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="ViewReservasLoc">
+          <Key>
+            <PropertyRef Name="IdReserva" />
+          </Key>
+          <Property Name="IdReserva" Type="int" Nullable="false" />
+          <Property Name="NombreInstitucion" Type="nvarchar" MaxLength="50" />
+          <Property Name="NombreSolicitante" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cargo" Type="nvarchar" MaxLength="50" />
+          <Property Name="e-mail" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdTipoReserva" Type="int" />
+          <Property Name="DescReserva" Type="nvarchar(max)" />
+          <Property Name="FechaSolicitud" Type="date" />
+          <Property Name="HoraSolicitud" Type="int" />
+          <Property Name="Duracion" Type="int" />
+          <Property Name="Confirmacion" Type="bit" />
+          <Property Name="NumeroIndividuos" Type="int" />
+          <Property Name="NumeroIndFemeninos" Type="int" />
+          <Property Name="DescLocalidades" Type="nvarchar" MaxLength="50" />
+          <Property Name="DescEdificios" Type="nvarchar" MaxLength="50" />
+          <Property Name="ConfirmacionText" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdCreadorVideo" Type="int" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDVideosUSAV.dbo.VistaCursosCreados' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="VistaCursosCreados">
+          <Key>
+            <PropertyRef Name="IdCurso" />
+          </Key>
+          <Property Name="IdCurso" Type="int" Nullable="false" />
+          <Property Name="NombreCurso" Type="nvarchar" MaxLength="200" />
+          <Property Name="FechaCreacion" Type="datetime" />
+          <Property Name="Nombres" Type="nvarchar" MaxLength="182" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDVideosUSAV.dbo.VistaLocalidadCalendario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="VistaLocalidadCalendario">
+          <Key>
+            <PropertyRef Name="IdCalendario" />
+          </Key>
+          <Property Name="IdCalendario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FechaCalendario" Type="datetime" />
+          <Property Name="FechaCal" Type="nvarchar" MaxLength="50" />
+          <Property Name="hora" Type="nvarchar" MaxLength="101" />
+          <Property Name="IdLocalidad" Type="int" />
+          <Property Name="Confirmacion" Type="bit" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDVideosUSAV.dbo.VistaReporteVideos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="VistaReporteVideos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="NombreVideo" Type="nvarchar(max)" />
+          <Property Name="FechaSubida" Type="datetime" />
+          <Property Name="NombretipoVideo" Type="nvarchar" MaxLength="50" />
+          <Property Name="NombreSubcategoria" Type="nvarchar" MaxLength="50" />
+          <Property Name="NombreDocente" Type="nvarchar" MaxLength="121" />
+        </EntityType>
+        <Association Name="FK_CatLocalidades_CatEdificios">
+          <End Role="CatEdificios" Type="Self.CatEdificios" Multiplicity="0..1" />
+          <End Role="CatLocalidades" Type="Self.CatLocalidades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatEdificios">
+              <PropertyRef Name="IdEdificio" />
+            </Principal>
+            <Dependent Role="CatLocalidades">
+              <PropertyRef Name="IdEdificio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CatLocalidades_CatTipoBloques">
+          <End Role="CatTipoBloques" Type="Self.CatTipoBloques" Multiplicity="0..1" />
+          <End Role="CatLocalidades" Type="Self.CatLocalidades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatTipoBloques">
+              <PropertyRef Name="IdTipoBloque" />
+            </Principal>
+            <Dependent Role="CatLocalidades">
+              <PropertyRef Name="IdTipoBloque" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CatLocalidades_TblConfiguracionLaboral">
+          <End Role="TblConfiguracionLaboral" Type="Self.TblConfiguracionLaboral" Multiplicity="0..1" />
+          <End Role="CatLocalidades" Type="Self.CatLocalidades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblConfiguracionLaboral">
+              <PropertyRef Name="IdConfigLababoral" />
+            </Principal>
+            <Dependent Role="CatLocalidades">
+              <PropertyRef Name="IdConfigLaboral" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblArticulos_TblCategoriasArticulos">
+          <End Role="TblCategoriasArticulos" Type="Self.TblCategoriasArticulos" Multiplicity="0..1" />
+          <End Role="TblArticulos" Type="Self.TblArticulos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCategoriasArticulos">
+              <PropertyRef Name="IdCatArticulo" />
+            </Principal>
+            <Dependent Role="TblArticulos">
+              <PropertyRef Name="IdCatArticulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblBloque_TblCurso">
+          <End Role="TblCurso" Type="Self.TblCurso" Multiplicity="0..1" />
+          <End Role="TblBloqueCurso" Type="Self.TblBloqueCurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCurso">
+              <PropertyRef Name="IdCurso" />
+            </Principal>
+            <Dependent Role="TblBloqueCurso">
+              <PropertyRef Name="IdCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblCalendario_CatLocalidades">
+          <End Role="CatLocalidades" Type="Self.CatLocalidades" Multiplicity="0..1" />
+          <End Role="TblCalendario" Type="Self.TblCalendario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatLocalidades">
+              <PropertyRef Name="IdLocalidad" />
+            </Principal>
+            <Dependent Role="TblCalendario">
+              <PropertyRef Name="IdLocalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblCurso_TblCategoriaCurso">
+          <End Role="TblCategoriaCurso" Type="Self.TblCategoriaCurso" Multiplicity="0..1" />
+          <End Role="TblCurso" Type="Self.TblCurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCategoriaCurso">
+              <PropertyRef Name="IdCatCurso" />
+            </Principal>
+            <Dependent Role="TblCurso">
+              <PropertyRef Name="IdCatCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblCurso_TblNivelCurso">
+          <End Role="TblNivelCurso" Type="Self.TblNivelCurso" Multiplicity="0..1" />
+          <End Role="TblCurso" Type="Self.TblCurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblNivelCurso">
+              <PropertyRef Name="IdNivelCurso" />
+            </Principal>
+            <Dependent Role="TblCurso">
+              <PropertyRef Name="IdNivelCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblMatriculadosCursos_TblCurso1">
+          <End Role="TblCurso" Type="Self.TblCurso" Multiplicity="0..1" />
+          <End Role="TblMatriculadosCursos" Type="Self.TblMatriculadosCursos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCurso">
+              <PropertyRef Name="IdCurso" />
+            </Principal>
+            <Dependent Role="TblMatriculadosCursos">
+              <PropertyRef Name="IdCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblReservaLocalidad_TblCalendario">
+          <End Role="TblCalendario" Type="Self.TblCalendario" Multiplicity="1" />
+          <End Role="TblReservaLocalidad" Type="Self.TblReservaLocalidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCalendario">
+              <PropertyRef Name="IdCalendario" />
+            </Principal>
+            <Dependent Role="TblReservaLocalidad">
+              <PropertyRef Name="IdCalendario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblReservaLocalidad_TblReservas">
+          <End Role="TblReservas" Type="Self.TblReservas" Multiplicity="1" />
+          <End Role="TblReservaLocalidad" Type="Self.TblReservaLocalidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblReservas">
+              <PropertyRef Name="IdReserva" />
+            </Principal>
+            <Dependent Role="TblReservaLocalidad">
+              <PropertyRef Name="IdReserva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblReservas_CatTipoReserva">
+          <End Role="CatTipoReserva" Type="Self.CatTipoReserva" Multiplicity="0..1" />
+          <End Role="TblReservas" Type="Self.TblReservas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatTipoReserva">
+              <PropertyRef Name="IdTipoReserva" />
+            </Principal>
+            <Dependent Role="TblReservas">
+              <PropertyRef Name="IdTipoReserva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblReservas_TblCreadorVideos">
+          <End Role="TblCreadorVideos" Type="Self.TblCreadorVideos" Multiplicity="0..1" />
+          <End Role="TblReservas" Type="Self.TblReservas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCreadorVideos">
+              <PropertyRef Name="IdCreadorVideo" />
+            </Principal>
+            <Dependent Role="TblReservas">
+              <PropertyRef Name="IdCreadorVideo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblSubCategorias_TblCategorias1">
+          <End Role="TblCategorias" Type="Self.TblCategorias" Multiplicity="0..1" />
+          <End Role="TblSubCategorias" Type="Self.TblSubCategorias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCategorias">
+              <PropertyRef Name="IdCategoria" />
+            </Principal>
+            <Dependent Role="TblSubCategorias">
+              <PropertyRef Name="IdCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblVideos_TblBloque">
+          <End Role="TblBloqueCurso" Type="Self.TblBloqueCurso" Multiplicity="0..1" />
+          <End Role="TblVideos" Type="Self.TblVideos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblBloqueCurso">
+              <PropertyRef Name="IdBloque" />
+            </Principal>
+            <Dependent Role="TblVideos">
+              <PropertyRef Name="IdBloque" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblVideos_TblCreadorVideos">
+          <End Role="TblCreadorVideos" Type="Self.TblCreadorVideos" Multiplicity="0..1" />
+          <End Role="TblVideos" Type="Self.TblVideos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCreadorVideos">
+              <PropertyRef Name="IdCreadorVideo" />
+            </Principal>
+            <Dependent Role="TblVideos">
+              <PropertyRef Name="IdCreadorVideo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblVideos_TblSubCategorias">
+          <End Role="TblSubCategorias" Type="Self.TblSubCategorias" Multiplicity="0..1" />
+          <End Role="TblVideos" Type="Self.TblVideos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblSubCategorias">
+              <PropertyRef Name="IdSubCategoria" />
+            </Principal>
+            <Dependent Role="TblVideos">
+              <PropertyRef Name="IdSubCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblVideos_TblTiposVideos">
+          <End Role="TblTiposVideos" Type="Self.TblTiposVideos" Multiplicity="0..1" />
+          <End Role="TblVideos" Type="Self.TblVideos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblTiposVideos">
+              <PropertyRef Name="IdTipoVideo" />
+            </Principal>
+            <Dependent Role="TblVideos">
+              <PropertyRef Name="IdTipoVideo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_Crearcalendario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="USP_CrearcalendarioMensual" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="USP_DetalleS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_ESTADISTICAS_SERVICIOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="USP_RE_RANGOFECHA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fecha1" Type="datetime" Mode="In" />
+          <Parameter Name="fecha2" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="uspActualizaVideoPrincipal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodCurso" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspMuestraEstudiantesMatriculados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodCurso" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspObtieneDuracionCurso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdCurso" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspReporteVideos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="finicio" Type="datetime" Mode="In" />
+          <Parameter Name="fecahfin" Type="datetime" Mode="In" />
+        </Function>
+        <EntityContainer Name="BDVideosUSAVModelStoreContainer">
+          <EntitySet Name="CatEdificios" EntityType="Self.CatEdificios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatLocalidades" EntityType="Self.CatLocalidades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatTipoBloques" EntityType="Self.CatTipoBloques" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatTipoReserva" EntityType="Self.CatTipoReserva" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblArticulos" EntityType="Self.TblArticulos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblAuditoria" EntityType="Self.TblAuditoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblBloqueCurso" EntityType="Self.TblBloqueCurso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblCalendario" EntityType="Self.TblCalendario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblCategoriaCurso" EntityType="Self.TblCategoriaCurso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblCategorias" EntityType="Self.TblCategorias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblCategoriasArticulos" EntityType="Self.TblCategoriasArticulos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblComentarios" EntityType="Self.TblComentarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblConfiguraciones" EntityType="Self.TblConfiguraciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblConfiguracionLaboral" EntityType="Self.TblConfiguracionLaboral" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblCreadorVideos" EntityType="Self.TblCreadorVideos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblCurso" EntityType="Self.TblCurso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblMatriculadosCursos" EntityType="Self.TblMatriculadosCursos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblNivelCurso" EntityType="Self.TblNivelCurso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblReservaLocalidad" EntityType="Self.TblReservaLocalidad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblReservas" EntityType="Self.TblReservas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblRolUsuario" EntityType="Self.TblRolUsuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblSubCategorias" EntityType="Self.TblSubCategorias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblTiposVideos" EntityType="Self.TblTiposVideos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblUsuario" EntityType="Self.TblUsuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblVideos" EntityType="Self.TblVideos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblVisitas" EntityType="Self.TblVisitas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VIEW_ESTADISTICAS_TIPORESERVACION" EntityType="Self.VIEW_ESTADISTICAS_TIPORESERVACION" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VIEW_ESTADISTICAS_TIPORESERVACION].[IdReserva] AS [IdReserva], 
+    [VIEW_ESTADISTICAS_TIPORESERVACION].[DescLocalidades] AS [DescLocalidades], 
+    [VIEW_ESTADISTICAS_TIPORESERVACION].[FechaSolicitud] AS [FechaSolicitud], 
+    [VIEW_ESTADISTICAS_TIPORESERVACION].[DescTipoReserva] AS [DescTipoReserva], 
+    [VIEW_ESTADISTICAS_TIPORESERVACION].[NombreSolicitante] AS [NombreSolicitante], 
+    [VIEW_ESTADISTICAS_TIPORESERVACION].[NombreInstitucion] AS [NombreInstitucion], 
+    [VIEW_ESTADISTICAS_TIPORESERVACION].[DescReserva] AS [DescReserva], 
+    [VIEW_ESTADISTICAS_TIPORESERVACION].[DuracionMT] AS [DuracionMT]
+    FROM [dbo].[VIEW_ESTADISTICAS_TIPORESERVACION] AS [VIEW_ESTADISTICAS_TIPORESERVACION]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewReservasLoc" EntityType="Self.ViewReservasLoc" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ViewReservasLoc].[IdReserva] AS [IdReserva], 
+    [ViewReservasLoc].[NombreInstitucion] AS [NombreInstitucion], 
+    [ViewReservasLoc].[NombreSolicitante] AS [NombreSolicitante], 
+    [ViewReservasLoc].[Telefono] AS [Telefono], 
+    [ViewReservasLoc].[Cargo] AS [Cargo], 
+    [ViewReservasLoc].[e-mail] AS [e-mail], 
+    [ViewReservasLoc].[IdTipoReserva] AS [IdTipoReserva], 
+    [ViewReservasLoc].[DescReserva] AS [DescReserva], 
+    [ViewReservasLoc].[FechaSolicitud] AS [FechaSolicitud], 
+    [ViewReservasLoc].[HoraSolicitud] AS [HoraSolicitud], 
+    [ViewReservasLoc].[Duracion] AS [Duracion], 
+    [ViewReservasLoc].[Confirmacion] AS [Confirmacion], 
+    [ViewReservasLoc].[NumeroIndividuos] AS [NumeroIndividuos], 
+    [ViewReservasLoc].[NumeroIndFemeninos] AS [NumeroIndFemeninos], 
+    [ViewReservasLoc].[DescLocalidades] AS [DescLocalidades], 
+    [ViewReservasLoc].[DescEdificios] AS [DescEdificios], 
+    [ViewReservasLoc].[ConfirmacionText] AS [ConfirmacionText], 
+    [ViewReservasLoc].[IdCreadorVideo] AS [IdCreadorVideo]
+    FROM [dbo].[ViewReservasLoc] AS [ViewReservasLoc]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VistaCursosCreados" EntityType="Self.VistaCursosCreados" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VistaCursosCreados].[IdCurso] AS [IdCurso], 
+    [VistaCursosCreados].[NombreCurso] AS [NombreCurso], 
+    [VistaCursosCreados].[FechaCreacion] AS [FechaCreacion], 
+    [VistaCursosCreados].[Nombres] AS [Nombres]
+    FROM [dbo].[VistaCursosCreados] AS [VistaCursosCreados]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VistaLocalidadCalendario" EntityType="Self.VistaLocalidadCalendario" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VistaLocalidadCalendario].[IdCalendario] AS [IdCalendario], 
+    [VistaLocalidadCalendario].[FechaCalendario] AS [FechaCalendario], 
+    [VistaLocalidadCalendario].[FechaCal] AS [FechaCal], 
+    [VistaLocalidadCalendario].[hora] AS [hora], 
+    [VistaLocalidadCalendario].[IdLocalidad] AS [IdLocalidad], 
+    [VistaLocalidadCalendario].[Confirmacion] AS [Confirmacion]
+    FROM [dbo].[VistaLocalidadCalendario] AS [VistaLocalidadCalendario]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VistaReporteVideos" EntityType="Self.VistaReporteVideos" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VistaReporteVideos].[Id] AS [Id], 
+    [VistaReporteVideos].[NombreVideo] AS [NombreVideo], 
+    [VistaReporteVideos].[FechaSubida] AS [FechaSubida], 
+    [VistaReporteVideos].[NombretipoVideo] AS [NombretipoVideo], 
+    [VistaReporteVideos].[NombreSubcategoria] AS [NombreSubcategoria], 
+    [VistaReporteVideos].[NombreDocente] AS [NombreDocente]
+    FROM [dbo].[VistaReporteVideos] AS [VistaReporteVideos]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_CatLocalidades_CatEdificios" Association="Self.FK_CatLocalidades_CatEdificios">
+            <End Role="CatEdificios" EntitySet="CatEdificios" />
+            <End Role="CatLocalidades" EntitySet="CatLocalidades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CatLocalidades_CatTipoBloques" Association="Self.FK_CatLocalidades_CatTipoBloques">
+            <End Role="CatTipoBloques" EntitySet="CatTipoBloques" />
+            <End Role="CatLocalidades" EntitySet="CatLocalidades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CatLocalidades_TblConfiguracionLaboral" Association="Self.FK_CatLocalidades_TblConfiguracionLaboral">
+            <End Role="TblConfiguracionLaboral" EntitySet="TblConfiguracionLaboral" />
+            <End Role="CatLocalidades" EntitySet="CatLocalidades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblArticulos_TblCategoriasArticulos" Association="Self.FK_TblArticulos_TblCategoriasArticulos">
+            <End Role="TblCategoriasArticulos" EntitySet="TblCategoriasArticulos" />
+            <End Role="TblArticulos" EntitySet="TblArticulos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblBloque_TblCurso" Association="Self.FK_TblBloque_TblCurso">
+            <End Role="TblCurso" EntitySet="TblCurso" />
+            <End Role="TblBloqueCurso" EntitySet="TblBloqueCurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblCalendario_CatLocalidades" Association="Self.FK_TblCalendario_CatLocalidades">
+            <End Role="CatLocalidades" EntitySet="CatLocalidades" />
+            <End Role="TblCalendario" EntitySet="TblCalendario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblCurso_TblCategoriaCurso" Association="Self.FK_TblCurso_TblCategoriaCurso">
+            <End Role="TblCategoriaCurso" EntitySet="TblCategoriaCurso" />
+            <End Role="TblCurso" EntitySet="TblCurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblCurso_TblNivelCurso" Association="Self.FK_TblCurso_TblNivelCurso">
+            <End Role="TblNivelCurso" EntitySet="TblNivelCurso" />
+            <End Role="TblCurso" EntitySet="TblCurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblMatriculadosCursos_TblCurso1" Association="Self.FK_TblMatriculadosCursos_TblCurso1">
+            <End Role="TblCurso" EntitySet="TblCurso" />
+            <End Role="TblMatriculadosCursos" EntitySet="TblMatriculadosCursos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblReservaLocalidad_TblCalendario" Association="Self.FK_TblReservaLocalidad_TblCalendario">
+            <End Role="TblCalendario" EntitySet="TblCalendario" />
+            <End Role="TblReservaLocalidad" EntitySet="TblReservaLocalidad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblReservaLocalidad_TblReservas" Association="Self.FK_TblReservaLocalidad_TblReservas">
+            <End Role="TblReservas" EntitySet="TblReservas" />
+            <End Role="TblReservaLocalidad" EntitySet="TblReservaLocalidad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblReservas_CatTipoReserva" Association="Self.FK_TblReservas_CatTipoReserva">
+            <End Role="CatTipoReserva" EntitySet="CatTipoReserva" />
+            <End Role="TblReservas" EntitySet="TblReservas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblReservas_TblCreadorVideos" Association="Self.FK_TblReservas_TblCreadorVideos">
+            <End Role="TblCreadorVideos" EntitySet="TblCreadorVideos" />
+            <End Role="TblReservas" EntitySet="TblReservas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblSubCategorias_TblCategorias1" Association="Self.FK_TblSubCategorias_TblCategorias1">
+            <End Role="TblCategorias" EntitySet="TblCategorias" />
+            <End Role="TblSubCategorias" EntitySet="TblSubCategorias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblVideos_TblBloque" Association="Self.FK_TblVideos_TblBloque">
+            <End Role="TblBloqueCurso" EntitySet="TblBloqueCurso" />
+            <End Role="TblVideos" EntitySet="TblVideos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblVideos_TblCreadorVideos" Association="Self.FK_TblVideos_TblCreadorVideos">
+            <End Role="TblCreadorVideos" EntitySet="TblCreadorVideos" />
+            <End Role="TblVideos" EntitySet="TblVideos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblVideos_TblSubCategorias" Association="Self.FK_TblVideos_TblSubCategorias">
+            <End Role="TblSubCategorias" EntitySet="TblSubCategorias" />
+            <End Role="TblVideos" EntitySet="TblVideos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblVideos_TblTiposVideos" Association="Self.FK_TblVideos_TblTiposVideos">
+            <End Role="TblTiposVideos" EntitySet="TblTiposVideos" />
+            <End Role="TblVideos" EntitySet="TblVideos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BDVideosUSAVModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CatEdificios">
+          <Key>
+            <PropertyRef Name="IdEdificio" />
+          </Key>
+          <Property Name="IdEdificio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescEdificios" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ubicacion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CatLocalidades" Relationship="Self.FK_CatLocalidades_CatEdificios" FromRole="CatEdificios" ToRole="CatLocalidades" />
+        </EntityType>
+        <EntityType Name="CatLocalidades">
+          <Key>
+            <PropertyRef Name="IdLocalidad" />
+          </Key>
+          <Property Name="IdLocalidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescLocalidades" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdEdificio" Type="Int32" />
+          <Property Name="IdTipoBloque" Type="Int32" />
+          <Property Name="IdConfigLaboral" Type="Int32" />
+          <Property Name="Pict" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CatEdificios" Relationship="Self.FK_CatLocalidades_CatEdificios" FromRole="CatLocalidades" ToRole="CatEdificios" />
+          <NavigationProperty Name="CatTipoBloques" Relationship="Self.FK_CatLocalidades_CatTipoBloques" FromRole="CatLocalidades" ToRole="CatTipoBloques" />
+          <NavigationProperty Name="TblConfiguracionLaboral" Relationship="Self.FK_CatLocalidades_TblConfiguracionLaboral" FromRole="CatLocalidades" ToRole="TblConfiguracionLaboral" />
+          <NavigationProperty Name="TblCalendario" Relationship="Self.FK_TblCalendario_CatLocalidades" FromRole="CatLocalidades" ToRole="TblCalendario" />
+        </EntityType>
+        <EntityType Name="CatTipoBloques">
+          <Key>
+            <PropertyRef Name="IdTipoBloque" />
+          </Key>
+          <Property Name="IdTipoBloque" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DuracionM" Type="Int32" />
+          <NavigationProperty Name="CatLocalidades" Relationship="Self.FK_CatLocalidades_CatTipoBloques" FromRole="CatTipoBloques" ToRole="CatLocalidades" />
+        </EntityType>
+        <EntityType Name="CatTipoReserva">
+          <Key>
+            <PropertyRef Name="IdTipoReserva" />
+          </Key>
+          <Property Name="IdTipoReserva" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescTipoReserva" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TblReservas" Relationship="Self.FK_TblReservas_CatTipoReserva" FromRole="CatTipoReserva" ToRole="TblReservas" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TblArticulos">
+          <Key>
+            <PropertyRef Name="IdArticulo" />
+          </Key>
+          <Property Name="IdArticulo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TituloArticulo" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ContenidoArticulo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+          <Property Name="Publicado" Type="Boolean" />
+          <Property Name="Destacado" Type="Boolean" />
+          <Property Name="IdCatArticulo" Type="Int32" />
+          <Property Name="FechaPublicacion" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TblCategoriasArticulos" Relationship="Self.FK_TblArticulos_TblCategoriasArticulos" FromRole="TblArticulos" ToRole="TblCategoriasArticulos" />
+        </EntityType>
+        <EntityType Name="TblAuditoria">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Navegador" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="FechaVisita" Type="DateTime" Precision="3" />
+          <Property Name="RutaAcceso" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+          <Property Name="AccionRealizada" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="NombreUsuario" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TblBloqueCurso">
+          <Key>
+            <PropertyRef Name="IdBloque" />
+          </Key>
+          <Property Name="IdBloque" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreBloque" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="Boolean" />
+          <Property Name="IdCurso" Type="Int32" />
+          <Property Name="OrdenPosicion" Type="Int32" />
+          <NavigationProperty Name="TblCurso" Relationship="Self.FK_TblBloque_TblCurso" FromRole="TblBloqueCurso" ToRole="TblCurso" />
+          <NavigationProperty Name="TblVideos" Relationship="Self.FK_TblVideos_TblBloque" FromRole="TblBloqueCurso" ToRole="TblVideos" />
+        </EntityType>
+        <EntityType Name="TblCalendario">
+          <Key>
+            <PropertyRef Name="IdCalendario" />
+          </Key>
+          <Property Name="IdCalendario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescCalendario" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdLocalidad" Type="Int32" />
+          <Property Name="FechaCalendario" Type="DateTime" Precision="3" />
+          <Property Name="Hora" Type="Int32" />
+          <Property Name="Minuto" Type="Int32" />
+          <Property Name="DuracionM" Type="Int32" />
+          <NavigationProperty Name="CatLocalidades" Relationship="Self.FK_TblCalendario_CatLocalidades" FromRole="TblCalendario" ToRole="CatLocalidades" />
+          <NavigationProperty Name="TblReservaLocalidad" Relationship="Self.FK_TblReservaLocalidad_TblCalendario" FromRole="TblCalendario" ToRole="TblReservaLocalidad" />
+        </EntityType>
+        <EntityType Name="TblCategoriaCurso">
+          <Key>
+            <PropertyRef Name="IdCatCurso" />
+          </Key>
+          <Property Name="IdCatCurso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreCatCurso" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="Boolean" />
+          <NavigationProperty Name="TblCurso" Relationship="Self.FK_TblCurso_TblCategoriaCurso" FromRole="TblCategoriaCurso" ToRole="TblCurso" />
+        </EntityType>
+        <EntityType Name="TblCategorias">
+          <Key>
+            <PropertyRef Name="IdCategoria" />
+          </Key>
+          <Property Name="IdCategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreCategoria" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Estado" Type="Boolean" />
+          <NavigationProperty Name="TblSubCategorias" Relationship="Self.FK_TblSubCategorias_TblCategorias1" FromRole="TblCategorias" ToRole="TblSubCategorias" />
+        </EntityType>
+        <EntityType Name="TblCategoriasArticulos">
+          <Key>
+            <PropertyRef Name="IdCatArticulo" />
+          </Key>
+          <Property Name="IdCatArticulo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreCatArticulo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="Boolean" />
+          <NavigationProperty Name="TblArticulos" Relationship="Self.FK_TblArticulos_TblCategoriasArticulos" FromRole="TblCategoriasArticulos" ToRole="TblArticulos" />
+        </EntityType>
+        <EntityType Name="TblComentarios">
+          <Key>
+            <PropertyRef Name="IdComentario" />
+          </Key>
+          <Property Name="IdComentario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Votacion" Type="Int32" />
+          <Property Name="Comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FechaComentario" Type="DateTime" Precision="3" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TipoComentario" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="Boolean" />
+          <Property Name="IdComentado" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TblConfiguraciones">
+          <Key>
+            <PropertyRef Name="IdConf" />
+          </Key>
+          <Property Name="IdConf" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RutaVideos" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserYoutube" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PassYoutube" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KeyDev" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IdUltimosVideo" Type="Int32" />
+          <Property Name="NombreApliacion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IdArticuloServicios" Type="Int32" />
+          <Property Name="IdCatArticuloPrincipal" Type="Int32" />
+          <Property Name="IdCatArticuloAyuda" Type="Int32" />
+          <Property Name="IdTipoVideoCurso" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TblConfiguracionLaboral">
+          <Key>
+            <PropertyRef Name="IdConfigLababoral" />
+          </Key>
+          <Property Name="IdConfigLababoral" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HorasLaborales" Type="Int32" />
+          <Property Name="DiaInicial" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiaFinal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiasLaborales" Type="Int32" />
+          <Property Name="HorasAlmuerzo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HoraInicialLaboral" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HoraFinalLaboral" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CatLocalidades" Relationship="Self.FK_CatLocalidades_TblConfiguracionLaboral" FromRole="TblConfiguracionLaboral" ToRole="CatLocalidades" />
+        </EntityType>
+        <EntityType Name="TblCreadorVideos">
+          <Key>
+            <PropertyRef Name="IdCreadorVideo" />
+          </Key>
+          <Property Name="IdCreadorVideo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RutaImagenDocente" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Nombres" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Apellido1" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Apellido2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Informacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Espcialidad" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="Boolean" />
+          <Property Name="Sexo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cedula" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Usuario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IdVideo" Type="Int32" />
+          <NavigationProperty Name="TblReservas" Relationship="Self.FK_TblReservas_TblCreadorVideos" FromRole="TblCreadorVideos" ToRole="TblReservas" />
+          <NavigationProperty Name="TblVideos" Relationship="Self.FK_TblVideos_TblCreadorVideos" FromRole="TblCreadorVideos" ToRole="TblVideos" />
+        </EntityType>
+        <EntityType Name="TblCurso">
+          <Key>
+            <PropertyRef Name="IdCurso" />
+          </Key>
+          <Property Name="IdCurso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreCurso" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="RutaImagenCurso" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DuracionCurso" Type="Time" Precision="7" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+          <Property Name="Estado" Type="Boolean" />
+          <Property Name="IdCatCurso" Type="Int32" />
+          <Property Name="IdNivelCurso" Type="Int32" />
+          <Property Name="PassCurso" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ResumenCurso" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Privado" Type="Boolean" />
+          <Property Name="IdCreadorVideo" Type="Int32" />
+          <Property Name="FechaInicio" Type="DateTime" Precision="3" />
+          <Property Name="Finalizado" Type="Boolean" />
+          <Property Name="NumVisitas" Type="Int32" />
+          <Property Name="Bajar" Type="Boolean" />
+          <NavigationProperty Name="TblBloqueCurso" Relationship="Self.FK_TblBloque_TblCurso" FromRole="TblCurso" ToRole="TblBloqueCurso" />
+          <NavigationProperty Name="TblCategoriaCurso" Relationship="Self.FK_TblCurso_TblCategoriaCurso" FromRole="TblCurso" ToRole="TblCategoriaCurso" />
+          <NavigationProperty Name="TblNivelCurso" Relationship="Self.FK_TblCurso_TblNivelCurso" FromRole="TblCurso" ToRole="TblNivelCurso" />
+          <NavigationProperty Name="TblMatriculadosCursos" Relationship="Self.FK_TblMatriculadosCursos_TblCurso1" FromRole="TblCurso" ToRole="TblMatriculadosCursos" />
+        </EntityType>
+        <EntityType Name="TblMatriculadosCursos">
+          <Key>
+            <PropertyRef Name="IdMatricula" />
+          </Key>
+          <Property Name="IdMatricula" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCurso" Type="Int32" />
+          <Property Name="Carnet" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="FechaMatricula" Type="DateTime" Precision="3" />
+          <Property Name="UltimoAcceso" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TblCurso" Relationship="Self.FK_TblMatriculadosCursos_TblCurso1" FromRole="TblMatriculadosCursos" ToRole="TblCurso" />
+        </EntityType>
+        <EntityType Name="TblNivelCurso">
+          <Key>
+            <PropertyRef Name="IdNivelCurso" />
+          </Key>
+          <Property Name="IdNivelCurso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NivelCurso" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="Boolean" />
+          <NavigationProperty Name="TblCurso" Relationship="Self.FK_TblCurso_TblNivelCurso" FromRole="TblNivelCurso" ToRole="TblCurso" />
+        </EntityType>
+        <EntityType Name="TblReservaLocalidad">
+          <Key>
+            <PropertyRef Name="IdReservaLocalidad" />
+          </Key>
+          <Property Name="IdReserva" Type="Int32" Nullable="false" />
+          <Property Name="IdCalendario" Type="Int32" Nullable="false" />
+          <Property Name="IdReservaLocalidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="TblCalendario" Relationship="Self.FK_TblReservaLocalidad_TblCalendario" FromRole="TblReservaLocalidad" ToRole="TblCalendario" />
+          <NavigationProperty Name="TblReservas" Relationship="Self.FK_TblReservaLocalidad_TblReservas" FromRole="TblReservaLocalidad" ToRole="TblReservas" />
+        </EntityType>
+        <EntityType Name="TblReservas">
+          <Key>
+            <PropertyRef Name="IdReserva" />
+          </Key>
+          <Property Name="IdReserva" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreInstitucion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NombreSolicitante" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cargo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="e_mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdTipoReserva" Type="Int32" />
+          <Property Name="DescReserva" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FechaSolicitud" Type="DateTime" Precision="0" />
+          <Property Name="HoraSolicitud" Type="Int32" />
+          <Property Name="Duracion" Type="Int32" />
+          <Property Name="Confirmacion" Type="Boolean" />
+          <Property Name="NumeroIndividuos" Type="Int32" />
+          <Property Name="NumeroIndFemeninos" Type="Int32" />
+          <Property Name="IdCreadorVideo" Type="Int32" />
+          <NavigationProperty Name="CatTipoReserva" Relationship="Self.FK_TblReservas_CatTipoReserva" FromRole="TblReservas" ToRole="CatTipoReserva" />
+          <NavigationProperty Name="TblCreadorVideos" Relationship="Self.FK_TblReservas_TblCreadorVideos" FromRole="TblReservas" ToRole="TblCreadorVideos" />
+          <NavigationProperty Name="TblReservaLocalidad" Relationship="Self.FK_TblReservaLocalidad_TblReservas" FromRole="TblReservas" ToRole="TblReservaLocalidad" />
+        </EntityType>
+        <EntityType Name="TblRolUsuario">
+          <Key>
+            <PropertyRef Name="IdRolUsuario" />
+          </Key>
+          <Property Name="IdRolUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreRol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TblSubCategorias">
+          <Key>
+            <PropertyRef Name="IdSubCategoria" />
+          </Key>
+          <Property Name="IdSubCategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreSubcategoria" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdCategoria" Type="Int32" />
+          <Property Name="Estado" Type="Boolean" />
+          <NavigationProperty Name="TblCategorias" Relationship="Self.FK_TblSubCategorias_TblCategorias1" FromRole="TblSubCategorias" ToRole="TblCategorias" />
+          <NavigationProperty Name="TblVideos" Relationship="Self.FK_TblVideos_TblSubCategorias" FromRole="TblSubCategorias" ToRole="TblVideos" />
+        </EntityType>
+        <EntityType Name="TblTiposVideos">
+          <Key>
+            <PropertyRef Name="IdTipoVideo" />
+          </Key>
+          <Property Name="IdTipoVideo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombretipoVideo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="Boolean" />
+          <NavigationProperty Name="TblVideos" Relationship="Self.FK_TblVideos_TblTiposVideos" FromRole="TblTiposVideos" ToRole="TblVideos" />
+        </EntityType>
+        <EntityType Name="TblUsuario">
+          <Key>
+            <PropertyRef Name="Carnet" />
+          </Key>
+          <Property Name="Carnet" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RutaFotoUsuario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ApellidoPaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ApellidoMaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NombreUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="CodigoSexo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FechaNac" Type="DateTime" Precision="0" />
+          <Property Name="Acercademi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ciudad" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TblVideos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreVideo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DuracionVideo" Type="Time" Precision="7" />
+          <Property Name="IdYoutube" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="IdTipoVideo" Type="Int32" />
+          <Property Name="RutaVideo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="NumVistas" Type="Int32" />
+          <Property Name="FechaSubida" Type="DateTime" Precision="3" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FormatoVideo" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="PesoVideo" Type="Double" />
+          <Property Name="IdBloque" Type="Int32" />
+          <Property Name="PublicadoVideo" Type="Boolean" />
+          <Property Name="CodNombreVideo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Visible" Type="Boolean" />
+          <Property Name="IdSubCategoria" Type="Int32" />
+          <Property Name="Dimensiones" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CategoriasYoutube" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PalabrasYoutube" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PrivacidadYoutubeVideo" Type="Boolean" />
+          <Property Name="IdCreadorVideo" Type="Int32" />
+          <Property Name="IsCurso" Type="Boolean" />
+          <Property Name="IsVideoPrincipalCurso" Type="Boolean" />
+          <Property Name="NumVideo" Type="Int32" />
+          <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TblBloqueCurso" Relationship="Self.FK_TblVideos_TblBloque" FromRole="TblVideos" ToRole="TblBloqueCurso" />
+          <NavigationProperty Name="TblCreadorVideos" Relationship="Self.FK_TblVideos_TblCreadorVideos" FromRole="TblVideos" ToRole="TblCreadorVideos" />
+          <NavigationProperty Name="TblSubCategorias" Relationship="Self.FK_TblVideos_TblSubCategorias" FromRole="TblVideos" ToRole="TblSubCategorias" />
+          <NavigationProperty Name="TblTiposVideos" Relationship="Self.FK_TblVideos_TblTiposVideos" FromRole="TblVideos" ToRole="TblTiposVideos" />
+        </EntityType>
+        <EntityType Name="TblVisitas">
+          <Key>
+            <PropertyRef Name="IdVisita" />
+          </Key>
+          <Property Name="IdVisita" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaVisita" Type="DateTime" Precision="3" />
+          <Property Name="IpVisita" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Navegador" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_CatLocalidades_CatEdificios">
+          <End Role="CatEdificios" Type="Self.CatEdificios" Multiplicity="0..1" />
+          <End Role="CatLocalidades" Type="Self.CatLocalidades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatEdificios">
+              <PropertyRef Name="IdEdificio" />
+            </Principal>
+            <Dependent Role="CatLocalidades">
+              <PropertyRef Name="IdEdificio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CatLocalidades_CatTipoBloques">
+          <End Role="CatTipoBloques" Type="Self.CatTipoBloques" Multiplicity="0..1" />
+          <End Role="CatLocalidades" Type="Self.CatLocalidades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatTipoBloques">
+              <PropertyRef Name="IdTipoBloque" />
+            </Principal>
+            <Dependent Role="CatLocalidades">
+              <PropertyRef Name="IdTipoBloque" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CatLocalidades_TblConfiguracionLaboral">
+          <End Role="TblConfiguracionLaboral" Type="Self.TblConfiguracionLaboral" Multiplicity="0..1" />
+          <End Role="CatLocalidades" Type="Self.CatLocalidades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblConfiguracionLaboral">
+              <PropertyRef Name="IdConfigLababoral" />
+            </Principal>
+            <Dependent Role="CatLocalidades">
+              <PropertyRef Name="IdConfigLaboral" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblCalendario_CatLocalidades">
+          <End Role="CatLocalidades" Type="Self.CatLocalidades" Multiplicity="0..1" />
+          <End Role="TblCalendario" Type="Self.TblCalendario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatLocalidades">
+              <PropertyRef Name="IdLocalidad" />
+            </Principal>
+            <Dependent Role="TblCalendario">
+              <PropertyRef Name="IdLocalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblReservas_CatTipoReserva">
+          <End Role="CatTipoReserva" Type="Self.CatTipoReserva" Multiplicity="0..1" />
+          <End Role="TblReservas" Type="Self.TblReservas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatTipoReserva">
+              <PropertyRef Name="IdTipoReserva" />
+            </Principal>
+            <Dependent Role="TblReservas">
+              <PropertyRef Name="IdTipoReserva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblArticulos_TblCategoriasArticulos">
+          <End Role="TblCategoriasArticulos" Type="Self.TblCategoriasArticulos" Multiplicity="0..1" />
+          <End Role="TblArticulos" Type="Self.TblArticulos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCategoriasArticulos">
+              <PropertyRef Name="IdCatArticulo" />
+            </Principal>
+            <Dependent Role="TblArticulos">
+              <PropertyRef Name="IdCatArticulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblBloque_TblCurso">
+          <End Role="TblCurso" Type="Self.TblCurso" Multiplicity="0..1" />
+          <End Role="TblBloqueCurso" Type="Self.TblBloqueCurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCurso">
+              <PropertyRef Name="IdCurso" />
+            </Principal>
+            <Dependent Role="TblBloqueCurso">
+              <PropertyRef Name="IdCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblVideos_TblBloque">
+          <End Role="TblBloqueCurso" Type="Self.TblBloqueCurso" Multiplicity="0..1" />
+          <End Role="TblVideos" Type="Self.TblVideos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblBloqueCurso">
+              <PropertyRef Name="IdBloque" />
+            </Principal>
+            <Dependent Role="TblVideos">
+              <PropertyRef Name="IdBloque" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblReservaLocalidad_TblCalendario">
+          <End Role="TblCalendario" Type="Self.TblCalendario" Multiplicity="1" />
+          <End Role="TblReservaLocalidad" Type="Self.TblReservaLocalidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCalendario">
+              <PropertyRef Name="IdCalendario" />
+            </Principal>
+            <Dependent Role="TblReservaLocalidad">
+              <PropertyRef Name="IdCalendario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblCurso_TblCategoriaCurso">
+          <End Role="TblCategoriaCurso" Type="Self.TblCategoriaCurso" Multiplicity="0..1" />
+          <End Role="TblCurso" Type="Self.TblCurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCategoriaCurso">
+              <PropertyRef Name="IdCatCurso" />
+            </Principal>
+            <Dependent Role="TblCurso">
+              <PropertyRef Name="IdCatCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblSubCategorias_TblCategorias1">
+          <End Role="TblCategorias" Type="Self.TblCategorias" Multiplicity="0..1" />
+          <End Role="TblSubCategorias" Type="Self.TblSubCategorias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCategorias">
+              <PropertyRef Name="IdCategoria" />
+            </Principal>
+            <Dependent Role="TblSubCategorias">
+              <PropertyRef Name="IdCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblReservas_TblCreadorVideos">
+          <End Role="TblCreadorVideos" Type="Self.TblCreadorVideos" Multiplicity="0..1" />
+          <End Role="TblReservas" Type="Self.TblReservas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCreadorVideos">
+              <PropertyRef Name="IdCreadorVideo" />
+            </Principal>
+            <Dependent Role="TblReservas">
+              <PropertyRef Name="IdCreadorVideo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblVideos_TblCreadorVideos">
+          <End Role="TblCreadorVideos" Type="Self.TblCreadorVideos" Multiplicity="0..1" />
+          <End Role="TblVideos" Type="Self.TblVideos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCreadorVideos">
+              <PropertyRef Name="IdCreadorVideo" />
+            </Principal>
+            <Dependent Role="TblVideos">
+              <PropertyRef Name="IdCreadorVideo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblCurso_TblNivelCurso">
+          <End Role="TblNivelCurso" Type="Self.TblNivelCurso" Multiplicity="0..1" />
+          <End Role="TblCurso" Type="Self.TblCurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblNivelCurso">
+              <PropertyRef Name="IdNivelCurso" />
+            </Principal>
+            <Dependent Role="TblCurso">
+              <PropertyRef Name="IdNivelCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblMatriculadosCursos_TblCurso1">
+          <End Role="TblCurso" Type="Self.TblCurso" Multiplicity="0..1" />
+          <End Role="TblMatriculadosCursos" Type="Self.TblMatriculadosCursos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCurso">
+              <PropertyRef Name="IdCurso" />
+            </Principal>
+            <Dependent Role="TblMatriculadosCursos">
+              <PropertyRef Name="IdCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblReservaLocalidad_TblReservas">
+          <End Role="TblReservas" Type="Self.TblReservas" Multiplicity="1" />
+          <End Role="TblReservaLocalidad" Type="Self.TblReservaLocalidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblReservas">
+              <PropertyRef Name="IdReserva" />
+            </Principal>
+            <Dependent Role="TblReservaLocalidad">
+              <PropertyRef Name="IdReserva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblVideos_TblSubCategorias">
+          <End Role="TblSubCategorias" Type="Self.TblSubCategorias" Multiplicity="0..1" />
+          <End Role="TblVideos" Type="Self.TblVideos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblSubCategorias">
+              <PropertyRef Name="IdSubCategoria" />
+            </Principal>
+            <Dependent Role="TblVideos">
+              <PropertyRef Name="IdSubCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblVideos_TblTiposVideos">
+          <End Role="TblTiposVideos" Type="Self.TblTiposVideos" Multiplicity="0..1" />
+          <End Role="TblVideos" Type="Self.TblVideos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblTiposVideos">
+              <PropertyRef Name="IdTipoVideo" />
+            </Principal>
+            <Dependent Role="TblVideos">
+              <PropertyRef Name="IdTipoVideo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BDVideosUSAVEntitiesModelSolicitudes" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CatEdificios" EntityType="Self.CatEdificios" />
+          <EntitySet Name="CatLocalidades" EntityType="Self.CatLocalidades" />
+          <EntitySet Name="CatTipoBloques" EntityType="Self.CatTipoBloques" />
+          <EntitySet Name="CatTipoReserva" EntityType="Self.CatTipoReserva" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TblArticulos" EntityType="Self.TblArticulos" />
+          <EntitySet Name="TblAuditoria" EntityType="Self.TblAuditoria" />
+          <EntitySet Name="TblBloqueCurso" EntityType="Self.TblBloqueCurso" />
+          <EntitySet Name="TblCalendario" EntityType="Self.TblCalendario" />
+          <EntitySet Name="TblCategoriaCurso" EntityType="Self.TblCategoriaCurso" />
+          <EntitySet Name="TblCategorias" EntityType="Self.TblCategorias" />
+          <EntitySet Name="TblCategoriasArticulos" EntityType="Self.TblCategoriasArticulos" />
+          <EntitySet Name="TblComentarios" EntityType="Self.TblComentarios" />
+          <EntitySet Name="TblConfiguraciones" EntityType="Self.TblConfiguraciones" />
+          <EntitySet Name="TblConfiguracionLaboral" EntityType="Self.TblConfiguracionLaboral" />
+          <EntitySet Name="TblCreadorVideos" EntityType="Self.TblCreadorVideos" />
+          <EntitySet Name="TblCurso" EntityType="Self.TblCurso" />
+          <EntitySet Name="TblMatriculadosCursos" EntityType="Self.TblMatriculadosCursos" />
+          <EntitySet Name="TblNivelCurso" EntityType="Self.TblNivelCurso" />
+          <EntitySet Name="TblReservaLocalidad" EntityType="Self.TblReservaLocalidad" />
+          <EntitySet Name="TblReservas" EntityType="Self.TblReservas" />
+          <EntitySet Name="TblRolUsuario" EntityType="Self.TblRolUsuario" />
+          <EntitySet Name="TblSubCategorias" EntityType="Self.TblSubCategorias" />
+          <EntitySet Name="TblTiposVideos" EntityType="Self.TblTiposVideos" />
+          <EntitySet Name="TblUsuario" EntityType="Self.TblUsuario" />
+          <EntitySet Name="TblVideos" EntityType="Self.TblVideos" />
+          <EntitySet Name="TblVisitas" EntityType="Self.TblVisitas" />
+          <AssociationSet Name="FK_CatLocalidades_CatEdificios" Association="Self.FK_CatLocalidades_CatEdificios">
+            <End Role="CatEdificios" EntitySet="CatEdificios" />
+            <End Role="CatLocalidades" EntitySet="CatLocalidades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CatLocalidades_CatTipoBloques" Association="Self.FK_CatLocalidades_CatTipoBloques">
+            <End Role="CatTipoBloques" EntitySet="CatTipoBloques" />
+            <End Role="CatLocalidades" EntitySet="CatLocalidades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CatLocalidades_TblConfiguracionLaboral" Association="Self.FK_CatLocalidades_TblConfiguracionLaboral">
+            <End Role="TblConfiguracionLaboral" EntitySet="TblConfiguracionLaboral" />
+            <End Role="CatLocalidades" EntitySet="CatLocalidades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblCalendario_CatLocalidades" Association="Self.FK_TblCalendario_CatLocalidades">
+            <End Role="CatLocalidades" EntitySet="CatLocalidades" />
+            <End Role="TblCalendario" EntitySet="TblCalendario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblReservas_CatTipoReserva" Association="Self.FK_TblReservas_CatTipoReserva">
+            <End Role="CatTipoReserva" EntitySet="CatTipoReserva" />
+            <End Role="TblReservas" EntitySet="TblReservas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblArticulos_TblCategoriasArticulos" Association="Self.FK_TblArticulos_TblCategoriasArticulos">
+            <End Role="TblCategoriasArticulos" EntitySet="TblCategoriasArticulos" />
+            <End Role="TblArticulos" EntitySet="TblArticulos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblBloque_TblCurso" Association="Self.FK_TblBloque_TblCurso">
+            <End Role="TblCurso" EntitySet="TblCurso" />
+            <End Role="TblBloqueCurso" EntitySet="TblBloqueCurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblVideos_TblBloque" Association="Self.FK_TblVideos_TblBloque">
+            <End Role="TblBloqueCurso" EntitySet="TblBloqueCurso" />
+            <End Role="TblVideos" EntitySet="TblVideos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblReservaLocalidad_TblCalendario" Association="Self.FK_TblReservaLocalidad_TblCalendario">
+            <End Role="TblCalendario" EntitySet="TblCalendario" />
+            <End Role="TblReservaLocalidad" EntitySet="TblReservaLocalidad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblCurso_TblCategoriaCurso" Association="Self.FK_TblCurso_TblCategoriaCurso">
+            <End Role="TblCategoriaCurso" EntitySet="TblCategoriaCurso" />
+            <End Role="TblCurso" EntitySet="TblCurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblSubCategorias_TblCategorias1" Association="Self.FK_TblSubCategorias_TblCategorias1">
+            <End Role="TblCategorias" EntitySet="TblCategorias" />
+            <End Role="TblSubCategorias" EntitySet="TblSubCategorias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblReservas_TblCreadorVideos" Association="Self.FK_TblReservas_TblCreadorVideos">
+            <End Role="TblCreadorVideos" EntitySet="TblCreadorVideos" />
+            <End Role="TblReservas" EntitySet="TblReservas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblVideos_TblCreadorVideos" Association="Self.FK_TblVideos_TblCreadorVideos">
+            <End Role="TblCreadorVideos" EntitySet="TblCreadorVideos" />
+            <End Role="TblVideos" EntitySet="TblVideos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblCurso_TblNivelCurso" Association="Self.FK_TblCurso_TblNivelCurso">
+            <End Role="TblNivelCurso" EntitySet="TblNivelCurso" />
+            <End Role="TblCurso" EntitySet="TblCurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblMatriculadosCursos_TblCurso1" Association="Self.FK_TblMatriculadosCursos_TblCurso1">
+            <End Role="TblCurso" EntitySet="TblCurso" />
+            <End Role="TblMatriculadosCursos" EntitySet="TblMatriculadosCursos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblReservaLocalidad_TblReservas" Association="Self.FK_TblReservaLocalidad_TblReservas">
+            <End Role="TblReservas" EntitySet="TblReservas" />
+            <End Role="TblReservaLocalidad" EntitySet="TblReservaLocalidad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblVideos_TblSubCategorias" Association="Self.FK_TblVideos_TblSubCategorias">
+            <End Role="TblSubCategorias" EntitySet="TblSubCategorias" />
+            <End Role="TblVideos" EntitySet="TblVideos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblVideos_TblTiposVideos" Association="Self.FK_TblVideos_TblTiposVideos">
+            <End Role="TblTiposVideos" EntitySet="TblTiposVideos" />
+            <End Role="TblVideos" EntitySet="TblVideos" />
+          </AssociationSet>
+          <EntitySet Name="VIEW_ESTADISTICAS_TIPORESERVACION" EntityType="BDVideosUSAVModel.VIEW_ESTADISTICAS_TIPORESERVACION" />
+          <EntitySet Name="ViewReservasLoc" EntityType="BDVideosUSAVModel.ViewReservasLoc" />
+          <EntitySet Name="VistaCursosCreados" EntityType="BDVideosUSAVModel.VistaCursosCreados" />
+          <EntitySet Name="VistaLocalidadCalendario" EntityType="BDVideosUSAVModel.VistaLocalidadCalendario" />
+          <EntitySet Name="VistaReporteVideos" EntityType="BDVideosUSAVModel.VistaReporteVideos" />
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(BDVideosUSAVModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(BDVideosUSAVModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="usp_Crearcalendario" ReturnType="Collection(String)" />
+          <FunctionImport Name="USP_CrearcalendarioMensual" ReturnType="Collection(String)" />
+          <FunctionImport Name="USP_DetalleS" ReturnType="Collection(BDVideosUSAVModel.USP_DetalleS_Result)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_ESTADISTICAS_SERVICIOS" ReturnType="Collection(BDVideosUSAVModel.USP_ESTADISTICAS_SERVICIOS_Result)" />
+          <FunctionImport Name="USP_RE_RANGOFECHA" ReturnType="Collection(BDVideosUSAVModel.USP_RE_RANGOFECHA_Result)">
+            <Parameter Name="fecha1" Mode="In" Type="DateTime" />
+            <Parameter Name="fecha2" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="uspActualizaVideoPrincipal">
+            <Parameter Name="CodCurso" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspMuestraEstudiantesMatriculados" ReturnType="Collection(BDVideosUSAVModel.uspMuestraEstudiantesMatriculados_Result)">
+            <Parameter Name="CodCurso" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspObtieneDuracionCurso" ReturnType="Collection(Time)">
+            <Parameter Name="IdCurso" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspReporteVideos" ReturnType="Collection(BDVideosUSAVModel.uspReporteVideos_Result)">
+            <Parameter Name="finicio" Mode="In" Type="DateTime" />
+            <Parameter Name="fecahfin" Mode="In" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="VIEW_ESTADISTICAS_TIPORESERVACION">
+          <Key>
+            <PropertyRef Name="IdReserva" />
+          </Key>
+          <Property Name="IdReserva" Type="Int32" Nullable="false" />
+          <Property Name="DescLocalidades" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FechaSolicitud" Type="DateTime" Precision="0" />
+          <Property Name="DescTipoReserva" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NombreSolicitante" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NombreInstitucion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DescReserva" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DuracionMT" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ViewReservasLoc">
+          <Key>
+            <PropertyRef Name="IdReserva" />
+          </Key>
+          <Property Name="IdReserva" Type="Int32" Nullable="false" />
+          <Property Name="NombreInstitucion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NombreSolicitante" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cargo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="e_mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdTipoReserva" Type="Int32" />
+          <Property Name="DescReserva" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FechaSolicitud" Type="DateTime" Precision="0" />
+          <Property Name="HoraSolicitud" Type="Int32" />
+          <Property Name="Duracion" Type="Int32" />
+          <Property Name="Confirmacion" Type="Boolean" />
+          <Property Name="NumeroIndividuos" Type="Int32" />
+          <Property Name="NumeroIndFemeninos" Type="Int32" />
+          <Property Name="DescLocalidades" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DescEdificios" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ConfirmacionText" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdCreadorVideo" Type="Int32" />
+        </EntityType>
+        <EntityType Name="VistaCursosCreados">
+          <Key>
+            <PropertyRef Name="IdCurso" />
+          </Key>
+          <Property Name="IdCurso" Type="Int32" Nullable="false" />
+          <Property Name="NombreCurso" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+          <Property Name="Nombres" Type="String" MaxLength="182" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VistaLocalidadCalendario">
+          <Key>
+            <PropertyRef Name="IdCalendario" />
+          </Key>
+          <Property Name="IdCalendario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaCalendario" Type="DateTime" Precision="3" />
+          <Property Name="FechaCal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hora" Type="String" MaxLength="101" FixedLength="false" Unicode="true" />
+          <Property Name="IdLocalidad" Type="Int32" />
+          <Property Name="Confirmacion" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="VistaReporteVideos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="NombreVideo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FechaSubida" Type="DateTime" Precision="3" />
+          <Property Name="NombretipoVideo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NombreSubcategoria" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NombreDocente" Type="String" MaxLength="121" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="USP_DetalleS_Result">
+          <Property Type="String" Name="DIA" Nullable="true" MaxLength="9" />
+          <Property Type="String" Name="Fecha" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="HORA" Nullable="true" MaxLength="101" />
+          <Property Type="Int32" Name="DuracionM" Nullable="true" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="7" />
+        </ComplexType>
+        <ComplexType Name="USP_ESTADISTICAS_SERVICIOS_Result">
+          <Property Type="Int32" Name="IdReserva" Nullable="false" />
+          <Property Type="String" Name="DescLocalidades" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="FechaSolicitud" Nullable="true" />
+          <Property Type="String" Name="DescTipoReserva" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="IdReserva1" Nullable="false" />
+          <Property Type="String" Name="NombreSolicitante" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NombreInstitucion" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DescReserva" Nullable="true" />
+          <Property Type="Int32" Name="DuracionMT" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="USP_RE_RANGOFECHA_Result">
+          <Property Type="Int32" Name="IdReserva" Nullable="false" />
+          <Property Type="String" Name="DescLocalidades" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="FechaSolicitud" Nullable="true" />
+          <Property Type="String" Name="DescTipoReserva" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NombreSolicitante" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NombreInstitucion" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DescReserva" Nullable="true" />
+          <Property Type="Int32" Name="DuracionMT" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="uspMuestraEstudiantesMatriculados_Result">
+          <Property Type="Int32" Name="IdMatricula" Nullable="false" />
+          <Property Type="String" Name="Carnet" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Nombres" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ApellidoPaterno" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ApellidoMaterno" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NombreCarrera" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="FechaMatricula" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="UltimoAcceso" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="uspReporteVideos_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="NombreVideo" Nullable="true" />
+          <Property Type="DateTime" Name="FechaSubida" Nullable="true" Precision="23" />
+          <Property Type="String" Name="NombretipoVideo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NombreSubcategoria" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NombreDocente" Nullable="true" MaxLength="121" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BDVideosUSAVModelStoreContainer" CdmEntityContainer="BDVideosUSAVEntitiesModelSolicitudes">
+          <EntitySetMapping Name="CatEdificios">
+            <EntityTypeMapping TypeName="BDVideosUSAVModel.CatEdificios">
+              <MappingFragment StoreEntitySet="CatEdificios">
+                <ScalarProperty Name="IdEdificio" ColumnName="IdEdificio" />
+                <ScalarProperty Name="DescEdificios" ColumnName="DescEdificios" />
+                <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatLocalidades">
+            <EntityTypeMapping TypeName="BDVideosUSAVModel.CatLocalidades">
+              <MappingFragment StoreEntitySet="CatLocalidades">
+                <ScalarProperty Name="IdLocalidad" ColumnName="IdLocalidad" />
+                <ScalarProperty Name="DescLocalidades" ColumnName="DescLocalidades" />
+                <ScalarProperty Name="IdEdificio" ColumnName="IdEdificio" />
+                <ScalarProperty Name="IdTipoBloque" ColumnName="IdTipoBloque" />
+                <ScalarProperty Name="IdConfigLaboral" ColumnName="IdConfigLaboral" />
+                <ScalarProperty Name="Pict" ColumnName="Pict" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatTipoBloques">
+            <EntityTypeMapping TypeName="BDVideosUSAVModel.CatTipoBloques">
+              <MappingFragment StoreEntitySet="CatTipoBloques">
+                <ScalarProperty Name="IdTipoBloque" ColumnName="IdTipoBloque" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="DuracionM" ColumnName="DuracionM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatTipoReserva">
+            <EntityTypeMapping TypeName="BDVideosUSAVModel.CatTipoReserva">
+              <MappingFragment StoreEntitySet="CatTipoReserva">
+                <ScalarProperty Name="IdTipoReserva" ColumnName="IdTipoReserva" />
+                <ScalarProperty Name="DescTipoReserva" ColumnName="DescTipoReserva" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="BDVideosUSAVModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblArticulos">
+            <EntityTypeMapping TypeName="BDVideosUSAVModel.TblArticulos">
+              <MappingFragment StoreEntitySet="TblArticulos">
+                <ScalarProperty Name="IdArticulo" ColumnName="IdArticulo" />
+                <ScalarProperty Name="TituloArticulo" ColumnName="TituloArticulo" />
+                <ScalarProperty Name="ContenidoArticulo" ColumnName="ContenidoArticulo" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="Publicado" ColumnName="Publicado" />
+                <ScalarProperty Name="Destacado" ColumnName="Destacado" />
+                <ScalarProperty Name="IdCatArticulo" ColumnName="IdCatArticulo" />
+                <ScalarProperty Name="FechaPublicacion" ColumnName="FechaPublicacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblAuditoria">
+            <EntityTypeMapping TypeName="BDVideosUSAVModel.TblAuditoria">
+              <MappingFragment StoreEntitySet="TblAuditoria">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Ip" ColumnName="Ip" />
+                <ScalarProperty Name="Navegador" ColumnName="Navegador" />
+                <ScalarProperty Name="FechaVisita" ColumnName="FechaVisita" />
+                <ScalarProperty Name="RutaAcceso" ColumnName="RutaAcceso" />
+                <ScalarProperty Name="AccionRealizada" ColumnName="AccionRealizada" />
+                <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblBloqueCurso">
+            <EntityTypeMapping TypeName="BDVideosUSAVModel.TblBloqueCurso">
+              <MappingFragment StoreEntitySet="TblBloqueCurso">
+                <ScalarProperty Name="IdBloque" ColumnName="IdBloque" />
+                <ScalarProperty Name="NombreBloque" ColumnName="NombreBloque" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+                <ScalarProperty Name="OrdenPosicion" ColumnName="OrdenPosicion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblCalendario">
+            <EntityTypeMapping TypeName="BDVideosUSAVModel.TblCalendario">
+              <MappingFragment StoreEntitySet="TblCalendario">
+                <ScalarProperty Name="IdCalendario" ColumnName="IdCalendario" />
+                <ScalarProperty Name="DescCalendario" ColumnName="DescCalendario" />
+                <ScalarProperty Name="IdLocalidad" ColumnName="IdLocalidad" />
+                <ScalarProperty Name="FechaCalendario" ColumnName="FechaCalendario" />
+                <ScalarProperty Name="Hora" ColumnName="Hora" />
+                <ScalarProperty Name="Minuto" ColumnName="Minuto" />
+                <ScalarProperty Name="DuracionM" ColumnName="DuracionM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblCategoriaCurso">
+            <EntityTypeMapping TypeName="BDVideosUSAVModel.TblCategoriaCurso">
+              <MappingFragment StoreEntitySet="TblCategoriaCurso">
+                <ScalarProperty Name="IdCatCurso" ColumnName="IdCatCurso" />
+                <ScalarProperty Name="NombreCatCurso" ColumnName="NombreCatCurso" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblCategorias">
+            <EntityTypeMapping TypeName="BDVideosUSAVModel.TblCategorias">
+              <MappingFragment StoreEntitySet="TblCategorias">
+                <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+                <ScalarProperty Name="NombreCategoria" ColumnName="NombreCategoria" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblCategoriasArticulos">
+            <EntityTypeMapping TypeName="BDVideosUSAVModel.TblCategoriasArticulos">
+              <MappingFragment StoreEntitySet="TblCategoriasArticulos">
+                <ScalarProperty Name="IdCatArticulo" ColumnName="IdCatArticulo" />
+                <ScalarProperty Name="NombreCatArticulo" ColumnName="NombreCatArticulo" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblComentarios">
+            <EntityTypeMapping TypeName="BDVideosUSAVModel.TblComentarios">
+              <MappingFragment StoreEntitySet="TblComentarios">
+                <ScalarProperty Name="IdComentario" ColumnName="IdComentario" />
+                <ScalarProperty Name="Votacion" ColumnName="Votacion" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="FechaComentario" ColumnName="FechaComentario" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="TipoComentario" ColumnName="TipoComentario" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdComentado" ColumnName="IdComentado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblConfiguraciones">
+            <EntityTypeMapping TypeName="BDVideosUSAVModel.TblConfiguraciones">
+              <MappingFragment StoreEntitySet="TblConfiguraciones">
+                <ScalarProperty Name="IdConf" ColumnName="IdConf" />
+                <ScalarProperty Name="RutaVideos" ColumnName="RutaVideos" />
+                <ScalarProperty Name="UserYoutube" ColumnName="UserYoutube" />
+                <ScalarProperty Name="PassYoutube" ColumnName="PassYoutube" />
+                <ScalarProperty Name="KeyDev" ColumnName="KeyDev" />
+                <ScalarProperty Name="IdUltimosVideo" ColumnName="IdUltimosVideo" />
+                <ScalarProperty Name="NombreApliacion" ColumnName="NombreApliacion" />
+                <ScalarProperty Name="IdArticuloServicios" ColumnName="IdArticuloServicios" />
+                <ScalarProperty Name="IdCatArticuloPrincipal" ColumnName="IdCatArticuloPrincipal" />
+                <ScalarProperty Name="IdCatArticuloAyuda" ColumnName="IdCatArticuloAyuda" />
+                <ScalarProperty Name="IdTipoVideoCurso" ColumnName="IdTipoVideoCurso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblConfiguracionLaboral">
+            <EntityTypeMapping TypeName="BDVideosUSAVModel.TblConfiguracionLaboral">
+              <MappingFragment StoreEntitySet="TblConfiguracionLaboral">
+                <ScalarProperty Name="IdConfigLababoral" ColumnName="IdConfigLababoral" />
+                <ScalarProperty Name="HorasLaborales" ColumnName="HorasLaborales" />
+                <ScalarProperty Name="DiaInicial" ColumnName="DiaInicial" />
+                <ScalarProperty Name="DiaFinal" ColumnName="DiaFinal" />
+                <ScalarProperty Name="DiasLaborales" ColumnName="DiasLaborales" />
+                <ScalarProperty Name="HorasAlmuerzo" ColumnName="HorasAlmuerzo" />
+                <ScalarProperty Name="HoraInicialLaboral" ColumnName="HoraInicialLaboral" />
+                <ScalarProperty Name="HoraFinalLaboral" ColumnName="HoraFinalLaboral" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblCreadorVideos">
+            <EntityTypeMapping TypeName="BDVideosUSAVModel.TblCreadorVideos">
+              <MappingFragment StoreEntitySet="TblCreadorVideos">
+                <ScalarProperty Name="IdCreadorVideo" ColumnName="IdCreadorVideo" />
+                <ScalarProperty Name="RutaImagenDocente" ColumnName="RutaImagenDocente" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
+                <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
+                <ScalarProperty Name="Informacion" ColumnName="Informacion" />
+                <ScalarProperty Name="Espcialidad" ColumnName="Espcialidad" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="IdVideo" ColumnName="IdVideo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblCurso">
+            <EntityTypeMapping TypeName="BDVideosUSAVModel.TblCurso">
+              <MappingFragment StoreEntitySet="TblCurso">
+                <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+                <ScalarProperty Name="NombreCurso" ColumnName="NombreCurso" />
+                <ScalarProperty Name="RutaImagenCurso" ColumnName="RutaImagenCurso" />
+                <ScalarProperty Name="DuracionCurso" ColumnName="DuracionCurso" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdCatCurso" ColumnName="IdCatCurso" />
+                <ScalarProperty Name="IdNivelCurso" ColumnName="IdNivelCurso" />
+                <ScalarProperty Name="PassCurso" ColumnName="PassCurso" />
+                <ScalarProperty Name="ResumenCurso" ColumnName="ResumenCurso" />
+                <ScalarProperty Name="Privado" ColumnName="Privado" />
+                <ScalarProperty Name="IdCreadorVideo" ColumnName="IdCreadorVideo" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="Finalizado" ColumnName="Finalizado" />
+                <ScalarProperty Name="NumVisitas" ColumnName="NumVisitas" />
+                <ScalarProperty Name="Bajar" ColumnName="Bajar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblMatriculadosCursos">
+            <EntityTypeMapping TypeName="BDVideosUSAVModel.TblMatriculadosCursos">
+              <MappingFragment StoreEntitySet="TblMatriculadosCursos">
+                <ScalarProperty Name="IdMatricula" ColumnName="IdMatricula" />
+                <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+                <ScalarProperty Name="Carnet" ColumnName="Carnet" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="FechaMatricula" ColumnName="FechaMatricula" />
+                <ScalarProperty Name="UltimoAcceso" ColumnName="UltimoAcceso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblNivelCurso">
+            <EntityTypeMapping TypeName="BDVideosUSAVModel.TblNivelCurso">
+              <MappingFragment StoreEntitySet="TblNivelCurso">
+                <ScalarProperty Name="IdNivelCurso" ColumnName="IdNivelCurso" />
+                <ScalarProperty Name="NivelCurso" ColumnName="NivelCurso" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblReservaLocalidad">
+            <EntityTypeMapping TypeName="BDVideosUSAVModel.TblReservaLocalidad">
+              <MappingFragment StoreEntitySet="TblReservaLocalidad">
+                <ScalarProperty Name="IdReserva" ColumnName="IdReserva" />
+                <ScalarProperty Name="IdCalendario" ColumnName="IdCalendario" />
+                <ScalarProperty Name="IdReservaLocalidad" ColumnName="IdReservaLocalidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblReservas">
+            <EntityTypeMapping TypeName="BDVideosUSAVModel.TblReservas">
+              <MappingFragment StoreEntitySet="TblReservas">
+                <ScalarProperty Name="IdReserva" ColumnName="IdReserva" />
+                <ScalarProperty Name="NombreInstitucion" ColumnName="NombreInstitucion" />
+                <ScalarProperty Name="NombreSolicitante" ColumnName="NombreSolicitante" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+                <ScalarProperty Name="e_mail" ColumnName="e-mail" />
+                <ScalarProperty Name="IdTipoReserva" ColumnName="IdTipoReserva" />
+                <ScalarProperty Name="DescReserva" ColumnName="DescReserva" />
+                <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
+                <ScalarProperty Name="HoraSolicitud" ColumnName="HoraSolicitud" />
+                <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+                <ScalarProperty Name="Confirmacion" ColumnName="Confirmacion" />
+                <ScalarProperty Name="NumeroIndividuos" ColumnName="NumeroIndividuos" />
+                <ScalarProperty Name="NumeroIndFemeninos" ColumnName="NumeroIndFemeninos" />
+                <ScalarProperty Name="IdCreadorVideo" ColumnName="IdCreadorVideo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblRolUsuario">
+            <EntityTypeMapping TypeName="BDVideosUSAVModel.TblRolUsuario">
+              <MappingFragment StoreEntitySet="TblRolUsuario">
+                <ScalarProperty Name="IdRolUsuario" ColumnName="IdRolUsuario" />
+                <ScalarProperty Name="NombreRol" ColumnName="NombreRol" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblSubCategorias">
+            <EntityTypeMapping TypeName="BDVideosUSAVModel.TblSubCategorias">
+              <MappingFragment StoreEntitySet="TblSubCategorias">
+                <ScalarProperty Name="IdSubCategoria" ColumnName="IdSubCategoria" />
+                <ScalarProperty Name="NombreSubcategoria" ColumnName="NombreSubcategoria" />
+                <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblTiposVideos">
+            <EntityTypeMapping TypeName="BDVideosUSAVModel.TblTiposVideos">
+              <MappingFragment StoreEntitySet="TblTiposVideos">
+                <ScalarProperty Name="IdTipoVideo" ColumnName="IdTipoVideo" />
+                <ScalarProperty Name="NombretipoVideo" ColumnName="NombretipoVideo" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblUsuario">
+            <EntityTypeMapping TypeName="BDVideosUSAVModel.TblUsuario">
+              <MappingFragment StoreEntitySet="TblUsuario">
+                <ScalarProperty Name="Carnet" ColumnName="Carnet" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="RutaFotoUsuario" ColumnName="RutaFotoUsuario" />
+                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+                <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="CodigoSexo" ColumnName="CodigoSexo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
+                <ScalarProperty Name="Acercademi" ColumnName="Acercademi" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblVideos">
+            <EntityTypeMapping TypeName="BDVideosUSAVModel.TblVideos">
+              <MappingFragment StoreEntitySet="TblVideos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NombreVideo" ColumnName="NombreVideo" />
+                <ScalarProperty Name="DuracionVideo" ColumnName="DuracionVideo" />
+                <ScalarProperty Name="IdYoutube" ColumnName="IdYoutube" />
+                <ScalarProperty Name="IdTipoVideo" ColumnName="IdTipoVideo" />
+                <ScalarProperty Name="RutaVideo" ColumnName="RutaVideo" />
+                <ScalarProperty Name="NumVistas" ColumnName="NumVistas" />
+                <ScalarProperty Name="FechaSubida" ColumnName="FechaSubida" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="FormatoVideo" ColumnName="FormatoVideo" />
+                <ScalarProperty Name="PesoVideo" ColumnName="PesoVideo" />
+                <ScalarProperty Name="IdBloque" ColumnName="IdBloque" />
+                <ScalarProperty Name="PublicadoVideo" ColumnName="PublicadoVideo" />
+                <ScalarProperty Name="CodNombreVideo" ColumnName="CodNombreVideo" />
+                <ScalarProperty Name="Visible" ColumnName="Visible" />
+                <ScalarProperty Name="IdSubCategoria" ColumnName="IdSubCategoria" />
+                <ScalarProperty Name="Dimensiones" ColumnName="Dimensiones" />
+                <ScalarProperty Name="CategoriasYoutube" ColumnName="CategoriasYoutube" />
+                <ScalarProperty Name="PalabrasYoutube" ColumnName="PalabrasYoutube" />
+                <ScalarProperty Name="PrivacidadYoutubeVideo" ColumnName="PrivacidadYoutubeVideo" />
+                <ScalarProperty Name="IdCreadorVideo" ColumnName="IdCreadorVideo" />
+                <ScalarProperty Name="IsCurso" ColumnName="IsCurso" />
+                <ScalarProperty Name="IsVideoPrincipalCurso" ColumnName="IsVideoPrincipalCurso" />
+                <ScalarProperty Name="NumVideo" ColumnName="NumVideo" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblVisitas">
+            <EntityTypeMapping TypeName="BDVideosUSAVModel.TblVisitas">
+              <MappingFragment StoreEntitySet="TblVisitas">
+                <ScalarProperty Name="IdVisita" ColumnName="IdVisita" />
+                <ScalarProperty Name="FechaVisita" ColumnName="FechaVisita" />
+                <ScalarProperty Name="IpVisita" ColumnName="IpVisita" />
+                <ScalarProperty Name="Navegador" ColumnName="Navegador" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VIEW_ESTADISTICAS_TIPORESERVACION">
+            <EntityTypeMapping TypeName="BDVideosUSAVModel.VIEW_ESTADISTICAS_TIPORESERVACION">
+              <MappingFragment StoreEntitySet="VIEW_ESTADISTICAS_TIPORESERVACION">
+                <ScalarProperty Name="DuracionMT" ColumnName="DuracionMT" />
+                <ScalarProperty Name="DescReserva" ColumnName="DescReserva" />
+                <ScalarProperty Name="NombreInstitucion" ColumnName="NombreInstitucion" />
+                <ScalarProperty Name="NombreSolicitante" ColumnName="NombreSolicitante" />
+                <ScalarProperty Name="DescTipoReserva" ColumnName="DescTipoReserva" />
+                <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
+                <ScalarProperty Name="DescLocalidades" ColumnName="DescLocalidades" />
+                <ScalarProperty Name="IdReserva" ColumnName="IdReserva" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewReservasLoc">
+            <EntityTypeMapping TypeName="BDVideosUSAVModel.ViewReservasLoc">
+              <MappingFragment StoreEntitySet="ViewReservasLoc">
+                <ScalarProperty Name="IdCreadorVideo" ColumnName="IdCreadorVideo" />
+                <ScalarProperty Name="ConfirmacionText" ColumnName="ConfirmacionText" />
+                <ScalarProperty Name="DescEdificios" ColumnName="DescEdificios" />
+                <ScalarProperty Name="DescLocalidades" ColumnName="DescLocalidades" />
+                <ScalarProperty Name="NumeroIndFemeninos" ColumnName="NumeroIndFemeninos" />
+                <ScalarProperty Name="NumeroIndividuos" ColumnName="NumeroIndividuos" />
+                <ScalarProperty Name="Confirmacion" ColumnName="Confirmacion" />
+                <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+                <ScalarProperty Name="HoraSolicitud" ColumnName="HoraSolicitud" />
+                <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
+                <ScalarProperty Name="DescReserva" ColumnName="DescReserva" />
+                <ScalarProperty Name="IdTipoReserva" ColumnName="IdTipoReserva" />
+                <ScalarProperty Name="e_mail" ColumnName="e-mail" />
+                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="NombreSolicitante" ColumnName="NombreSolicitante" />
+                <ScalarProperty Name="NombreInstitucion" ColumnName="NombreInstitucion" />
+                <ScalarProperty Name="IdReserva" ColumnName="IdReserva" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VistaCursosCreados">
+            <EntityTypeMapping TypeName="BDVideosUSAVModel.VistaCursosCreados">
+              <MappingFragment StoreEntitySet="VistaCursosCreados">
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="NombreCurso" ColumnName="NombreCurso" />
+                <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VistaLocalidadCalendario">
+            <EntityTypeMapping TypeName="BDVideosUSAVModel.VistaLocalidadCalendario">
+              <MappingFragment StoreEntitySet="VistaLocalidadCalendario">
+                <ScalarProperty Name="Confirmacion" ColumnName="Confirmacion" />
+                <ScalarProperty Name="IdLocalidad" ColumnName="IdLocalidad" />
+                <ScalarProperty Name="hora" ColumnName="hora" />
+                <ScalarProperty Name="FechaCal" ColumnName="FechaCal" />
+                <ScalarProperty Name="FechaCalendario" ColumnName="FechaCalendario" />
+                <ScalarProperty Name="IdCalendario" ColumnName="IdCalendario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VistaReporteVideos">
+            <EntityTypeMapping TypeName="BDVideosUSAVModel.VistaReporteVideos">
+              <MappingFragment StoreEntitySet="VistaReporteVideos">
+                <ScalarProperty Name="NombreDocente" ColumnName="NombreDocente" />
+                <ScalarProperty Name="NombreSubcategoria" ColumnName="NombreSubcategoria" />
+                <ScalarProperty Name="NombretipoVideo" ColumnName="NombretipoVideo" />
+                <ScalarProperty Name="FechaSubida" ColumnName="FechaSubida" />
+                <ScalarProperty Name="NombreVideo" ColumnName="NombreVideo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="BDVideosUSAVModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="BDVideosUSAVModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="BDVideosUSAVModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="BDVideosUSAVModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDVideosUSAVModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="BDVideosUSAVModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDVideosUSAVModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="BDVideosUSAVModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="BDVideosUSAVModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="usp_Crearcalendario" FunctionName="BDVideosUSAVModel.Store.usp_Crearcalendario" />
+          <FunctionImportMapping FunctionImportName="USP_CrearcalendarioMensual" FunctionName="BDVideosUSAVModel.Store.USP_CrearcalendarioMensual" />
+          <FunctionImportMapping FunctionImportName="USP_DetalleS" FunctionName="BDVideosUSAVModel.Store.USP_DetalleS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDVideosUSAVModel.USP_DetalleS_Result">
+                <ScalarProperty Name="DIA" ColumnName="DIA" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="HORA" ColumnName="HORA" />
+                <ScalarProperty Name="DuracionM" ColumnName="DuracionM" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_ESTADISTICAS_SERVICIOS" FunctionName="BDVideosUSAVModel.Store.USP_ESTADISTICAS_SERVICIOS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDVideosUSAVModel.USP_ESTADISTICAS_SERVICIOS_Result">
+                <ScalarProperty Name="IdReserva" ColumnName="IdReserva" />
+                <ScalarProperty Name="DescLocalidades" ColumnName="DescLocalidades" />
+                <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
+                <ScalarProperty Name="DescTipoReserva" ColumnName="DescTipoReserva" />
+                <ScalarProperty Name="IdReserva1" ColumnName="IdReserva1" />
+                <ScalarProperty Name="NombreSolicitante" ColumnName="NombreSolicitante" />
+                <ScalarProperty Name="NombreInstitucion" ColumnName="NombreInstitucion" />
+                <ScalarProperty Name="DescReserva" ColumnName="DescReserva" />
+                <ScalarProperty Name="DuracionMT" ColumnName="DuracionMT" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_RE_RANGOFECHA" FunctionName="BDVideosUSAVModel.Store.USP_RE_RANGOFECHA">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDVideosUSAVModel.USP_RE_RANGOFECHA_Result">
+                <ScalarProperty Name="IdReserva" ColumnName="IdReserva" />
+                <ScalarProperty Name="DescLocalidades" ColumnName="DescLocalidades" />
+                <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
+                <ScalarProperty Name="DescTipoReserva" ColumnName="DescTipoReserva" />
+                <ScalarProperty Name="NombreSolicitante" ColumnName="NombreSolicitante" />
+                <ScalarProperty Name="NombreInstitucion" ColumnName="NombreInstitucion" />
+                <ScalarProperty Name="DescReserva" ColumnName="DescReserva" />
+                <ScalarProperty Name="DuracionMT" ColumnName="DuracionMT" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspActualizaVideoPrincipal" FunctionName="BDVideosUSAVModel.Store.uspActualizaVideoPrincipal" />
+          <FunctionImportMapping FunctionImportName="uspMuestraEstudiantesMatriculados" FunctionName="BDVideosUSAVModel.Store.uspMuestraEstudiantesMatriculados">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDVideosUSAVModel.uspMuestraEstudiantesMatriculados_Result">
+                <ScalarProperty Name="IdMatricula" ColumnName="IdMatricula" />
+                <ScalarProperty Name="Carnet" ColumnName="Carnet" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+                <ScalarProperty Name="NombreCarrera" ColumnName="NombreCarrera" />
+                <ScalarProperty Name="FechaMatricula" ColumnName="FechaMatricula" />
+                <ScalarProperty Name="UltimoAcceso" ColumnName="UltimoAcceso" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspObtieneDuracionCurso" FunctionName="BDVideosUSAVModel.Store.uspObtieneDuracionCurso" />
+          <FunctionImportMapping FunctionImportName="uspReporteVideos" FunctionName="BDVideosUSAVModel.Store.uspReporteVideos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDVideosUSAVModel.uspReporteVideos_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NombreVideo" ColumnName="NombreVideo" />
+                <ScalarProperty Name="FechaSubida" ColumnName="FechaSubida" />
+                <ScalarProperty Name="NombretipoVideo" ColumnName="NombretipoVideo" />
+                <ScalarProperty Name="NombreSubcategoria" ColumnName="NombreSubcategoria" />
+                <ScalarProperty Name="NombreDocente" ColumnName="NombreDocente" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

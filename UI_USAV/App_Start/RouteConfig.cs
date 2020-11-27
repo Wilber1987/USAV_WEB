@@ -17,7 +17,6 @@ namespace UI_USAV
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-                //,  new { controller = "Administrator", action = "ViewCatalogos" }
             );
         }
     }

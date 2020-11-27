@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "ViewRegister";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ViewSecurity</h2>
+<script>
+    async function Register() {
+        const { WRender, WAjaxTools, DomComponent } = await import("../WDevCore/WModules/WComponentsTools.js");
+        var data = {
+            Email: "wilberj@hotmail.com",
+            Password: "Wmatus09%",
+            ConfirmPassword: "Wmatus09%"
+        };
+        const url = '/api/Account/Register';
+        const response = await WAjaxTools.PostRequest(url, data);
+        console.log(response);
+    }
+    async function Login() {        
+        var loginData = {
+            grant_type: 'password',
+            username: "wilberj@hotmail.com",
+            password: "Wmatus09%"
+        };
+        const url = '/Token';
+        let response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',               
+            },
+            body: 'grant_type=password&username=wilberj@hotmail.com&password=Wmatus09%'
+        });
+        response = await response.json();
+        console.log(response);
+    }
+    async function logout() {
+
+    }
+</script>

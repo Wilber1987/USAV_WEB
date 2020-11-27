@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="76cd1f1ffcfe44caa06d958d09d245e6" Name="Diagram1">
+        <EntityTypeShape EntityType="BDVideosUSAVModel.CatEdificios" Width="1.5" PointX="1.5" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.CatLocalidades" Width="1.5" PointX="3.75" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.CatTipoBloques" Width="1.5" PointX="1.5" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.CatTipoReserva" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.TblArticulos" Width="1.5" PointX="11" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.TblAuditoria" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.TblBloqueCurso" Width="1.5" PointX="3.75" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.TblCalendario" Width="1.5" PointX="6" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.TblCategoriaCurso" Width="1.5" PointX="1.5" PointY="28.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.TblCategorias" Width="1.5" PointX="1.5" PointY="34.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.TblCategoriasArticulos" Width="1.5" PointX="8.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.TblComentarios" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.TblConfiguraciones" Width="1.5" PointX="10.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.TblConfiguracionLaboral" Width="1.5" PointX="1.5" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.TblCreadorVideos" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.TblCurso" Width="1.5" PointX="1.5" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.TblMatriculadosCursos" Width="1.5" PointX="3.75" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.TblNivelCurso" Width="1.5" PointX="1.5" PointY="31.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.TblReservaLocalidad" Width="1.5" PointX="8.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.TblReservas" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.TblRolUsuario" Width="1.5" PointX="10.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.TblSubCategorias" Width="1.5" PointX="3.75" PointY="33.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.TblTiposVideos" Width="1.5" PointX="3.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.TblUsuario" Width="1.5" PointX="10.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.TblVideos" Width="1.5" PointX="6" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.TblVisitas" Width="1.5" PointX="5.75" PointY="11.75" IsExpanded="true" />
+        <AssociationConnector Association="BDVideosUSAVModel.FK_CatLocalidades_CatEdificios" ManuallyRouted="false" />
+        <AssociationConnector Association="BDVideosUSAVModel.FK_CatLocalidades_CatTipoBloques" ManuallyRouted="false" />
+        <AssociationConnector Association="BDVideosUSAVModel.FK_CatLocalidades_TblConfiguracionLaboral" ManuallyRouted="false" />
+        <AssociationConnector Association="BDVideosUSAVModel.FK_TblCalendario_CatLocalidades" ManuallyRouted="false" />
+        <AssociationConnector Association="BDVideosUSAVModel.FK_TblReservas_CatTipoReserva" ManuallyRouted="false" />
+        <AssociationConnector Association="BDVideosUSAVModel.FK_TblArticulos_TblCategoriasArticulos" ManuallyRouted="false" />
+        <AssociationConnector Association="BDVideosUSAVModel.FK_TblBloque_TblCurso" ManuallyRouted="false" />
+        <AssociationConnector Association="BDVideosUSAVModel.FK_TblVideos_TblBloque" ManuallyRouted="false" />
+        <AssociationConnector Association="BDVideosUSAVModel.FK_TblReservaLocalidad_TblCalendario" ManuallyRouted="false" />
+        <AssociationConnector Association="BDVideosUSAVModel.FK_TblCurso_TblCategoriaCurso" ManuallyRouted="false" />
+        <AssociationConnector Association="BDVideosUSAVModel.FK_TblSubCategorias_TblCategorias1" ManuallyRouted="false" />
+        <AssociationConnector Association="BDVideosUSAVModel.FK_TblReservas_TblCreadorVideos" ManuallyRouted="false" />
+        <AssociationConnector Association="BDVideosUSAVModel.FK_TblVideos_TblCreadorVideos" ManuallyRouted="false" />
+        <AssociationConnector Association="BDVideosUSAVModel.FK_TblCurso_TblNivelCurso" ManuallyRouted="false" />
+        <AssociationConnector Association="BDVideosUSAVModel.FK_TblMatriculadosCursos_TblCurso1" ManuallyRouted="false" />
+        <AssociationConnector Association="BDVideosUSAVModel.FK_TblReservaLocalidad_TblReservas" ManuallyRouted="false" />
+        <AssociationConnector Association="BDVideosUSAVModel.FK_TblVideos_TblSubCategorias" ManuallyRouted="false" />
+        <AssociationConnector Association="BDVideosUSAVModel.FK_TblVideos_TblTiposVideos" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.VIEW_ESTADISTICAS_TIPORESERVACION" Width="1.5" PointX="13.375" PointY="0.75" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.ViewReservasLoc" Width="1.5" PointX="13.375" PointY="4.75" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.VistaCursosCreados" Width="1.5" PointX="13.375" PointY="10.75" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.VistaLocalidadCalendario" Width="1.5" PointX="13.375" PointY="13.75" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.VistaReporteVideos" Width="1.5" PointX="15.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
