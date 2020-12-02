@@ -55,6 +55,13 @@
         <EntityTypeShape EntityType="BDVideosUSAVModel.VistaCursosCreados" Width="1.5" PointX="13.375" PointY="10.75" />
         <EntityTypeShape EntityType="BDVideosUSAVModel.VistaLocalidadCalendario" Width="1.5" PointX="13.375" PointY="13.75" />
         <EntityTypeShape EntityType="BDVideosUSAVModel.VistaReporteVideos" Width="1.5" PointX="15.375" PointY="0.75" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.AspNetRoles" Width="1.5" PointX="15.375" PointY="5.5" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.AspNetUserClaims" Width="1.5" PointX="19.875" PointY="6.625" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.AspNetUserLogins" Width="1.5" PointX="19.875" PointY="4" />
+        <EntityTypeShape EntityType="BDVideosUSAVModel.AspNetUsers" Width="1.5" PointX="17.625" PointY="4.125" />
+        <AssociationConnector Association="BDVideosUSAVModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="BDVideosUSAVModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="BDVideosUSAVModel.AspNetUserRoles" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

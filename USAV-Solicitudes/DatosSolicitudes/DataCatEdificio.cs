@@ -12,12 +12,9 @@
             try
             {
                 BDVideosUSAVEntitiesModelSolicitudes Model = new BDVideosUSAVEntitiesModelSolicitudes();
-
-
                 var querybusca = from c in Model.CatEdificios
                                  where c.DescEdificios == Obj.DescEdificios
                                  select c;
-
                 if (querybusca.ToList().Count == 0)
                 {
                     Model.CatEdificios.Add(Obj);
@@ -28,7 +25,6 @@
                 {
                     return "Descripcion repetida";
                 }
-
             }
             catch (Exception ex)
             {
@@ -41,7 +37,6 @@
             try
             {
                 BDVideosUSAVEntitiesModelSolicitudes Model = new BDVideosUSAVEntitiesModelSolicitudes();
-
                 var querybusca = from c in Model.CatEdificios
                                  where c.DescEdificios == obj.DescEdificios && c.IdEdificio != obj.IdEdificio
                                  select c;
@@ -52,8 +47,6 @@
                     objeto.DescEdificios = obj.DescEdificios;
                     objeto.Ubicacion = obj.Ubicacion;
                     objeto.Photo = obj.Photo;
-
-
                     Model.SaveChanges();
                     return true;
                 }
@@ -67,7 +60,6 @@
                 return ex;
             }
         }
-
         public Object InicializarEdificios()
         {
             BDVideosUSAVEntitiesModelSolicitudes context = new BDVideosUSAVEntitiesModelSolicitudes();
@@ -76,7 +68,6 @@
                         select new { L.IdEdificio, L.DescEdificios, L.Photo, L.Ubicacion };
             return Query.ToList();
         }
-
         public List<CatEdificios> VerEdificios(int ID)
         {
             using (BDVideosUSAVEntitiesModelSolicitudes context = new BDVideosUSAVEntitiesModelSolicitudes())

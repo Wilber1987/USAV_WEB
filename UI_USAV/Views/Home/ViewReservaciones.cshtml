@@ -6,7 +6,8 @@
 
 <script type="module">
     import { WRender, WAjaxTools, DomComponent } from "../WDevCore/WModules/WComponentsTools.js";
-    import "../../WDevCore/WComponents/WTableComponents.js";  
+    import "../../WDevCore/WComponents/WTableComponents.js"; 
+    import "../../WDevCore/WComponents/WCalendar.js";  
     window.onload = async () => {
         var Url = "../api/AdminCatalog/PostTakeLocalidades";
         const ArrayVideos = [];
@@ -15,10 +16,7 @@
             ArrayVideos.push({
                 img: item.Pict,
                 title: item.DescLocalidades,
-                IdLocalidad: item.IdLocalidad,
-                //description: item,
-                //url: item,
-                
+                IdLocalidad: item.IdLocalidad,              
             })
         });
         var Config = {
@@ -38,6 +36,15 @@
             props: {
                 id: "tableReservaciones",
                 TableConfig: Config
+            }
+        }));
+        MainContainer.append(WRender.createElement({
+            type: "w-calendar",
+            props: {
+                id: "MyCalendar",  
+                Function: async (Date) => {
+                    console.log(Date)
+                }
             }
         }));
     }

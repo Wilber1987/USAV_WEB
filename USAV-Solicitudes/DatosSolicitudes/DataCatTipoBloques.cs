@@ -18,8 +18,6 @@ namespace USAV_Solicitudes.DatosSolicitudes
              try
              {
                 BDVideosUSAVEntitiesModelSolicitudes Model = new BDVideosUSAVEntitiesModelSolicitudes();
-                 
-
                      var querybusca = from c in Model.CatTipoBloques
                                       where c.Descripcion == Obj.Descripcion
                                       select c;
@@ -47,9 +45,6 @@ namespace USAV_Solicitudes.DatosSolicitudes
              try
              {
                 BDVideosUSAVEntitiesModelSolicitudes Model = new BDVideosUSAVEntitiesModelSolicitudes();
-                 
-
-
                      var querybusca = from c in Model.CatTipoBloques
                                       where c.Descripcion == Obj.Descripcion && c.IdTipoBloque != Obj.IdTipoBloque
                                       select c;
@@ -64,8 +59,7 @@ namespace USAV_Solicitudes.DatosSolicitudes
                          return true;
                      }
                      else
-                         return false;
-                 
+                         return false;                 
              }
              catch (Exception)
              {
@@ -77,18 +71,14 @@ namespace USAV_Solicitudes.DatosSolicitudes
          public Object InicializarTiposBloques()
          {
             BDVideosUSAVEntitiesModelSolicitudes context = new BDVideosUSAVEntitiesModelSolicitudes();
-
             var Query = from L in context.CatTipoBloques
                         select new { L.IdTipoBloque, L.Descripcion, L.DuracionM };
                  return Query.ToList();
-             
-
          }
 
          public List<CatTipoBloques> VerTipoBloques(int ID)
          {
-             using (BDVideosUSAVEntitiesModelSolicitudes context = new BDVideosUSAVEntitiesModelSolicitudes())
-             {
+             using (BDVideosUSAVEntitiesModelSolicitudes context = new BDVideosUSAVEntitiesModelSolicitudes())             {
                  var Query = from C in context.CatTipoBloques
                              where C.IdTipoBloque == ID
                              select C;

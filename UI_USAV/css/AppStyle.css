@@ -45,6 +45,14 @@ p{
 li{
     list-style: none;
 }
+.BtnRadio {
+    color: #808080;
+    padding: 5px 7px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    font-family: inherit !important;
+}
 
 
 @media (max-width: 600px) {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Security.Claims;
 using System.Security.Cryptography;
@@ -16,6 +17,7 @@ using Microsoft.Owin.Security.OAuth;
 using UI_USAV.Models;
 using UI_USAV.Providers;
 using UI_USAV.Results;
+using USAV_Solicitudes;
 
 namespace UI_USAV.Controllers
 {
@@ -327,16 +329,20 @@ namespace UI_USAV.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
-
-            IdentityResult result = await UserManager.CreateAsync(user, model.Password);
-
+            var user = new ApplicationUser() { 
+                UserName = model.Email,
+                Email = model.Email,
+            };
+            IdentityResult result = await UserManager.CreateAsync(user, model.Password);                
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
             }
-
+            BDVideosUSAVEntitiesModelSolicitudes Model = new BDVideosUSAVEntitiesModelSolicitudes();
+            AspNetUsers User = Model.AspNetUsers.FirstOrDefault(v => v.Email == user.Email);
+            User.Nombres = model.Nombres;
+            User.Apellidos = model.Apellidos;
+            Model.SaveChanges();
             return Ok();
         }
 

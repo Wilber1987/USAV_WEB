@@ -8,51 +8,114 @@
     @Styles.Render("~/css/local.css")
     @Styles.Render("~/css/AppStyle.css")
     @RenderSection("scripts", required: false)
+    <script type="module">
+        import { WRender, WAjaxTools, DomComponent } from "../WDevCore/WModules/WComponentsTools.js";
+        import "../WDevCore/WComponents/WLoginTemplate.js";
+        async function Register(NewUser) {
+            const url = '/api/Account/Register';
+            const response = await WAjaxTools.PostRequest(url, NewUser);
+            console.log(response);
+        }
+        async function Login(Data) {            
+            const url = '/Token';
+            let response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `grant_type=password&username=${Data.Email}&password=${Data.Password}`,
+            });
+            response = await response.json();
+            return { username: response.userName, token: response.access_token };
+        }
+        async function logout() {
+
+        }        
+        console.log("loaa");
+        const Onload = async () => {
+            console.log("loading..");
+            LTCont.append(
+                WRender.createElement({
+                    type: "w-login-template",
+                    props: {
+                        id: "MyLogin",
+                        LoginModel: { Email: null, Password: null },
+                        LoginFuncion: async (Data) => {                           
+                            return Login(Data);
+                        },
+                        RegisterModel: {
+                            Nombres: null,
+                            Apellidos: null,
+                            Email: null,                           
+                            Password: null,
+                            ConfirmPassword: null,
+                            //Photo: null,
+                        }, RegisterFuncion: async (NewUser) => {
+                            return Register(NewUser);
+                        },
+                    }
+                })
+            );
+        }
+        const DomComp = new DomComponent();
+        window.addEventListener('load', function (e) {
+            Onload();
+            btnDispNav.addEventListener('click', function (e) {
+                DomComp._DispalNav("EspacioMenu", "SlideLeft");
+            });
+            btnBackpNav.addEventListener('click', function (e) {
+                DomComp._DispalNav("EspacioMenu", "SlideLeft");
+            });
+        });
+    </script>
 </head>
-<body>
-        <header id="Cabecera">
-            <img class="logo" src="/images/LOGO01.png" />
-            <h2 style="flex-grow: 2; text-align:center">Unidad de Servicios Audiovisuales - FAREM-Carazo</h2>
-            <div style="padding-right:20px;align-items: center; display:flex">
-              
-            </div>
-        </header>
-        <!-- Navigation -->
-        <section id="EspacioMenu">
-            <div id="menu">
-                <nav class="">
-                    <ul class="RowMenu">
-                        <li class="menuyellow"><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true">&nbsp</span>INICIO </a></li>
-                        <li class="menugray"><a href="../Home/ViewPortalVideos">PORTAL VIDEOS </a></li>                        
-                        <li class="menugrenblue"><a href="../Home/ViewDocentes">DOCENTES</a></li>
-                        <li class="menugray"><a href="../Home/ViewContactos">CONTACTOS</a></li>
-                        <li class="menupurple"><a href="../Home/ViewReservaciones">RESERVACIONES</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </section>
-        <main id="Main">
-            @RenderBody()
-        </main>       
-        <footer class="" id="footer">
-            <div class="col-xs-12">
-                <span>Copyright © 2020. FAREM-Carazo, Todos los derechos reservados.</span>
-                <p class="art-page-footer">
-                    <span id="art-footnote-links">Elaborado por: Unidad de Desarrollo de Sistemas y Unidad de Medios Audiovisuales. Responsable:Wilber José Matus González, correo: wmatus@unan.edu.ni</span><br />
-                 </p>
-            </div>
-            <div class="LogosFooter">
-                <a target="_blank" href="#">
-                    <img width="95" src="/images/LOGO02.png" />
-                </a>
-                <a target="_blank" href="http://www.unan.edu.ni">
-                    <img width="100" src="/images/marcaInst/m5.png" />
-                </a>
-                <a target="_blank" href="http://www.uc3m.com">
-                    <img src="/images/EscudoLogoCorporativo.png" />
-                </a><br />
-            </div>            
-        </footer>
+<body id="MBody">
+    <header id="Cabecera">
+        <img class="logo" src="/images/LOGO01.png" />
+        <h2 style="flex-grow: 2; text-align:center">Unidad de Servicios Audiovisuales - FAREM-Carazo</h2>
+        <div id="LTCont" class="LTCont">
+            <button class="BtnRadio menuBTN" id="btnDispNav" type="button">☰</button>
+        </div>
+    </header>
+    <!-- Navigation -->
+    <section id="EspacioMenu">
+        <div id="menu">          
+            <nav class="">
+                <ul class="RowMenu">
+                    <div id="" class="LTCont">
+                        <label class="menuBTN" id="btnBackpNav">⇽ Back</label>
+                    </div>
+                    <li class="menuyellow"><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true">&nbsp</span>INICIO </a></li>
+                    <li class="menugray"><a href="../Home/ViewPortalVideos">PORTAL VIDEOS </a></li>
+                    <li class="menugrenblue"><a href="../Home/ViewDocentes">DOCENTES</a></li>
+                    <li class="menugray"><a href="../Home/ViewContactos">CONTACTOS</a></li>
+                    <li class="menupurple"><a href="../Home/ViewReservaciones">RESERVACIONES</a></li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+    <main id="Main">
+        @RenderBody()
+    </main>
+    <footer class="" id="footer">
+        <div class="col-xs-12">
+            <span>Copyright © 2020. FAREM-Carazo, Todos los derechos reservados.</span>
+            <p class="" style="text-align: center">
+                <span id="art-footnote-links">Elaborado por: Unidad de Desarrollo de Sistemas y Unidad de Medios Audiovisuales. Responsable:Wilber José Matus González, correo: wmatus@unan.edu.ni</span><br />
+            </p>
+        </div>
+        <div class="LogosFooter">
+            <a target="_blank" href="#">
+                <img width="95" src="/images/LOGO02.png" />
+            </a>
+            <a target="_blank" href="http://www.unan.edu.ni">
+                <img width="100" src="/images/marcaInst/m5.png" />
+            </a>
+            <a target="_blank" href="http://www.uc3m.com">
+                <img src="/images/EscudoLogoCorporativo.png" />
+            </a><br />
+        </div>
+    </footer>
 </body>
 </html>
 

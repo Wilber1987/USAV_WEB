@@ -370,6 +370,7 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <None Include="bundleconfig.json" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -385,6 +386,7 @@
     <Content Include="WDevCore\StyleModules\StyleModules.css" />
     <Content Include="WDevCore\StyleModules\WchartStyle.css" />
     <Content Include="WDevCore\WComponents\WChartJSComponent.js" />
+    <Content Include="WDevCore\WComponents\WLoginTemplate.js" />
     <Content Include="WDevCore\WComponents\WModalForm.js" />
     <Content Include="WDevCore\WComponents\WMultiSelect.js" />
     <Content Include="WDevCore\WComponents\WRichText.js" />

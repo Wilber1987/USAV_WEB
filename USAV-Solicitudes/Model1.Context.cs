@@ -59,6 +59,10 @@ namespace USAV_Solicitudes
         public virtual DbSet<VistaCursosCreados> VistaCursosCreados { get; set; }
         public virtual DbSet<VistaLocalidadCalendario> VistaLocalidadCalendario { get; set; }
         public virtual DbSet<VistaReporteVideos> VistaReporteVideos { get; set; }
+        public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
+        public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
+        public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
+        public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
