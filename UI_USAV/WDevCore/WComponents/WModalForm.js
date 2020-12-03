@@ -13,6 +13,10 @@ class WModalForm extends HTMLElement {
         if (this.innerHTML != "") {
             return;
         }
+         //NO MODAL
+        if (this.NoModal == true) {
+            this.append(WRender.createElement(this.StyleNoModal()));
+        }
         this.append(WRender.createElement(this.FormStyle()));
         if (this.StyleForm == "columnX1") {
             this.append(WRender.createElement(this.StyleColumX1()));
@@ -22,6 +26,10 @@ class WModalForm extends HTMLElement {
             this.append(WRender.createElement(this.StyleColumX3()));
         } else {
             //---
+        }
+        //NO MODAL
+        if (this.NoModal == true) {
+            this.append(WRender.createElement(this.StyleNoModal()));
         }
         this.DrawComponent();
     }
@@ -63,6 +71,9 @@ class WModalForm extends HTMLElement {
         DomComponent.modalFunction(this.id)
     }
     DrawModalHead() {
+        if (this.HeadOptions == false) {
+            return "";
+        }
         const InputClose = {
             type: 'button', props: {
                 class: 'Btn', type: "button", onclick: () => {
@@ -360,7 +371,7 @@ class WModalForm extends HTMLElement {
                                 padding: "20px",
                                 "display": "grid",
                                 "grid-gap": "1rem",
-                                "grid-template-columns": "calc(100% - 20px)",
+                                "grid-template-columns": "calc(100% - 20px) !important",
                                 "grid-template-rows": "auto",
                             }), new WCssClass("w-modal-form .ContainerFormWModal", {                               
                                 "margin-top": "0px",
@@ -371,6 +382,47 @@ class WModalForm extends HTMLElement {
                             }), new WCssClass("w-modal-form", {                              
                                 "padding-bottom": "0px",
                             }),
+                        ]
+                    },
+                ]
+            }
+        }
+        return Style;
+    }
+    StyleNoModal() {
+        const Style = {
+            type: "w-style",
+            props: {
+                ClassList: [
+                    new WCssClass(`#${this.id}`, {
+                        "opacity": "1 !important",
+                        display: "block !important",
+                        "background-color": "rgba(0, 0, 0, 0.5) !important",
+                        "width": "100%",
+                        "position": "relative !important",                        
+                        "transition": "all linear 1s",
+                        "box-shadow": "0 0px 0px 0px #000",
+                        "z-index": "1 !important",
+                        "overflow-y": "auto",
+                        "padding-bottom": "0px",
+                    }),  new WCssClass("w-modal-form divForm", {
+                        padding: "20px",
+                        "display": "grid",
+                        "grid-gap": "1rem",
+                        "grid-template-columns": "calc(50% - 10px) calc(50% - 10px)",
+                        "grid-template-rows": "auto",
+                    }), new WCssClass("w-modal-form .ContainerFormWModal", {                               
+                        "margin-top": "0px",
+                        "width": "100%",
+                        "max-height": "calc(100vh - 0px)", 
+                        "height": "calc(100vh - 0px)",  
+                        "border-radius": "0cm",
+                    }), new WCssClass("w-modal-form", {                              
+                        "padding-bottom": "0px",
+                    }),
+                ], MediaQuery: [
+                    {
+                        condicion: "max-width: 800px", ClassList: [
                         ]
                     },
                 ]

@@ -79,7 +79,7 @@ class WLoginTemplate extends HTMLElement {
                                 ObjectOptions: {
                                     AddObject: true,
                                     SaveFunction: async (LoginObject) => {
-                                        if (this.LoginFuncion == undefined) {
+                                        if (this.RegisterFuncion == undefined) {
                                             alert("Debe definir una funcion asyncrona de registro");
                                         } else {
                                             const response = await this.RegisterFuncion(LoginObject);
@@ -88,7 +88,6 @@ class WLoginTemplate extends HTMLElement {
                                             sessionStorage.setItem("username", this.#LoginData.username);
                                             sessionStorage.setItem("token", this.#LoginData.token);  */
                                             this.DrawComponent();
-
                                         }
                                     }
                                 }

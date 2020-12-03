@@ -211,8 +211,10 @@
     <Compile Include="Controllers\AdministratorController.cs" />
     <Compile Include="Controllers\AdminVideoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReservasController.cs" />
     <Compile Include="Controllers\SecurityController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\ViewsUserAutenticateController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -423,6 +425,7 @@
     <Content Include="Views\Home\ViewReservaciones.cshtml" />
     <Content Include="Views\Home\ViewServicios.cshtml" />
     <Content Include="Views\Security\ViewRegister.cshtml" />
+    <Content Include="Views\ViewsUserAutenticate\ViewCalendar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

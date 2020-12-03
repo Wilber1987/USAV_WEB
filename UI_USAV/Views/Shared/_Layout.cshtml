@@ -9,8 +9,8 @@
     @Styles.Render("~/css/AppStyle.css")
     @RenderSection("scripts", required: false)
     <script type="module">
-        import { WRender, WAjaxTools, DomComponent } from "../WDevCore/WModules/WComponentsTools.js";
-        import "../WDevCore/WComponents/WLoginTemplate.js";
+        import { WRender, WAjaxTools, DomComponent } from "../../WDevCore/WModules/WComponentsTools.js";
+        import "../../WDevCore/WComponents/WLoginTemplate.js";
         async function Register(NewUser) {
             const url = '/api/Account/Register';
             const response = await WAjaxTools.PostRequest(url, NewUser);

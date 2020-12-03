@@ -24,6 +24,22 @@ namespace USAV_Solicitudes.DatosSolicitudes
                             } ;
             return Query.ToList();  
         }
+        public Object TakeLocalidad(int IdLocalidad)
+        {
+            BDVideosUSAVEntitiesModelSolicitudes context = new BDVideosUSAVEntitiesModelSolicitudes();
+            var Query = (from L in context.CatLocalidades
+                         where L.IdLocalidad == IdLocalidad
+                            select new
+                            {
+                                L.IdLocalidad,
+                                L.DescLocalidades,
+                                L.IdTipoBloque,
+                                L.IdConfigLaboral,
+                                L.IdEdificio,
+                                L.Pict
+                            }).Take(1);
+            return Query;
+        }
         public Object InicializarLocalidadFil(string Param)
         {
             BDVideosUSAVEntitiesModelSolicitudes context = new BDVideosUSAVEntitiesModelSolicitudes();

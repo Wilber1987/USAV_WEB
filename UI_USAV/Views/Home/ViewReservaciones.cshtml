@@ -25,7 +25,7 @@
                 Search: true,
                 UserActions: [{
                     name: "Reservar", Function: (Param) => {
-                        window.location = "../Home/ViewCalendario/?IdLocalidad=" + Param.IdLocalidad;
+                        window.location = "../ViewsUserAutenticate/ViewCalendar/?IdLocalidad=" + Param.IdLocalidad;
                     }
                 }]
             },
@@ -37,16 +37,7 @@
                 id: "tableReservaciones",
                 TableConfig: Config
             }
-        }));
-        MainContainer.append(WRender.createElement({
-            type: "w-calendar",
-            props: {
-                id: "MyCalendar",  
-                Function: async (Date) => {
-                    console.log(Date)
-                }
-            }
-        }));
+        }));       
     }
 </script>
 <style>

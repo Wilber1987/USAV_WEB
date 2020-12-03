@@ -20,6 +20,13 @@ namespace UI_USAV.Controllers
             var Localidad = new DataTblVideos();
             return Localidad.InicializarLocalidad();
         }
+        public Object PostTakeLocalidad(object data)
+        {
+            CatLocalidades Jloc = JsonConvert.DeserializeObject<CatLocalidades>(data.ToString());
+            List<Object> LocList = new List<Object>();
+            var Localidad = new DataTblVideos();
+            return Localidad.TakeLocalidad(Jloc.IdLocalidad);
+        }
         public Object PostTakeLocalidadesFilt(string Param)
         {
             List<Object> LocList = new List<Object>();

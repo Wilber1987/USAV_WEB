@@ -70,7 +70,7 @@ class WCalendar extends HTMLElement {
     };
     DrawMonth(Month, Days) {
         const ContainerMonth = { type: "div", props: { id: Month + this.id, class: "GridCalendarMonthContainer" }, children: [] };
-        const Title = { type: "div", props: {}, children: [Month] };
+        const Title = { type: "div", props: {class: "calendarTitle"}, children: [Month + " " + this.year] };
         //DAYS
         const Monday = { type: "div", props: { class: "GridDayColum" }, children: [] };
         const Tuesday = { type: "div", props: { class: "GridDayColum" }, children: [] };
@@ -88,9 +88,16 @@ class WCalendar extends HTMLElement {
             };
             if (date > this.now) {
                 CalDay.props.class = "CalendarDay";
-                CalDay.props.onclick = async () => {
+                CalDay.props.onclick = async (ev) => {
                     this.SelectedDay = `${this.year}-${Month}-${index + 1}`;
                     console.log("reservando...", this.SelectedDay);
+                    const Days = ev.target.parentNode.parentNode.querySelectorAll("article");
+                    Days.forEach(day => {
+                        if (day.className != "CalendarDayDisable") {
+                            day.className = "CalendarDay";
+                        }
+                    });
+                    ev.target.className = "CalendarDayActive";
                     if (this.Function) {
                         const Result = this.Function(this.SelectedDay);
                     }
@@ -190,12 +197,12 @@ class WCalendar extends HTMLElement {
                 id: "StyleCalendarTemplate",
                 ClassList: [
                     new WCssClass(`#${this.id}`, {
-
-                    }), new WCssClass(`#${this.id} .CalendarDay`, {
-                        padding: "20px",
-                        border: "solid 1px #444",
-                        cursor: "pointer",
-                    }), new WCssClass(`#${this.id} .GridCalendarMonth`, {
+                        "background-color": "#ededed",
+                        display: "block",
+                        border: "solid 1px #c6c5c5",
+                    }),  new WCssClass(`#${this.id} .calendarTitle`, {
+                        padding: "10px", background: "#d8d8d8"
+                    }),new WCssClass(`#${this.id} .GridCalendarMonth`, {
                         display: "grid",
                         "grid-template-columns": "auto auto auto auto auto auto auto",
                     }), new WCssClass(`#${this.id} .GridDayColum`, {
@@ -203,9 +210,44 @@ class WCalendar extends HTMLElement {
                         "grid-template-rows": "60px 60px 60px 60px 60px 60px",
                     }), new WCssClass(`#${this.id} .CalendarDayDisable`, {
                         padding: "20px",
-                        border: "solid 1px #444",
-                        "background-color": "#888",
-                    })
+                        border: "solid 1px #999",
+                        "background-color": "#bebebe",
+                    }), new WCssClass(`#${this.id} .CalendarDay`, {
+                        padding: "20px",
+                        border: "solid 1px #c6c5c5",
+                        cursor: "pointer",
+                        transition: "all 0.5s"
+                    }), new WCssClass(`#${this.id} .CalendarDay:hover`, {
+                        padding: "20px",
+                        border: "solid 1px #c6c5c5",
+                        cursor: "pointer",
+                        "background-color": "#79a6d2"
+                    }), new WCssClass(`#${this.id} .CalendarDayActive`, {
+                        padding: "20px",
+                        border: "solid 1px #2d5986",
+                        cursor: "pointer",
+                        transition: "all 0.5s",
+                        "background-color": "#538cc6",
+                        color: "#fff",
+                    }),//PAGINACION
+                     new WCssClass(`#${this.id} .pagBTN`, {
+                        display: "inline-block",
+                        padding: "5px",
+                        color: "#888888",
+                        "margin": "5px",
+                        cursor: "pointer",
+                        "border-radius": "0.2cm",
+                        "font-weight": "bold",
+                        transition: "all 0.6s",
+                        "text-align": "center",
+                    }), new WCssClass(`#${this.id} .div`, {
+                        display: "flex",
+                        "border-bottom": "1px rgb(185, 185, 185) solid",
+                        "justify-content": "flex-end",
+                        "padding-left": "20px",
+                        "padding-right": "20px",
+                        background: "#d8d8d8",
+                    }), 
                 ], MediaQuery: [
                     {
                         condicion: "max-width: 800px", ClassList: [
