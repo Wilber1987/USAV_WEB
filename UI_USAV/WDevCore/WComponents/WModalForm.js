@@ -414,8 +414,8 @@ class WModalForm extends HTMLElement {
                     }), new WCssClass("w-modal-form .ContainerFormWModal", {                               
                         "margin-top": "0px",
                         "width": "100%",
-                        "max-height": "calc(100vh - 0px)", 
-                        "height": "calc(100vh - 0px)",  
+                        "max-height": "auto !important", 
+                        "height": "auto !important",  
                         "border-radius": "0cm",
                     }), new WCssClass("w-modal-form", {                              
                         "padding-bottom": "0px",
