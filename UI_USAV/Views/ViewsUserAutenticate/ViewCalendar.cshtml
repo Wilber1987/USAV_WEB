@@ -10,15 +10,37 @@
     let params = new URLSearchParams(location.search);
     var idLocalidad = params.get('IdLocalidad');
     //LOAD------------------------------------------------------->
+    const Data = new DomComponent();
     window.onload = async () => {
         var Url = "../../api/AdminCatalog/PostTakeLocalidad";       
         const response = await WAjaxTools.PostRequest(Url, { IdLocalidad: idLocalidad });   
-        const Datalocalidad =WRender.createElement({
+        const Datalocalidad = WRender.createElement({
             type: "w-modal-form", props: {
                 ObjectDetail: response[0],
                 id: "Datalocalidad",
                 NoModal: true,
-                HeadOptions: false
+                HeadOptions: false,
+                StyleForm: "columnX1",
+                UserActions: [{
+                    name: "Enviar Reservación", Function: (Param) => {
+                        let Blocks = [];                       
+                        for (var prop in Data.NavForm) {
+                            let Form = Data.NavForm[prop];
+                            console.log(Form.selectedItems)
+                            Form.selectedItems.forEach(function (item) {
+                                Blocks.push({
+                                    IdCalendario: item.IdCalendario_hidden
+                                });
+                            });
+                        }                           
+                        if (Blocks.length != 0) {
+                            console.log(Blocks);
+
+                        } else {
+                            console.log("Seleccione Bloques");
+                        }
+                    }
+                }]
             }
         });
         const DetalleBloques = WRender.createElement({
@@ -34,36 +56,23 @@
                     const response = await WAjaxTools.PostRequest(Url,
                         { IdLocalidad: idLocalidad, FechaCalendario: Date }
                     );
-                    DetalleBloques.innerHTML = "";
                     var Config = {
                         Datasets: response,
                         Options: {
-                            Select: true,
-                            //UserActions: [{
-                            //    name: "Contactar", Function: (Param) => {
-                            //        console.log(Param);
-                            //        alert("escribir a: " + Param.Email);
-                            //    }
-                            //}]
+                            Select: true,                           
                         },
-                        StyleType: "Cards2"
+                        StyleType: "Cards2-ColumnX2",
+                        paginate: false
                     }
-                    DetalleBloques.append(WRender.createElement({
+                    const TableBlock = {
                         type: "w-table",
                         props: {
-                            id: "tableBloques",
+                            id: "tableBloques" + Date,
+                            class: "DivContainer",
                             TableConfig: Config
                         }
-                    }))                    
-                    //response.forEach(function (item) {
-                    //    DetalleBloques.append(WRender.createElement({
-                    //        type: "article", props: { class: "articleDetalle" }, children: [
-                    //            item.hora
-                    //        ]
-                    //    }));
-                    //});
-                    //console.log(response)
-
+                    }
+                    Data.NavigateFunction("tableBloques" + Date, TableBlock, "DetalleBloques");
                 }
             }
         }));
@@ -87,8 +96,15 @@
         display: grid;
         grid-template-columns: 50% 50%;
     }
-        #MainContainer #Datalocalidad{
-            grid-column: 1/3;
+        #MainContainer #Datalocalidad {
+            grid-column: 1/1;
+        }
+        #MainContainer #MyCalendar {
+            grid-column: 1/1;
+        }
+        #MainContainer #DetalleBloques {
+            grid-column: 2;
+            grid-row: 1/5;
         }
         @@media(max-width: 800px) {
             #MainContainer{
@@ -97,6 +113,10 @@
             }
                 #MainContainer #Datalocalidad {
                     grid-column: auto / auto;
+                }
+                #MainContainer #DetalleBloques {
+                    grid-column: 1;
+                    grid-row: auto;
                 }
         }
 

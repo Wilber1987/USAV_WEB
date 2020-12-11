@@ -26,12 +26,17 @@ namespace USAV_Solicitudes.DatosSolicitudes
 
         }
 
-        public List<VistaLocalidadCalendario> InicializarCalendario(DateTime Date1, DateTime Date2, int Id)
+        public Object InicializarCalendario(DateTime Date1, DateTime Date2, int Id)
         {            
             BDVideosUSAVEntitiesModelSolicitudes context = new BDVideosUSAVEntitiesModelSolicitudes();    
             var Query = from C in context.VistaLocalidadCalendario
                             where C.FechaCalendario >= Date1 && C.FechaCalendario <= Date2 && C.IdLocalidad == Id
-                            select C;
+                            select new { FechaCalendario_hidden = C.FechaCalendario,
+                                IdCalendario_hidden = C.IdCalendario,
+                                Fecha = C.FechaCal,
+                                hora = C.hora,
+                                Confirmacion_hidden = C.Confirmacion
+                            };
            return Query.ToList();
             
         }

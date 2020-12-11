@@ -31,11 +31,11 @@ namespace USAV_Solicitudes.DatosSolicitudes
                          where L.IdLocalidad == IdLocalidad
                             select new
                             {
-                                L.IdLocalidad,
+                                IdLocalidad_hidden = L.IdLocalidad,
                                 L.DescLocalidades,
-                                L.IdTipoBloque,
-                                L.IdConfigLaboral,
-                                L.IdEdificio,
+                                IdTipoBloque_hidden = L.IdTipoBloque,
+                                IdConfigLaboral__hidden = L.IdConfigLaboral,
+                                IdEdificio_hidden = L.IdEdificio,
                                 L.Pict
                             }).Take(1);
             return Query;
