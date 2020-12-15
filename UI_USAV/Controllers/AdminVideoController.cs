@@ -19,10 +19,14 @@ namespace UI_USAV.Controllers
             return videos.InicializarVideos();
         }
         public Object PostTakeVideosPV()
-        {
-            List<Object> LocList = new List<Object>();
+        {            
             var videos = new DataTblVideo();
             return videos.InicializarVideosPV();
+        }
+        public Object PostTakeVideosSlideIndex()
+        {
+            var videos = new DataTblVideo();
+            return videos.InicializarVideosSlideIndex();
         }
         public Object PostGuardarVideos(object data)
         {

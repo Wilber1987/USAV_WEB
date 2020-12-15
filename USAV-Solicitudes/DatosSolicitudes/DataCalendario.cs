@@ -25,7 +25,6 @@ namespace USAV_Solicitudes.DatosSolicitudes
             }          
 
         }
-
         public Object InicializarCalendario(DateTime Date1, DateTime Date2, int Id)
         {            
             BDVideosUSAVEntitiesModelSolicitudes context = new BDVideosUSAVEntitiesModelSolicitudes();    

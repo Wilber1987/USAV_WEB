@@ -1,78 +1,11 @@
 ﻿<script type="module">
     import { WRender, WAjaxTools, DomComponent } from "../WDevCore/WModules/WComponentsTools.js";
     import "../WDevCore/WComponents/WSlide.js";
-    window.onload = async () => {
-        var nextPageToken = "";
-        // Resultados por pagina
-        var resPorPagina = 5;
-        // Paginas a mostrar
-        var paginas = 1;
-        var key = "AIzaSyAUEm0JHyoCasOphxehH92-DXYYhSCHxWw";
-        var idCanal = "UC4plRGib3qc_EqL4o__rkag";
-        var Url = "https://www.googleapis.com/youtube/v3/search?key=" +
-            key + "&channelId=" +
-            idCanal + "&part=snippet,id&order=date&maxResults=" +
-            resPorPagina;
+    window.onload = async () => {       
         const ArrayVideos = [];
-        //const response = await WAjaxTools.GetRequest(Url);
-        const response = {
-            "kind": "youtube#searchListResponse",
-            "etag": "iM-1A_SPXQLSc9S2NfjbHV-Z7tQ",
-            "nextPageToken": "CAUQAA",
-            "regionCode": "NI", "pageInfo": { "totalResults": 310, "resultsPerPage": 5 },
-            "items": [
-                {
-                    "kind": "youtube#searchResult", "etag": "PPy7nBh-zVXYpfpC-wW42mXJ9lY",
-                    "id": { "kind": "youtube#video", "videoId": "BtTHFZ4GLxw" },
-                    "snippet": {
-                        "publishedAt": "2020-07-21T21:43:01Z",
-                        "channelId": "UC4plRGib3qc_EqL4o__rkag", "title": "EL CORONAVIRUS", "description": "En el ejemplo siguiente se muestra un catch bloque que se define para controlar los ArithmeticException errores. Este catch bloque también detecta DivideByZeroException errores, porque DivideByZeroException deriva de y no hay ArithmeticException ningún catch bloque definido explícitamente para los DivideByZeroException errores.", "thumbnails":
-                        {
-                            "default": { "url": "https://i.ytimg.com/vi/BtTHFZ4GLxw/default.jpg", "width": 120, "height": 90 }, "medium":
-                                { "url": "https://i.ytimg.com/vi/BtTHFZ4GLxw/mqdefault.jpg", "width": 320, "height": 180 }, "high": { "url": "https://i.ytimg.com/vi/BtTHFZ4GLxw/hqdefault.jpg", "width": 480, "height": 360 }
-                        }, "channelTitle": "UNAN FAREM CARAZO", "liveBroadcastContent": "none", "publishTime": "2020-07-21T21:43:01Z"
-                    }
-                },
-                {
-                    "kind": "youtube#searchResult", "etag": "jMiXTFfJeDifxYCmyQQLJp_HiJ0",
-                    "id": { "kind": "youtube#video", "videoId": "8scnMeTl4dY" },
-                    "snippet": {
-                        "publishedAt": "2020-07-17T22:19:45Z",
-                        "channelId": "UC4plRGib3qc_EqL4o__rkag", "title": "EXPERIENCIA CON LA DIABETES LIC. FRANCISCO RODRIGUEZ", "description": "", "thumbnails":
-                            { "default": { "url": "https://i.ytimg.com/vi/8scnMeTl4dY/default.jpg", "width": 120, "height": 90 }, "medium": { "url": "https://i.ytimg.com/vi/8scnMeTl4dY/mqdefault.jpg", "width": 320, "height": 180 }, "high": { "url": "https://i.ytimg.com/vi/8scnMeTl4dY/hqdefault.jpg", "width": 480, "height": 360 } }, "channelTitle": "UNAN FAREM CARAZO", "liveBroadcastContent": "none", "publishTime": "2020-07-17T22:19:45Z"
-                    }
-                },
-                {
-                    "kind": "youtube#searchResult", "etag": "kwgh5Ujy9FrvtZZhtGKywT9LIwU",
-                    "id": { "kind": "youtube#video", "videoId": "25BBqD2q6so" }, "snippet": {
-                        "publishedAt": "2020-07-13T14:48:52Z",
-                        "channelId": "UC4plRGib3qc_EqL4o__rkag", "title": "CONVERSION DE UNIDADES DEL SISTEMA INGLES AL SISTEMA INTERNACIONAL", "description": "", "thumbnails":
-                            { "default": { "url": "https://i.ytimg.com/vi/25BBqD2q6so/default.jpg", "width": 120, "height": 90 }, "medium": { "url": "https://i.ytimg.com/vi/25BBqD2q6so/mqdefault.jpg", "width": 320, "height": 180 }, "high": { "url": "https://i.ytimg.com/vi/25BBqD2q6so/hqdefault.jpg", "width": 480, "height": 360 } }, "channelTitle": "UNAN FAREM CARAZO", "liveBroadcastContent": "none", "publishTime": "2020-07-13T14:48:52Z"
-                    }
-                },
-                {
-                    "kind": "youtube#searchResult", "etag": "CCx2r4LZEMeV9Vq1FYjDApbdpcU",
-                    "id": { "kind": "youtube#video", "videoId": "1qOSx8qRw0Q" }, "snippet": {
-                        "publishedAt": "2020-07-13T14:43:32Z",
-                        "channelId": "UC4plRGib3qc_EqL4o__rkag", "title": "PRUEBA DE HIPOTESIS", "description": "", "thumbnails":
-                        {
-                            "default": { "url": "https://i.ytimg.com/vi/1qOSx8qRw0Q/default.jpg", "width": 120, "height": 90 }, "medium":
-                                { "url": "https://i.ytimg.com/vi/1qOSx8qRw0Q/mqdefault.jpg", "width": 320, "height": 180 }, "high": { "url": "https://i.ytimg.com/vi/1qOSx8qRw0Q/hqdefault.jpg", "width": 480, "height": 360 }
-                        }, "channelTitle": "UNAN FAREM CARAZO", "liveBroadcastContent": "none", "publishTime": "2020-07-13T14:43:32Z"
-                    }
-                }, {
-                    "kind": "youtube#searchResult", "etag": "erWevKxTU_W6Bw64BrcxN02A2Cc",
-                    "id": { "kind": "youtube#video", "videoId": "JtzAUFKHoRU" }, "snippet": {
-                        "publishedAt": "2020-07-10T17:41:56Z",
-                        "channelId": "UC4plRGib3qc_EqL4o__rkag", "title": "ENTREVISTA - MSC. ERICK CRUZ", "description": "", "thumbnails":
-                        {
-                            "default": { "url": "https://i.ytimg.com/vi/JtzAUFKHoRU/default.jpg", "width": 120, "height": 90 }, "medium":
-                                { "url": "https://i.ytimg.com/vi/JtzAUFKHoRU/mqdefault.jpg", "width": 320, "height": 180 }, "high": { "url": "https://i.ytimg.com/vi/JtzAUFKHoRU/hqdefault.jpg", "width": 480, "height": 360 }
-                        }, "channelTitle": "UNAN FAREM CARAZO", "liveBroadcastContent": "none", "publishTime": "2020-07-10T17:41:56Z"
-                    }
-                }]
-        }
-        for (var k in response.items) {
+        var Url = "../api/AdminVideo/PostTakeVideosSlideIndex";
+        const response = await WAjaxTools.PostRequest(Url);
+        /*for (var k in response.items) {
             var tituloVideo = response.items[k]["snippet"].title;
             var imagen = response.items[k]["snippet"].thumbnails.high.url;
             var options = "?rel=0&showinfo=0&autohide=1";
@@ -84,12 +17,12 @@
                 url: urlVideo,
                 image: imagen,
             })
-        }
+        }*/
         divBanner.append(WRender.createElement({
             type: "w-slide",
             props: {
                 slideType: "videos",
-                content: ArrayVideos
+                content: response
             }
         }))
     }
@@ -120,7 +53,7 @@
                 <h4 style="padding: 0px" class="Subcolormenu"><strong><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Sobre nosotros</strong></h4>
             </li>
             <li><a class="decoration" href="../Home/ViewQuienSomos"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>¿Quienes somos?</></a></li>
-            <li><a class="decoration" href="../Home/ViewComoFunciona"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>¿Cómo funciona el portal?</a></li>
+            @*<li><a class="decoration" href="../Home/ViewComoFunciona"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>¿Cómo funciona el portal?</a></li>*@
             <li><a class="decoration" href="../Home/ViewPersonal"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span> Nuestro personal</a></li>
         </ul>
         <ul class="rowChild">

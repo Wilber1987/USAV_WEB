@@ -21,12 +21,27 @@ namespace USAV_Solicitudes.DatosSolicitudes
             var Query = from L in context.TblVideos
                         select new { Id_hidden = L.Id, 
                             Desc_hidden = L.Descripcion, 
-                            Photo_hidden = L.Photo, 
+                            //Photo_hidden = L.Photo, 
                             L.NombreVideo,
                             IdYoutube_hidden = L.IdYoutube,
                             Fecha_hidden = L.FechaSubida,
                             L.Photo
                         };
+            return Query.ToList();
+        }
+        public Object InicializarVideosSlideIndex()
+        {
+            BDVideosUSAVEntitiesModelSolicitudes context = new BDVideosUSAVEntitiesModelSolicitudes();
+            var Query = (from L in context.TblVideos
+                        select new
+                        {
+                           // Id_hidden = L.Id,
+                            //Desc_hidden = L.Descripcion,
+                            title = L.NombreVideo,
+                            url = "https://www.youtube.com/embed/" + L.IdYoutube,
+                            //Fecha_hidden = L.FechaSubida,
+                            image = L.Photo
+                        }).Take(5);
             return Query.ToList();
         }
         public Object GuardarVideos(List<TblVideos> List)
